@@ -20,3 +20,8 @@ Media/src/__pycache__/
 
 # Private source photos for the portrait sample (never committed)
 Media/Portrait/input/
+
+# Intro video: lossless masters and npm packages are rebuilt locally (Media/Video/src)
+Media/Video/*.mkv
+Media/Video/stills/
+Media/Video/src/node_modules/

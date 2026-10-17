@@ -14,6 +14,12 @@
 
 <br/>
 
+<img src="Media/Video/sumuk-intro.gif" width="100%" alt="수묵 소개 영상 — 선분 계열로 은행잎을, 원 계열로 달항아리를 그리고, 매화 그림을 푸리에 곡선과 농담 점의 수식으로 다시 읽는다" />
+
+<sub>▶ <a href="Media/Video/sumuk-intro.mp4"><b>고화질 MP4로 보기</b></a> (1080p · 50초) — 영상 속 그림도 모두 <code>Media/Video/src</code>가 앱의 프리셋 수식과 읽기 탭의 알고리즘으로 그렸다.</sub>
+
+<br/><br/>
+
 <img src="Media/samples-grid.png" width="100%" alt="수묵 원작 샘플 5종: 달항아리, 은행잎, 매화, 잉어, 학" />
 
 <sub>이 저장소의 모든 이미지는 외부에서 가져온 것이 없다. 전부 <code>Media/src</code>의 Python 생성기가 이 프로젝트에서 설계한 수식만으로 그린 것이다.</sub>
@@ -177,7 +183,7 @@ SuMuk/
     Persistence/               # SwiftData SavedArtwork                                   ✅
     Views/                     # DrawTabView · ReadTabView · GalleryTabView · ContentView  ✅
 Docs/                          # PRD · TASKS · Portrait-Sample-Report
-Media/                         # banner · samples-grid · formula-card · pipeline.svg · Samples/ · Portrait/ · Screenshots/ · src/(Python)
+Media/                         # banner · samples-grid · formula-card · pipeline.svg · Samples/ · Portrait/ · Screenshots/ · Video/(소개 영상) · src/(Python)
 ```
 
 상태는 `@Observable`, 비동기는 async/await(`Task` 디바운스, Combine 미사용), 무거운 계산은 `nonisolated` 순수 함수로 분리한다. 자세한 요구사항은 [Docs/PRD-SuMuk.md](Docs/PRD-SuMuk.md).
@@ -209,6 +215,17 @@ python3 make_readme_images.py    # banner.png · samples-grid.png · formula-car
 ```
 
 렌더러(`render_samples.py`)는 4배 슈퍼샘플링 후 LANCZOS 축소로 가는 선을 살린다. 앱의 Swift 파서가 생기면 이 Python 생성기는 **테스트 픽스처 생성기**(특정 k에서의 끝점 좌표)로 역할이 바뀐다(TASKS T1.7).
+
+소개 영상(`Media/Video/sumuk-intro.mp4` · `sumuk-intro.gif`)은 `Media/Video/src`의 HTML 캔버스 렌더러가 `Presets.swift`와 같은 수식을 프레임마다 평가해 그린 것을 Playwright로 캡처하고 ffmpeg로 인코딩한 것이다. "그림 → 수식" 장면의 윤곽·푸리에 계수·DCT 농담 점은 `make_s4_data.py`가 `ContourStructurer.swift`와 같은 방식으로 계산한다. 모든 프레임이 시간 t의 순수 함수라 몇 번을 렌더링해도 같은 장면이 나온다.
+
+```
+cd Media/Video/src
+npm install && npx playwright install chromium
+python3 make_s4_data.py                           # 그림 → 수식 장면 데이터 → data_s4.js
+node render.js video ../master.mkv                # 화선지 질감 마스터 (MP4용, 무손실)
+FLAT=1 node render.js video ../master_flat.mkv    # 무지 화선지 마스터 (GIF용)
+./encode.sh ../master.mkv ../master_flat.mkv ..   # → sumuk-intro.mp4 (H.264 1080p) · sumuk-intro.gif (880px, 15fps)
+```
 
 ## 영감과 참고
 
