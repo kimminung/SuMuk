@@ -22,9 +22,22 @@ nonisolated struct FitContext: Sendable {
 /// Draws a `RenderedArtwork` into a SwiftUI `GraphicsContext` (Canvas path, ≤ ~20k elements).
 /// The Metal instanced path for larger families is Phase 4.
 nonisolated enum FamilyRenderer {
-    static func draw(_ art: RenderedArtwork, in context: inout GraphicsContext, size: CGSize, paper: Color? = nil, padding: CGFloat = 0.06) {
+    /// Faint dot grid that reads as rice-paper grain (Stitch design: dotted hanji texture).
+    static func drawPaperGrain(in context: inout GraphicsContext, size: CGSize, spacing: CGFloat = 14) {
+        var dots = Path()
+        var y: CGFloat = spacing / 2
+        while y < size.height {
+            var x: CGFloat = spacing / 2
+            while x < size.width { dots.addEllipse(in: CGRect(x: x - 0.6, y: y - 0.6, width: 1.2, height: 1.2)); x += spacing }
+            y += spacing
+        }
+        context.fill(dots, with: .color(Color.inkDrawing.opacity(0.07)))
+    }
+
+    static func draw(_ art: RenderedArtwork, in context: inout GraphicsContext, size: CGSize, paper: Color? = nil, padding: CGFloat = 0.06, grain: Bool = false) {
         let rect = CGRect(origin: .zero, size: size)
         if let paper { context.fill(Path(rect), with: .color(paper)) }
+        if grain { drawPaperGrain(in: &context, size: size) }
         let fit = FitContext(frame: art.frame, in: rect, padding: padding)
         for family in art.families {
             let ink = family.ink
@@ -72,16 +85,19 @@ nonisolated enum FamilyRenderer {
 /// SwiftUI view that paints an artwork on "rice paper".
 struct FamilyCanvasView: View {
     let artwork: RenderedArtwork?
-    var paper: Color = Color(red: 0.98, green: 0.97, blue: 0.94)
+    var paper: Color = .paper
     /// Fraction of the view kept empty around the drawing; 0 for overlays that must match a photo exactly.
     var padding: CGFloat = 0.06
+    /// Draw the faint paper-grain dot grid under the ink.
+    var grain = false
 
     var body: some View {
         Canvas(opaque: paper != .clear, rendersAsynchronously: true) { context, size in
             if let artwork {
-                FamilyRenderer.draw(artwork, in: &context, size: size, paper: paper == .clear ? nil : paper, padding: padding)
+                FamilyRenderer.draw(artwork, in: &context, size: size, paper: paper == .clear ? nil : paper, padding: padding, grain: grain && paper != .clear)
             } else if paper != .clear {
                 context.fill(Path(CGRect(origin: .zero, size: size)), with: .color(paper))
+                if grain { FamilyRenderer.drawPaperGrain(in: &context, size: size) }
             }
         }
         .accessibilityLabel(accessibilityText)

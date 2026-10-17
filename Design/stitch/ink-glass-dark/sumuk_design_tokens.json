@@ -1,0 +1,268 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "project": "SuMuk (수묵 · 數墨)",
+  "platform": "iOS 26 / iOS 27 (SwiftUI)",
+  "device_target": "iPhone 16 (393x852 pt)",
+  "version": "1.0.0",
+  "date": "2026-10-17",
+  "tokens": {
+    "colors": {
+      "paper": {
+        "light": "#FAF7F0",
+        "dark": "#FAF7F0",
+        "description": "화선지 캔버스 배경. 다크 모드에서도 먹물 대비를 위해 밝은 종이색 유지"
+      },
+      "paperDeep": {
+        "light": "#EFE9DC",
+        "dark": "#2C2C2E",
+        "description": "종이의 어두운 톤 (컨테이너, 프리뷰 외곽, 카드 배경)"
+      },
+      "ink": {
+        "light": "#141414",
+        "dark": "#F5F5F7",
+        "description": "먹색 (캔버스 드로잉의 경우 항상 #141414, UI 크롬 텍스트는 모드별 반전)"
+      },
+      "inkSoft": {
+        "light": "#6E6E73",
+        "dark": "#98989D",
+        "description": "옅은 먹 (보조 텍스트, 비활성 캡션, 문법 키워드)"
+      },
+      "inkWash": {
+        "light": "#D9D4C8",
+        "dark": "#3A3A3C",
+        "description": "아주 옅은 먹 (헤어라인 구분선, 비활성 슬라이더 트랙, 테두리)"
+      },
+      "vermilion": {
+        "light": "#C2412B",
+        "dark": "#D94E36",
+        "description": "전각 낙관 인장 색상. 주요 CTA 액션 버튼, 활성 탭 틴트, 활성 칩 강조"
+      },
+      "errorInk": {
+        "light": "#BA1A1A",
+        "dark": "#FFB4AB",
+        "description": "스크립트 오류 배너 및 경고 텍스트 (접근성 대비 충족)"
+      },
+      "chromeBackground": {
+        "light": "rgba(252, 249, 242, 0.82)",
+        "dark": "rgba(20, 20, 20, 0.85)",
+        "description": "iOS Liquid Glass 크롬 (내비게이션 바, 탭 바, 플로팅 캡슐 배경)"
+      }
+    },
+    "typography": {
+      "font_families": {
+        "system": "SF Pro / Apple SD Gothic Neo",
+        "mono": "SF Mono"
+      },
+      "styles": {
+        "largeTitle": {
+          "font": "system",
+          "size": 34,
+          "weight": "bold",
+          "lineHeight": 41,
+          "tracking": 0.37
+        },
+        "title1": {
+          "font": "system",
+          "size": 28,
+          "weight": "bold",
+          "lineHeight": 34,
+          "tracking": 0.36
+        },
+        "title2": {
+          "font": "system",
+          "size": 22,
+          "weight": "bold",
+          "lineHeight": 28,
+          "tracking": 0.35
+        },
+        "title3": {
+          "font": "system",
+          "size": 20,
+          "weight": "semibold",
+          "lineHeight": 25,
+          "tracking": 0.38
+        },
+        "headline": {
+          "font": "system",
+          "size": 17,
+          "weight": "semibold",
+          "lineHeight": 22,
+          "tracking": -0.43
+        },
+        "body": {
+          "font": "system",
+          "size": 17,
+          "weight": "regular",
+          "lineHeight": 22,
+          "tracking": -0.43
+        },
+        "subheadline": {
+          "font": "system",
+          "size": 15,
+          "weight": "regular",
+          "lineHeight": 20,
+          "tracking": -0.24
+        },
+        "footnote": {
+          "font": "system",
+          "size": 13,
+          "weight": "regular",
+          "lineHeight": 18,
+          "tracking": -0.08
+        },
+        "caption1": {
+          "font": "system",
+          "size": 12,
+          "weight": "regular",
+          "lineHeight": 16,
+          "tracking": 0
+        },
+        "caption2": {
+          "font": "system",
+          "size": 11,
+          "weight": "medium",
+          "lineHeight": 13,
+          "tracking": 0.07
+        },
+        "monoScript": {
+          "font": "mono",
+          "size": 13,
+          "weight": "regular",
+          "lineHeight": 19,
+          "tracking": 0
+        },
+        "monoCaption": {
+          "font": "mono",
+          "size": 11,
+          "weight": "medium",
+          "lineHeight": 14,
+          "tracking": 0.06
+        }
+      }
+    },
+    "spacing": {
+      "scale": {
+        "xxs": 4,
+        "xs": 8,
+        "sm": 12,
+        "md": 16,
+        "lg": 24,
+        "xl": 32,
+        "xxl": 48
+      },
+      "layout": {
+        "screenPaddingHorizontal": 16,
+        "gridGutter": 12,
+        "cardPadding": 16,
+        "safeAreaTop": 59,
+        "safeAreaBottom": 34
+      }
+    },
+    "radii": {
+      "card": 14,
+      "sheet": 20,
+      "preview": 14,
+      "errorBanner": 10,
+      "chip": 9999,
+      "button": 12,
+      "thumbnail": 12
+    },
+    "glass": {
+      "materials": {
+        "statusChip": {
+          "blur": 16,
+          "saturation": 1.2,
+          "background": "rgba(255, 255, 255, 0.72)",
+          "border": "rgba(255, 255, 255, 0.4)",
+          "shadow": "0 2px 8px rgba(0, 0, 0, 0.04)"
+        },
+        "tabBar": {
+          "blur": 24,
+          "background": "rgba(250, 247, 240, 0.8)",
+          "borderTop": "rgba(217, 212, 200, 0.6)"
+        }
+      }
+    },
+    "sf_symbols": {
+      "tabs": {
+        "draw": "pencil.tip.crop.circle",
+        "read": "photo.on.rectangle.angled",
+        "gallery": "square.grid.2x2"
+      },
+      "toolbar": {
+        "undo": "arrow.uturn.backward",
+        "redo": "arrow.uturn.forward",
+        "presets": "square.grid.2x2",
+        "share": "square.and.arrow.up",
+        "save": "tray.and.arrow.down",
+        "trash": "trash",
+        "search": "magnifyingglass",
+        "star": "star",
+        "info": "info.circle"
+      },
+      "state_and_features": {
+        "error": "exclamationmark.triangle.fill",
+        "openScript": "pencil.and.outline",
+        "silhouette": "person.crop.square",
+        "rotateLeft": "rotate.left",
+        "rotateRight": "rotate.right"
+      }
+    }
+  },
+  "screens_summary": [
+    {
+      "id": "screen_1",
+      "name": "화면 1 — 그리기 탭 기본",
+      "type": "Draw Tab Default",
+      "key_elements": ["화선지 캔버스(은행잎)", "플로팅 상태 칩(계열 2 · 선분 820 · 4 ms)", "let 변수 슬라이더(notch, ripple)", "SF Mono 에디터", "Liquid Glass 탭 바"]
+    },
+    {
+      "id": "screen_2",
+      "name": "화면 2 — 그리기 탭 오류 상태",
+      "type": "Draw Tab Error",
+      "key_elements": ["최근 정상 드로잉 유지", "캔버스 하단 좌측 정렬 오류 배너(3행 25열...)", "변수 패널 숨김", "실행 취소(Undo) 활성화"]
+    },
+    {
+      "id": "screen_3",
+      "name": "화면 3 — 프리셋 서랍",
+      "type": "Presets Sheet",
+      "key_elements": ["바텀 시트 모달", "6종 프리셋(은행잎, 달항아리, 매화, 잉어, 학, 빈 시작)", "64x64 썸네일", "계열 및 복잡도 메타"]
+    },
+    {
+      "id": "screen_4",
+      "name": "화면 4 — 읽기 탭 빈 상태",
+      "type": "Read Tab Empty",
+      "key_elements": ["380pt 빈 상태 프리뷰 카드", "선화 일러스트", "비활성 변환 레시피(푸리에 조화, 스티플 점 밀도)", "비활성 스크립트로 열기 CTA"]
+    },
+    {
+      "id": "screen_5",
+      "name": "화면 5 — 읽기 탭 분석 결과",
+      "type": "Read Tab Result",
+      "key_elements": ["45% 딤 사진 + 푸리에 윤곽선 & 2,202점 스티플 오버레이", "5단계 파이프라인 수직 스테퍼", "방향/수평 보정 행", "윤곽 선택 칩", "결과 스크립트 프리뷰"]
+    },
+    {
+      "id": "screen_6",
+      "name": "화면 6 — 그리기 탭, 가져온 사진 결과",
+      "type": "Draw Tab Imported Result",
+      "key_elements": ["3:4 비율 화선지 프레임(750x1000)", "선반 드로잉 렌더", "상태 칩(계열 13 · 곡선 9600 · 점 2202)", "단일 gamma 슬라이더", "수식 재계산"]
+    },
+    {
+      "id": "screen_7",
+      "name": "화면 7 — 갤러리 그리드",
+      "type": "Gallery Grid",
+      "key_elements": ["2열 적응형 그리드(12pt 여백)", "6점 작품 카드(정사각형 화선지 + 전각 인장)", "요소 수 및 일시 메타", "필터 캡슐(전체, 수식, 사진 변환)"]
+    },
+    {
+      "id": "screen_8",
+      "name": "화면 8 — 작품 상세",
+      "type": "Saved Artwork Detail",
+      "key_elements": ["360pt 학 캔버스", "전폭 vermilion 스크립트로 열기 버튼", "공유/삭제 행", "제원 요약 스트립", "전체 스크립트 복사 블록"]
+    },
+    {
+      "id": "screen_9",
+      "name": "화면 9 — 앱 아이콘과 온보딩 카드",
+      "type": "App Icon + First-Launch",
+      "key_elements": ["iOS 26 레이어드 아이콘 3종(Light/Dark/Tinted)", "3단계 화선지 온보딩 캐러셀('수식은 그림으로')", "vermilion 시작하기 CTA"]
+    }
+  ]
+}

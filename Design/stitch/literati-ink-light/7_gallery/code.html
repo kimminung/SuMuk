@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@100..900&family=Space+Mono:wght@100..900&display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "surface-variant": "#e5e2db", "on-tertiary-container": "#848388", "primary-container": "#1c1b1b", "on-secondary": "#ffffff", "on-secondary-fixed": "#3f0300", "outline-variant": "#c4c7c7", "on-secondary-fixed-variant": "#8b1908", "error": "#ba1a1a", "surface-bright": "#fcf9f2", "on-surface": "#1c1c18", "surface-tint": "#5f5e5e", "primary-fixed-dim": "#c8c6c5", "tertiary": "#000000", "secondary-fixed": "#ffdad3", "outline": "#747878", "on-primary-container": "#858383", "inverse-surface": "#31312c", "on-primary-fixed-variant": "#474646", "on-secondary-container": "#6a0900", "tertiary-container": "#1a1b1f", "tertiary-fixed": "#e3e2e7", "surface-container-lowest": "#ffffff", "surface-container-low": "#f6f3ec", "tertiary-fixed-dim": "#c7c6cb", "surface": "#fcf9f2", "background": "#fcf9f2", "on-error": "#ffffff", "surface-container": "#f0eee7", "surface-container-highest": "#e5e2db", "error-container": "#ffdad6", "on-primary": "#ffffff", "on-background": "#1c1c18", "secondary": "#ad321e", "inverse-primary": "#c8c6c5", "inverse-on-surface": "#f3f0ea", "on-surface-variant": "#444748", "surface-container-high": "#ebe8e1", "on-error-container": "#93000a", "surface-dim": "#dcdad3", "on-tertiary-fixed": "#1a1b1f", "on-tertiary": "#ffffff", "secondary-fixed-dim": "#ffb4a6", "primary": "#000000", "on-tertiary-fixed-variant": "#46464b", "secondary-container": "#ff6d53", "on-primary-fixed": "#1c1b1b", "primary-fixed": "#e5e2e1" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "space-xl": "1.5rem", "space-md": "0.75rem", "space-sm": "0.5rem", "space-lg": "1rem", "margin": "1rem", "gutter": "1rem", "space-xs": "0.25rem" }, fontFamily: { "label-chip": ["Space Mono"], "display-lg-mobile": ["Public Sans"], "headline-lg": ["Public Sans"], "headline-sm": ["Public Sans"], "body-sm": ["Public Sans"], "headline-md": ["Public Sans"], "label-code": ["Space Mono"], "body-md": ["Public Sans"], "label-math": ["Space Mono"], "display-lg": ["Public Sans"], "body-lg": ["Public Sans"] }, fontSize: { "label-chip": ["11px", { "lineHeight": "14px", "letterSpacing": "0.02em", "fontWeight": "400" }], "display-lg-mobile": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "700" }], "headline-lg": ["24px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-sm": ["17px", { "lineHeight": "22px", "fontWeight": "600" }], "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }], "headline-md": ["20px", { "lineHeight": "25px", "letterSpacing": "-0.005em", "fontWeight": "600" }], "label-code": ["13px", { "lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "400" }], "body-md": ["15px", { "lineHeight": "21px", "fontWeight": "400" }], "label-math": ["15px", { "lineHeight": "20px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "display-lg": ["34px", { "lineHeight": "41px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "body-lg": ["17px", { "lineHeight": "24px", "fontWeight": "400" }] } } } };</script></head><body class="bg-background font-body-md text-on-surface antialiased flex flex-col min-h-screen selection:bg-secondary-fixed selection:text-on-secondary-fixed"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.03)]"><div class="h-16 px-space-lg flex items-center justify-between"><div class="flex items-center gap-space-sm"><span class="w-2.5 h-2.5 bg-secondary rounded-full inline-block"></span><h1 class="font-headline-md text-headline-md text-on-surface tracking-tight font-semibold">Gallery</h1></div><div class="flex items-center gap-space-md"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-16 pb-28 bg-surface min-h-screen"><div class="flex flex-col w-full pb-10">
+<!-- Top Gallery Header & Sub-Bar -->
+<div class="px-space-lg pt-space-md pb-space-sm flex flex-col gap-space-sm">
+<!-- Action / Subhead Line -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm tracking-tight text-on-surface">작품 보관함</span>
+<span class="px-space-xs py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-chip text-label-chip tracking-wider">6점의 수묵작</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<button aria-label="작품 검색" class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-surface hover:bg-surface-container-high transition-colors" id="searchBtn" type="button">
+<span class="material-symbols-outlined text-[19px]">search</span>
+</button>
+<button class="px-space-md h-8 rounded-full bg-surface-container text-on-surface font-label-chip text-label-chip flex items-center justify-center hover:bg-surface-container-high transition-colors" id="selectModeBtn" type="button">
+          선택
+        </button>
+</div>
+</div>
+<!-- Filter Pills (Scrollable) -->
+<div class="flex items-center gap-space-xs overflow-x-auto no-scrollbar py-space-xs -mx-space-lg px-space-lg">
+<button class="category-pill active flex items-center gap-1 px-space-md py-1.5 rounded-full bg-primary text-on-primary font-label-chip text-label-chip shadow-sm whitespace-nowrap transition-all" type="button">
+<span>전체</span>
+<span class="opacity-80">6</span>
+</button>
+<button class="category-pill flex items-center gap-1 px-space-md py-1.5 rounded-full bg-surface-container text-on-surface-variant font-label-chip text-label-chip whitespace-nowrap hover:text-on-surface transition-all" type="button">
+<span>수식 계열</span>
+<span class="opacity-60">4</span>
+</button>
+<button class="category-pill flex items-center gap-1 px-space-md py-1.5 rounded-full bg-surface-container text-on-surface-variant font-label-chip text-label-chip whitespace-nowrap hover:text-on-surface transition-all" type="button">
+<span>사진 변환</span>
+<span class="opacity-60">2</span>
+</button>
+<button class="category-pill flex items-center gap-1 px-space-md py-1.5 rounded-full bg-surface-container text-on-surface-variant font-label-chip text-label-chip whitespace-nowrap hover:text-on-surface transition-all" type="button">
+<span class="material-symbols-outlined text-[13px] text-secondary">bookmark</span>
+<span>즐겨찾기</span>
+</button>
+</div>
+<!-- Sorting & Empty State Switch Strip -->
+<div class="flex items-center justify-between pt-1 text-on-surface-variant font-label-chip text-label-chip">
+<div class="flex items-center gap-1 cursor-pointer hover:text-on-surface transition-colors">
+<span>정렬: 최근 저장순</span>
+<span class="material-symbols-outlined text-[15px]">arrow_drop_down</span>
+</div>
+<button class="flex items-center gap-1 text-on-surface-variant hover:text-secondary transition-colors underline underline-offset-4 decoration-surface-variant" id="toggleEmptyDemo" type="button">
+<span class="material-symbols-outlined text-[13px]">visibility</span>
+<span>빈 서랍 미리보기</span>
+</button>
+</div>
+</div>
+<!-- Interactive Demo Banner / Quick Toast -->
+<div class="hidden mx-space-lg mb-space-sm p-space-sm rounded-lg bg-surface-container-high text-on-surface flex items-center justify-between shadow-sm animate-fadeIn" id="selectionBanner">
+<div class="flex items-center gap-space-xs font-label-chip text-label-chip">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span id="selectedCountText">0개 선택됨</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="px-space-sm py-1 rounded bg-secondary text-on-secondary font-label-chip text-label-chip" type="button">내보내기</button>
+<button class="px-space-sm py-1 rounded bg-surface-variant text-on-surface font-label-chip text-label-chip" id="cancelSelect" type="button">취소</button>
+</div>
+</div>
+<!-- Primary 2-Column Artwork Grid -->
+<div class="grid grid-cols-2 gap-3 px-space-lg mt-space-xs" id="artworkGrid">
+<!-- Card 1: 학 (Crane) -->
+<div class="artwork-card group flex flex-col rounded-xl bg-surface-container-lowest p-2.5 shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden" data-category="formula" data-id="1">
+<div class="relative w-full aspect-square rounded-lg bg-surface-container-low overflow-hidden flex items-center justify-center">
+<!-- SVG Vector Drawing: Crane (sin^7 mathematical wing & literati curve) -->
+<svg class="w-full h-full p-3 transition-transform duration-500 group-hover:scale-105" fill="none" viewbox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<radialgradient cx="50%" cy="50%" id="craneGlow" r="50%">
+<stop offset="0%" stop-color="#1C1C18" stop-opacity="0.08"></stop>
+<stop offset="100%" stop-color="#1C1C18" stop-opacity="0"></stop>
+</radialgradient>
+</defs>
+<circle cx="80" cy="80" fill="url(#craneGlow)" r="70"></circle>
+<!-- Head & S-curve Neck -->
+<path d="M125 35 C115 32, 108 40, 102 52 C96 64, 88 78, 70 88" stroke="#1C1C18" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.6"></path>
+<circle cx="126" cy="34" fill="#AD321E" r="2.2"></circle>
+<!-- Wings: sin^7 Parametric Waves -->
+<path d="M30 115 C45 75, 75 70, 105 85" stroke="#1C1C18" stroke-linecap="round" stroke-width="2.2"></path>
+<path d="M34 118 C52 82, 80 76, 108 89" stroke="#1C1C18" stroke-opacity="0.75" stroke-width="1.8"></path>
+<path d="M38 122 C58 90, 84 84, 112 94" stroke="#1C1C18" stroke-opacity="0.55" stroke-width="1.4"></path>
+<path d="M44 126 C64 98, 90 92, 115 100" stroke="#1C1C18" stroke-opacity="0.38" stroke-width="1.0"></path>
+<!-- Stilted Legs -->
+<line stroke="#1C1C18" stroke-linecap="round" stroke-width="1.8" x1="72" x2="65" y1="105" y2="145"></line>
+<line stroke="#1C1C18" stroke-linecap="round" stroke-width="1.6" x1="78" x2="80" y1="104" y2="142"></line>
+</svg>
+<!-- Vermilion Seal: 數墨 -->
+<div class="absolute bottom-2 right-2 w-5 h-5 rounded bg-secondary flex items-center justify-center text-on-secondary shadow-sm">
+<span class="font-label-chip text-[9px] font-bold leading-none select-none">數墨</span>
+</div>
+<!-- Selection Check Overlay -->
+<div class="card-checkbox absolute top-2 right-2 w-5 h-5 rounded-full bg-surface-container-highest/90 text-on-surface hidden items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[15px]">check</span>
+</div>
+</div>
+<!-- Info Meta -->
+<div class="mt-2.5 flex flex-col">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight">학</h3>
+<span class="px-1.5 py-0.5 rounded bg-surface-container font-label-chip text-[10px] text-on-surface-variant">선분 수식</span>
+</div>
+<p class="mt-1 font-label-code text-[11px] text-on-surface-variant truncate">
+          요소 2,760
+        </p>
+<span class="font-label-chip text-[10px] text-outline mt-0.5">2026. 10. 17. 오후 1:52</span>
+</div>
+</div>
+<!-- Card 2: 달항아리 (Moon Jar) -->
+<div class="artwork-card group flex flex-col rounded-xl bg-surface-container-lowest p-2.5 shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden" data-category="circle" data-id="2">
+<div class="relative w-full aspect-square rounded-lg bg-surface-container-low overflow-hidden flex items-center justify-center">
+<!-- SVG Vector Drawing: Moon Jar (Concentric imperfect ink brush loops) -->
+<svg class="w-full h-full p-3 transition-transform duration-500 group-hover:scale-105" fill="none" viewbox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+<ellipse cx="80" cy="80" rx="46" ry="49" stroke="#1C1C18" stroke-dasharray="2 0.8" stroke-linecap="round" stroke-width="2.6"></ellipse>
+<ellipse cx="79" cy="81" rx="43" ry="45" stroke="#1C1C18" stroke-opacity="0.65" stroke-width="1.6"></ellipse>
+<ellipse cx="81" cy="79" rx="39" ry="42" stroke="#1C1C18" stroke-opacity="0.4" stroke-width="1.0"></ellipse>
+<!-- Lip & Base -->
+<ellipse cx="80" cy="33" rx="20" ry="3.5" stroke="#1C1C18" stroke-width="2.2"></ellipse>
+<ellipse cx="80" cy="128" rx="16" ry="3" stroke="#1C1C18" stroke-width="2.0"></ellipse>
+<!-- Subtle Inner Wash Texture -->
+<path d="M62 60 Q75 52 88 64 T105 85" stroke="#1C1C18" stroke-opacity="0.25" stroke-width="0.8"></path>
+<path d="M58 92 Q72 108 96 98" stroke="#1C1C18" stroke-opacity="0.25" stroke-width="0.8"></path>
+</svg>
+<!-- Small Seal Stamp -->
+<div class="absolute bottom-2 right-2 w-5 h-5 rounded bg-secondary flex items-center justify-center text-on-secondary shadow-sm">
+<span class="font-label-chip text-[9px] font-bold leading-none select-none">月壺</span>
+</div>
+<div class="card-checkbox absolute top-2 right-2 w-5 h-5 rounded-full bg-surface-container-highest/90 text-on-surface hidden items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[15px]">check</span>
+</div>
+</div>
+<div class="mt-2.5 flex flex-col">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight">달항아리</h3>
+<span class="px-1.5 py-0.5 rounded bg-surface-container font-label-chip text-[10px] text-on-surface-variant">원 계열</span>
+</div>
+<p class="mt-1 font-label-code text-[11px] text-on-surface-variant truncate">
+          원 4,400
+        </p>
+<span class="font-label-chip text-[10px] text-outline mt-0.5">2026. 10. 17. 오전 11:20</span>
+</div>
+</div>
+<!-- Card 3: 초상 — 진열대 (Portrait - Shelf) -->
+<div class="artwork-card group flex flex-col rounded-xl bg-surface-container-lowest p-2.5 shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden" data-category="photo" data-id="3">
+<div class="relative w-full aspect-square rounded-lg bg-surface-container-low overflow-hidden flex items-center justify-center">
+<!-- SVG Stipple & Fourier Contours -->
+<svg class="w-full h-full p-2.5 transition-transform duration-500 group-hover:scale-105" fill="none" viewbox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+<!-- Shelf Horizontal Structural Hairlines -->
+<line stroke="#1C1C18" stroke-width="1.6" x1="20" x2="140" y1="50" y2="50"></line>
+<line stroke="#1C1C18" stroke-width="1.6" x1="20" x2="140" y1="95" y2="95"></line>
+<line stroke="#1C1C18" stroke-width="1.8" x1="20" x2="140" y1="138" y2="138"></line>
+<!-- Snack packaging fourier curves & dot matrix -->
+<rect height="26" rx="2" stroke="#1C1C18" stroke-opacity="0.8" stroke-width="1.2" width="22" x="30" y="24"></rect>
+<rect height="30" rx="2" stroke="#1C1C18" stroke-opacity="0.8" stroke-width="1.2" width="26" x="58" y="20"></rect>
+<rect height="24" rx="2" stroke="#1C1C18" stroke-opacity="0.8" stroke-width="1.2" width="20" x="90" y="26"></rect>
+<!-- Row 2 Snacks -->
+<path d="M32 94 C32 75 52 75 52 94" stroke="#1C1C18" stroke-width="1.4"></path>
+<path d="M60 94 C60 70 86 70 86 94" stroke="#1C1C18" stroke-width="1.4"></path>
+<path d="M96 94 C96 74 124 74 124 94" stroke="#1C1C18" stroke-width="1.4"></path>
+<!-- Halftone Point Matrix -->
+<circle cx="42" cy="85" fill="#1C1C18" r="1.2"></circle>
+<circle cx="46" cy="83" fill="#1C1C18" r="1"></circle>
+<circle cx="73" cy="82" fill="#1C1C18" r="1.4"></circle>
+<circle cx="110" cy="84" fill="#1C1C18" r="1.2"></circle>
+<circle cx="114" cy="87" fill="#1C1C18" r="1.4"></circle>
+</svg>
+<div class="absolute bottom-2 right-2 w-5 h-5 rounded bg-surface-container-highest flex items-center justify-center text-on-surface shadow-sm">
+<span class="material-symbols-outlined text-[13px]">photo_filter</span>
+</div>
+<div class="card-checkbox absolute top-2 right-2 w-5 h-5 rounded-full bg-surface-container-highest/90 text-on-surface hidden items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[15px]">check</span>
+</div>
+</div>
+<div class="mt-2.5 flex flex-col">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight truncate">초상 — 진열대</h3>
+<span class="px-1.5 py-0.5 rounded bg-surface-container font-label-chip text-[10px] text-on-surface-variant">사진 추출</span>
+</div>
+<p class="mt-1 font-label-code text-[11px] text-on-surface-variant truncate">
+          곡선 12 · 점 2,202
+        </p>
+<span class="font-label-chip text-[10px] text-outline mt-0.5">2026. 10. 17. 오후 3:15</span>
+</div>
+</div>
+<!-- Card 4: 매화 (Plum Blossom) -->
+<div class="artwork-card group flex flex-col rounded-xl bg-surface-container-lowest p-2.5 shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden" data-category="circle" data-id="4">
+<div class="relative w-full aspect-square rounded-lg bg-surface-container-low overflow-hidden flex items-center justify-center">
+<!-- SVG Vector Drawing: Plum Blossom (5 Petals with fine Stamens) -->
+<svg class="w-full h-full p-3 transition-transform duration-500 group-hover:scale-105" fill="none" viewbox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+<!-- Central 5 Petals -->
+<circle cx="80" cy="58" r="18" stroke="#1C1C18" stroke-opacity="0.85" stroke-width="1.8"></circle>
+<circle cx="102" cy="74" r="18" stroke="#1C1C18" stroke-opacity="0.85" stroke-width="1.8"></circle>
+<circle cx="94" cy="102" r="18" stroke="#1C1C18" stroke-opacity="0.85" stroke-width="1.8"></circle>
+<circle cx="66" cy="102" r="18" stroke="#1C1C18" stroke-opacity="0.85" stroke-width="1.8"></circle>
+<circle cx="58" cy="74" r="18" stroke="#1C1C18" stroke-opacity="0.85" stroke-width="1.8"></circle>
+<!-- Branch -->
+<path d="M25 140 C45 130 65 110 75 88" stroke="#1C1C18" stroke-linecap="round" stroke-width="2.6"></path>
+<path d="M55 120 C68 115 78 122 90 128" stroke="#1C1C18" stroke-linecap="round" stroke-width="1.8"></path>
+<!-- Center Stamens with Crimson Tips -->
+<line stroke="#1C1C18" stroke-width="1.2" x1="80" x2="80" y1="80" y2="70"></line>
+<circle cx="80" cy="69" fill="#AD321E" r="1.6"></circle>
+<line stroke="#1C1C18" stroke-width="1.2" x1="80" x2="89" y1="80" y2="76"></line>
+<circle cx="90" cy="75" fill="#AD321E" r="1.6"></circle>
+<line stroke="#1C1C18" stroke-width="1.2" x1="80" x2="86" y1="80" y2="88"></line>
+<circle cx="87" cy="89" fill="#AD321E" r="1.6"></circle>
+<line stroke="#1C1C18" stroke-width="1.2" x1="80" x2="73" y1="80" y2="87"></line>
+<circle cx="72" cy="88" fill="#AD321E" r="1.6"></circle>
+<line stroke="#1C1C18" stroke-width="1.2" x1="80" x2="72" y1="80" y2="75"></line>
+<circle cx="71" cy="74" fill="#AD321E" r="1.6"></circle>
+</svg>
+<div class="absolute bottom-2 right-2 w-5 h-5 rounded bg-secondary flex items-center justify-center text-on-secondary shadow-sm">
+<span class="font-label-chip text-[9px] font-bold leading-none select-none">梅花</span>
+</div>
+<div class="card-checkbox absolute top-2 right-2 w-5 h-5 rounded-full bg-surface-container-highest/90 text-on-surface hidden items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[15px]">check</span>
+</div>
+</div>
+<div class="mt-2.5 flex flex-col">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight">매화</h3>
+<span class="px-1.5 py-0.5 rounded bg-surface-container font-label-chip text-[10px] text-on-surface-variant">원 계열</span>
+</div>
+<p class="mt-1 font-label-code text-[11px] text-on-surface-variant truncate">
+          원 3,561
+        </p>
+<span class="font-label-chip text-[10px] text-outline mt-0.5">2026. 10. 16. 오후 5:40</span>
+</div>
+</div>
+<!-- Card 5: 잉어 (Carp) -->
+<div class="artwork-card group flex flex-col rounded-xl bg-surface-container-lowest p-2.5 shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden" data-category="formula" data-id="5">
+<div class="relative w-full aspect-square rounded-lg bg-surface-container-low overflow-hidden flex items-center justify-center">
+<!-- SVG Vector Drawing: Carp (Cross-hatching lines, fan tail fins) -->
+<svg class="w-full h-full p-3 transition-transform duration-500 group-hover:scale-105" fill="none" viewbox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+<!-- Fluid Torso Curve -->
+<path d="M125 45 C115 80 85 110 50 115 C40 100 45 75 75 55 C100 40 120 40 125 45 Z" stroke="#1C1C18" stroke-linejoin="round" stroke-width="2.2"></path>
+<!-- Fan Tail Fins -->
+<path d="M48 114 C35 125 24 135 18 142" stroke="#1C1C18" stroke-linecap="round" stroke-width="1.6"></path>
+<path d="M48 116 C38 132 30 144 26 148" stroke="#1C1C18" stroke-linecap="round" stroke-width="1.4"></path>
+<path d="M51 117 C46 135 44 148 42 152" stroke="#1C1C18" stroke-linecap="round" stroke-width="1.4"></path>
+<!-- Mathematical Cross-hatching Scales -->
+<path d="M75 62 L85 75 M85 58 L98 72 M95 52 L110 68" stroke="#1C1C18" stroke-opacity="0.6" stroke-width="1.2"></path>
+<path d="M72 72 L88 60 M82 82 L100 66 M92 90 L112 76" stroke="#1C1C18" stroke-opacity="0.6" stroke-width="1.2"></path>
+<!-- Eye & Whisker -->
+<circle cx="120" cy="50" fill="#1C1C18" r="1.8"></circle>
+<path d="M127 48 C135 46 142 50 146 56" stroke="#1C1C18" stroke-linecap="round" stroke-width="1.0"></path>
+</svg>
+<div class="absolute bottom-2 right-2 w-5 h-5 rounded bg-secondary flex items-center justify-center text-on-secondary shadow-sm">
+<span class="font-label-chip text-[9px] font-bold leading-none select-none">鯉魚</span>
+</div>
+<div class="card-checkbox absolute top-2 right-2 w-5 h-5 rounded-full bg-surface-container-highest/90 text-on-surface hidden items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[15px]">check</span>
+</div>
+</div>
+<div class="mt-2.5 flex flex-col">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight">잉어</h3>
+<span class="px-1.5 py-0.5 rounded bg-surface-container font-label-chip text-[10px] text-on-surface-variant">선분 수식</span>
+</div>
+<p class="mt-1 font-label-code text-[11px] text-on-surface-variant truncate">
+          선분 2,760
+        </p>
+<span class="font-label-chip text-[10px] text-outline mt-0.5">2026. 10. 16. 오후 2:05</span>
+</div>
+</div>
+<!-- Card 6: 은행잎 (Ginkgo Leaf) -->
+<div class="artwork-card group flex flex-col rounded-xl bg-surface-container-lowest p-2.5 shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden" data-category="formula" data-id="6">
+<div class="relative w-full aspect-square rounded-lg bg-surface-container-low overflow-hidden flex items-center justify-center">
+<!-- SVG Vector Drawing: Ginkgo Leaf (Fan rays from stem to wavy undulating crest) -->
+<svg class="w-full h-full p-3 transition-transform duration-500 group-hover:scale-105" fill="none" viewbox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+<!-- Undulating Wavy Crest -->
+<path d="M35 60 C55 35, 76 42, 80 50 C84 42, 105 35, 125 60 C128 75, 115 90, 80 120 C45 90, 32 75, 35 60 Z" stroke="#1C1C18" stroke-linecap="round" stroke-width="2.2"></path>
+<!-- Fan-spread Parametric Veins (820 segments concept) -->
+<path d="M80 120 L40 64" stroke="#1C1C18" stroke-opacity="0.45" stroke-width="1.0"></path>
+<path d="M80 120 L52 52" stroke="#1C1C18" stroke-opacity="0.45" stroke-width="1.0"></path>
+<path d="M80 120 L66 45" stroke="#1C1C18" stroke-opacity="0.45" stroke-width="1.0"></path>
+<path d="M80 120 L80 50" stroke="#1C1C18" stroke-opacity="0.6" stroke-width="1.2"></path>
+<path d="M80 120 L94 45" stroke="#1C1C18" stroke-opacity="0.45" stroke-width="1.0"></path>
+<path d="M80 120 L108 52" stroke="#1C1C18" stroke-opacity="0.45" stroke-width="1.0"></path>
+<path d="M80 120 L120 64" stroke="#1C1C18" stroke-opacity="0.45" stroke-width="1.0"></path>
+<!-- Curving Stalk -->
+<path d="M80 120 C82 135 88 145 96 150" stroke="#1C1C18" stroke-linecap="round" stroke-width="2.0"></path>
+</svg>
+<div class="absolute bottom-2 right-2 w-5 h-5 rounded bg-secondary flex items-center justify-center text-on-secondary shadow-sm">
+<span class="font-label-chip text-[9px] font-bold leading-none select-none">銀杏</span>
+</div>
+<div class="card-checkbox absolute top-2 right-2 w-5 h-5 rounded-full bg-surface-container-highest/90 text-on-surface hidden items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[15px]">check</span>
+</div>
+</div>
+<div class="mt-2.5 flex flex-col">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight">은행잎</h3>
+<span class="px-1.5 py-0.5 rounded bg-surface-container font-label-chip text-[10px] text-on-surface-variant">선분 수식</span>
+</div>
+<p class="mt-1 font-label-code text-[11px] text-on-surface-variant truncate">
+          선분 820
+        </p>
+<span class="font-label-chip text-[10px] text-outline mt-0.5">2026. 10. 15. 오전 10:18</span>
+</div>
+</div>
+</div>
+<!-- Empty State Callout / Drawer Showcase (Toggleable & Educational) -->
+<div class="hidden mx-space-lg mt-space-lg p-space-lg rounded-2xl bg-surface-container-low text-center flex-col items-center justify-center transition-all animate-fadeIn" id="emptyStateDrawer">
+<div class="w-14 h-14 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface-variant mb-space-sm">
+<span class="material-symbols-outlined text-[28px]">inventory_2</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold">저장된 작품 없음</h4>
+<p class="mt-1 font-body-sm text-body-sm text-on-surface-variant max-w-[240px]">
+      '그리기' 탭에서 붓을 들고 수식을 계산한 뒤 인장을 찍으면 이곳에 서화로 보관됩니다.
+    </p>
+<div class="mt-space-md flex items-center gap-space-sm">
+<a class="px-space-md py-2 rounded-full bg-primary text-on-primary font-label-chip text-label-chip shadow-sm inline-flex items-center gap-1.5" href="#">
+<span class="material-symbols-outlined text-[16px]">draw</span>
+<span>첫 서화 그리기</span>
+</a>
+<button class="px-space-md py-2 rounded-full bg-surface-container text-on-surface font-label-chip text-label-chip" id="closeEmptyDrawer" type="button">
+        닫기
+      </button>
+</div>
+</div>
+<!-- Studio Quote / Footer Detail Note -->
+<div class="mx-space-lg mt-space-xl p-space-md rounded-xl bg-surface-container-high/60 flex items-center gap-space-sm">
+<span class="w-1.5 h-6 rounded-full bg-secondary shrink-0"></span>
+<p class="font-label-chip text-[11px] text-on-surface-variant leading-relaxed">
+      선과 먹빛이 화면 위에서 계산으로 맺어질 때, 한 장의 종이는 무한한 수묵의 서실이 됩니다.
+    </p>
+</div>
+</div>
+<script>
+  (function() {
+    // Multi-select mode logic
+    const selectBtn = document.getElementById('selectModeBtn');
+    const banner = document.getElementById('selectionBanner');
+    const cancelBtn = document.getElementById('cancelSelect');
+    const selectedCountText = document.getElementById('selectedCountText');
+    const cards = document.querySelectorAll('.artwork-card');
+    let isSelectMode = false;
+    let selectedSet = new Set();
+
+    function updateSelectionUI() {
+      selectedCountText.textContent = selectedSet.size + '개 선택됨';
+      cards.forEach(card => {
+        const id = card.dataset.id;
+        const checkbox = card.querySelector('.card-checkbox');
+        if (isSelectMode) {
+          checkbox.classList.remove('hidden');
+          checkbox.classList.add('flex');
+          if (selectedSet.has(id)) {
+            checkbox.classList.add('bg-secondary', 'text-on-secondary');
+            checkbox.classList.remove('bg-surface-container-highest/90', 'text-on-surface');
+            card.classList.add('ring-2', 'ring-secondary');
+          } else {
+            checkbox.classList.remove('bg-secondary', 'text-on-secondary');
+            checkbox.classList.add('bg-surface-container-highest/90', 'text-on-surface');
+            card.classList.remove('ring-2', 'ring-secondary');
+          }
+        } else {
+          checkbox.classList.add('hidden');
+          checkbox.classList.remove('flex');
+          card.classList.remove('ring-2', 'ring-secondary');
+        }
+      });
+    }
+
+    if (selectBtn) {
+      selectBtn.addEventListener('click', () => {
+        isSelectMode = !isSelectMode;
+        if (isSelectMode) {
+          banner.classList.remove('hidden');
+          selectBtn.textContent = '완료';
+        } else {
+          banner.classList.add('hidden');
+          selectBtn.textContent = '선택';
+          selectedSet.clear();
+        }
+        updateSelectionUI();
+      });
+    }
+
+    if (cancelBtn) {
+      cancelBtn.addEventListener('click', () => {
+        isSelectMode = false;
+        banner.classList.add('hidden');
+        if (selectBtn) selectBtn.textContent = '선택';
+        selectedSet.clear();
+        updateSelectionUI();
+      });
+    }
+
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        if (!isSelectMode) {
+          // Subtle tactile press feedback
+          card.classList.add('scale-95');
+          setTimeout(() => card.classList.remove('scale-95'), 140);
+          return;
+        }
+        const id = card.dataset.id;
+        if (selectedSet.has(id)) {
+          selectedSet.delete(id);
+        } else {
+          selectedSet.add(id);
+        }
+        updateSelectionUI();
+      });
+    });
+
+    // Category pills filter micro-interaction
+    const pills = document.querySelectorAll('.category-pill');
+    pills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        pills.forEach(p => {
+          p.classList.remove('bg-primary', 'text-on-primary');
+          p.classList.add('bg-surface-container', 'text-on-surface-variant');
+        });
+        pill.classList.add('bg-primary', 'text-on-primary');
+        pill.classList.remove('bg-surface-container', 'text-on-surface-variant');
+      });
+    });
+
+    // Empty state drawer toggle preview
+    const emptyToggle = document.getElementById('toggleEmptyDemo');
+    const emptyDrawer = document.getElementById('emptyStateDrawer');
+    const closeEmptyBtn = document.getElementById('closeEmptyDrawer');
+
+    if (emptyToggle && emptyDrawer) {
+      emptyToggle.addEventListener('click', () => {
+        emptyDrawer.classList.toggle('hidden');
+        emptyDrawer.classList.toggle('flex');
+        if (!emptyDrawer.classList.contains('hidden')) {
+          emptyDrawer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      });
+    }
+
+    if (closeEmptyBtn && emptyDrawer) {
+      closeEmptyBtn.addEventListener('click', () => {
+        emptyDrawer.classList.add('hidden');
+        emptyDrawer.classList.remove('flex');
+      });
+    }
+  })();
+</script></main><div class="fixed bottom-0 w-full z-50 pb-safe pointer-events-none px-space-lg mb-space-sm"><nav class="pointer-events-auto mx-auto max-w-sm rounded-full bg-surface-container-low/85 backdrop-blur-2xl shadow-[0_4px_24px_rgba(0,0,0,0.06)] px-space-md py-space-xs" data-active-classes="text-secondary font-semibold"><div class="flex items-center justify-around h-14"><a class="flex flex-col items-center justify-center min-w-[56px] h-12 text-on-surface-variant hover:text-on-surface transition-colors" data-path="canvas" href="#"><span class="material-symbols-outlined text-[22px]">gesture</span><span class="font-label-chip text-label-chip mt-space-xs tracking-wider">그리기</span></a><a class="flex flex-col items-center justify-center min-w-[56px] h-12 text-on-surface-variant hover:text-on-surface transition-colors" data-path="reading" href="#"><span class="material-symbols-outlined text-[22px]">auto_stories</span><span class="font-label-chip text-label-chip mt-space-xs tracking-wider">읽기</span></a><a aria-current="page" class="flex flex-col items-center justify-center min-w-[56px] h-12 transition-colors text-secondary font-semibold" data-path="gallery" href="#"><span class="material-symbols-outlined text-[22px]">grid_view</span><span class="font-label-chip text-label-chip mt-space-xs tracking-wider">갤러리</span></a></div></nav></div></body></html>

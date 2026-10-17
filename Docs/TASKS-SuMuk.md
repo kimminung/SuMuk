@@ -81,6 +81,17 @@
 - [x] T5.15 성능: 복잡한 사진에서 윤곽 단계가 20~34 s 걸린 원인은 `VNDetectContoursRequest.perform` 자체였다 — 인쇄 글자·포장 질감이 수천 개의 미세 윤곽을 만들어 추적이 느려진다(Mac 호스트 측정: 1024px 그레이 블러 없음 20.6 s/3,216개, 768px 6.0 s, 512px 0.9 s; **1024px + 가우시안 블러 1.5 → 0.17 s/539개, 60점 이상 161개**). 윤곽 요청 입력을 "CoreGraphics 8비트 그레이스케일 1024px + 블러 1.5"로 통일(실루엣 마스크 윤곽은 블러 없이 그레이). 점 배열 변환은 pointCount 순위 상위 60개만 수행.
 - 메모: 수평선 검출은 ±45° 범위의 기울기만 잡고 90° 단위 회전은 알 수 없으므로 수동 버튼이 필요하다. 추후 후보: 텍스트 방향(`VNRecognizeTextRequest`)으로 90° 회전 자동 제안.
 
+## Phase 3b — Stitch UI 테마 적용 (2026-10-17 저녁)
+
+디자인팀이 Stitch로 만든 두 세트(라이트 "Literati Ink", 다크 "SuMuk Ink & Glass")와 토큰 JSON·컴포넌트 명세를 받아 반영. 원본은 `Design/stitch/`.
+
+- [x] T3b.1 `Theme/SuMukTheme.swift`: 색 토큰(paper 고정 #FAF7F0, paperDeep·inkText·inkSoft·inkWash·vermilion·errorInk·celadon 라이트/다크 쌍, `nonisolated` UIColor 동적 프로바이더), 모노 폰트, 간격·반경 상수, 공용 컴포넌트(SealStampView 낙관, StatusCapsuleView, MarginErrorBanner, VermilionButtonStyle, SquareChromeButtonStyle, SectionCard/paperFrame, CardHeader, ChipView, ThemedSliderRow).
+- [x] T3b.2 그리기 탭: 화선지 카드(점 결 텍스처 `drawPaperGrain`, 낙관 數墨, 상태 캡슐, 여백 오류 메모), "동적 매개변수" 카드, 스크립트 에디터 카드(파일명 "은행잎.smk", 수렴/오류/연산 중 상태 점, 기호 키 행, 재계산 버튼), 저장 버튼 "인각"(glassProminent), 프리셋 서랍(낙관 썸네일·현재 적용됨 배지·체크).
+- [x] T3b.3 읽기 탭: 미리보기 카드(분석 완료 캡슐, 누끼/원본 세그먼트, 낙관), "수식 변환 파이프라인" 수직 스테퍼(총 ms), 방향 카드, 윤곽 선택 칩(체크 표시·N개 활성), "변환 레시피 설정" 카드(아이콘 토글·범위 표시 슬라이더), 결과 스크립트 카드, 주홍 CTA + 안내문.
+- [x] T3b.4 갤러리: paperDeep 카드 셀 + 낙관, 상세의 CTA/공유/삭제 행, 제원 스트립(계열·요소·연산 시간·글자 수), "전체 복사".
+- [x] T3b.5 탭 아이콘 `scribble.variable`, 전역 틴트 vermilion. 미적용: 아이콘(화면 9), 온보딩 카드, 에디터 구문 강조(TextEditor 속성 문자열 바인딩은 후속), 갤러리 검색·필터 칩(기능 없음).
+- [x] T3b.6 QA(라이트/다크 전 화면)에서 잡은 문제: 다크에서 결과 스크립트 글자가 종이색 카드 위에 밝게 찍혀 안 보임 → 종이 위 텍스트는 항상 `inkDrawing`; 다크에서 사진 미리보기 워시가 사라짐 → 사진 뒤 배경을 paper로 고정; 타이핑이 undo 단계로 안 잡혀 한 번에 프리셋까지 되돌아감 → 1.5 s 묶음 타이핑 스냅샷(`captureTypingUndo`); 갤러리 상세 첫 3 s 빈 캔버스 → 로딩 표시; 기호 키 행이 버튼에 가려 "s"만 남음 → 재계산 버튼을 헤더로 옮기고 페이드 마스크; 18pt 낙관 판독 불가 → 24pt 한 글자; 가져온 스크립트의 기본 제목/파일명이 주석 전체 → "(" 앞까지만.
+
 ## Phase 6 — 그림 → 수식 Tier B 가족 적합 (FR-6, 실험, 시간 박스 2일)
 
 - [ ] T6.1 템플릿 정의(항 수 J ≤ 4, p ∈ {1,2,3,5,7}, ω 1~12), 파라미터 벡터 ↔ Script 변환.
@@ -122,7 +133,7 @@
 - [ ] T10.1 `accessibilityLabel/Value/Hint` 전수(에디터 토큰·슬라이더·윤곽 선택·갤러리), 미리보기 가족 요약 라벨.
 - [ ] T10.2 Dynamic Type(에디터 모노스페이스 스케일), 모션 감소, 고대비 먹색 확인.
 - [ ] T10.3 String Catalog(ko 기본, en), 오류 메시지 포함.
-- [ ] T10.4 앱 아이콘: 앱 자신의 렌더러로 "학" 또는 "달항아리" 선분 가족을 1024px로 렌더(MathSketch 방식: `RunCodeSnippet` + `ImageRenderer`), iOS 기본·다크·틴티드, `ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon`.
+- [x] T10.4 앱 아이콘(2026-10-17): `Media/src/make_app_icons.py`가 학 프리셋 선분 + 낙관 墨으로 iOS(라이트·다크·틴티드 1024)·macOS(16~1024)·visionOS(`AppIcon.solidimagestack` 뒤/중간/앞) 아이콘을 생성해 `Assets.xcassets`에 기록. `ASSETCATALOG_COMPILER_APPICON_NAME`은 도구가 거부해 pbxproj 두 구성에 직접 삽입(Xcode가 재로드하며 빌드 1회 취소됨, 이후 빌드 성공). 틴티드 아이콘의 낙관은 글자를 투명하게 뚫어 틴트 후에도 읽히게 함.
 
 ## Phase 11 — 검증·문서·공개
 

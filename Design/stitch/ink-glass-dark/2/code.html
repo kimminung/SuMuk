@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="ko"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: 'class', theme: { extend: { colors: { 'on-surface-variant': '#444748', 'on-secondary-fixed': '#3f0300', 'tertiary-fixed-dim': '#c7c6cb', 'surface-tint': '#5f5e5e', 'on-tertiary': '#ffffff', 'inverse-primary': '#c8c6c5', 'on-tertiary-container': '#848388', 'surface-dim': '#dcdad3', 'on-primary-fixed': '#1c1b1b', 'surface-container': '#f0eee7', 'on-error-container': '#93000a', 'error-container': '#ffdad6', 'secondary-fixed': '#ffdad3', 'primary-fixed': '#e5e2e1', 'on-primary-container': '#858383', 'on-surface': '#1c1c18', 'outline-variant': '#c4c7c7', 'tertiary-container': '#1a1b1f', 'on-error': '#ffffff', 'primary-container': '#1c1b1b', 'inverse-surface': '#31312c', 'primary': '#000000', 'on-secondary-container': '#6a0900', 'on-tertiary-fixed': '#1a1b1f', 'surface-bright': '#fcf9f2', 'surface-container-high': '#ebe8e1', 'secondary': '#ad321e', 'surface-container-low': '#f6f3ec', 'tertiary': '#000000', 'on-background': '#1c1c18', 'tertiary-fixed': '#e3e2e7', 'primary-fixed-dim': '#c8c6c5', 'on-tertiary-fixed-variant': '#46464b', 'on-primary': '#ffffff', 'surface': '#fcf9f2', 'inverse-on-surface': '#f3f0ea', 'on-secondary': '#ffffff', 'surface-variant': '#e5e2db', 'error': '#ba1a1a', 'surface-container-lowest': '#ffffff', 'secondary-fixed-dim': '#ffb4a6', 'on-secondary-fixed-variant': '#8b1908', 'outline': '#747878', 'secondary-container': '#ff6d53', 'on-primary-fixed-variant': '#474646', 'background': '#fcf9f2', 'surface-container-highest': '#e5e2db' }, borderRadius: { 'DEFAULT': '0.25rem', 'lg': '0.5rem', 'xl': '0.75rem', 'full': '9999px' }, spacing: { 'margin': '1rem', 'space-lg': '1rem', 'space-sm': '0.5rem', 'space-md': '0.75rem', 'gutter': '1rem', 'space-xl': '1.5rem', 'space-xs': '0.25rem' }, fontFamily: { 'headline-md': ['Public Sans'], 'body-lg': ['Public Sans'], 'label-math': ['Space Mono'], 'label-code': ['Space Mono'], 'label-chip': ['Space Mono'], 'headline-lg': ['Public Sans'], 'display-lg': ['Public Sans'], 'body-md': ['Public Sans'], 'body-sm': ['Public Sans'], 'display-lg-mobile': ['Public Sans'], 'headline-sm': ['Public Sans'] }, fontSize: { 'headline-md': ['20px', { lineHeight: '25px', letterSpacing: '-0.005em', fontWeight: '600' }], 'body-lg': ['17px', { lineHeight: '24px', fontWeight: '400' }], 'label-math': ['15px', { lineHeight: '20px', letterSpacing: '-0.01em', fontWeight: '700' }], 'label-code': ['13px', { lineHeight: '18px', letterSpacing: '0em', fontWeight: '400' }], 'label-chip': ['11px', { lineHeight: '14px', letterSpacing: '0.02em', fontWeight: '400' }], 'headline-lg': ['24px', { lineHeight: '30px', letterSpacing: '-0.01em', fontWeight: '600' }], 'display-lg': ['34px', { lineHeight: '41px', letterSpacing: '-0.02em', fontWeight: '700' }], 'body-md': ['15px', { lineHeight: '21px', fontWeight: '400' }], 'body-sm': ['13px', { lineHeight: '18px', fontWeight: '400' }], 'display-lg-mobile': ['28px', { lineHeight: '34px', letterSpacing: '-0.015em', fontWeight: '700' }], 'headline-sm': ['17px', { lineHeight: '22px', fontWeight: '600' }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head><body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen" style="background-color: #121212; color: #F5F5F7; min-height: max(884px, 100dvh);"><header class="fixed top-0 inset-x-0 z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.03)] pt-safe" style="background-color: rgba(24, 24, 27, 0.82); border-bottom: 1px solid rgba(255, 255, 255, 0.08); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);"><div class="h-14 px-margin flex items-center justify-between"><div class="flex items-center gap-space-xs"><span class="w-2.5 h-2.5 rounded-full inline-block" style="background-color: #D94E36;"></span><span class="font-headline-sm text-headline-sm tracking-tight font-semibold" style="color: #F5F5F7;">수묵 · 數墨</span></div><h1 class="font-headline-sm text-headline-sm truncate px-space-xs font-semibold" style="color: #F5F5F7;">Draw</h1><div class="flex items-center gap-space-xs"><button aria-label="Menu actions" class="w-11 h-11 flex items-center justify-center rounded-full transition-colors" style="color: #98989D; background: rgba(255, 255, 255, 0.05);"><span class="material-symbols-outlined text-[20px]">tune</span></button><div class="w-8 h-8 rounded-full flex items-center justify-center shadow-sm" style="background-color: #2C2C2E; color: #F5F5F7; border: 1px solid rgba(255, 255, 255, 0.12);"><span class="material-symbols-outlined text-[18px]">person</span></div></div></div></header><main class="flex-1 flex flex-col relative w-full px-margin pt-14 pb-28 bg-surface" style="background-color: #121212;"><div class="flex flex-col w-full gap-space-md">
+<!-- Top Auxiliary Floating Toolbar (Liquid Glass Chrome) -->
+<div class="w-full flex items-center justify-between px-space-xs py-space-xs rounded-xl bg-surface-container-low shadow-sm">
+<!-- Leading Control Group (Undo Enabled, Redo Muted) -->
+<div class="flex items-center gap-1.5">
+<button aria-label="실행 취소" class="w-9 h-9 rounded-lg bg-surface-variant flex items-center justify-center text-on-surface shadow-sm active:scale-95 transition-transform" id="undo-btn">
+<span class="material-symbols-outlined text-[19px]">undo</span>
+</button>
+<button aria-label="다시 실행" class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-secondary-container opacity-40 cursor-not-allowed" disabled="">
+<span class="material-symbols-outlined text-[19px]">redo</span>
+</button>
+</div>
+<!-- Trailing Action Controls -->
+<div class="flex items-center gap-1.5">
+<button aria-label="사전 설정" class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-secondary active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[18px]">grid_view</span>
+</button>
+<button aria-label="공유" class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-secondary active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</button>
+<button aria-label="저장" class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-secondary active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[18px]">download</span>
+</button>
+<!-- Vermilion Seal Button -->
+<button aria-label="낙관 인장 적용" class="w-9 h-9 rounded-lg bg-primary-container flex items-center justify-center text-on-primary font-headline-sm text-headline-sm font-bold shadow-sm active:scale-95 transition-transform">
+<span class="text-[12px] tracking-tighter">墨</span>
+</button>
+</div>
+</div>
+<!-- Sacred Canvas Hero (Rice Paper #FAF7F0 Preserved In Dark Environment) -->
+<div class="relative w-full rounded-xl overflow-hidden shadow-xl" style="background-color: #FAF7F0; min-height: 250px;">
+<!-- Hanji Paper Tactile Fibers / Watermark Overlay -->
+<div class="absolute inset-0 pointer-events-none opacity-40" style="background-image: radial-gradient(#141414 0.5px, transparent 0.5px); background-size: 20px 20px;"></div>
+<!-- Canvas Telemetry Status Capsule (Floating Liquid Glass Chip) -->
+<div class="absolute top-2.5 left-2.5 z-20 flex items-center gap-1.5 px-2 py-1 rounded-full bg-surface-container-lowest text-on-surface shadow-md">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+<span class="font-label-sm text-label-sm tracking-tight text-secondary">계열 2 · 선분 820 · 4 ms</span>
+</div>
+<!-- Vermilion Seal Stamp (수묵 / 數墨 Quadrant) -->
+<div class="absolute top-2.5 right-2.5 z-10 w-8 h-8 rounded-DEFAULT bg-primary-container text-on-primary flex flex-col items-center justify-center shadow-md select-none">
+<span class="font-headline-sm text-[10px] leading-[10px] font-bold tracking-tighter">數</span>
+<span class="font-headline-sm text-[10px] leading-[10px] font-bold tracking-tighter">墨</span>
+</div>
+<!-- Last Good Drawing: Ginkgo Leaf (은행잎) Generative Ink Line Geometry -->
+<div class="relative w-full h-[250px] flex items-center justify-center p-space-sm select-none">
+<svg class="w-full h-full max-w-[280px]" fill="none" viewbox="0 0 320 280" xmlns="http://www.w3.org/2000/svg">
+<!-- Stem (잎자루) Wash Strokes -->
+<path d="M160 258 C158 230 156 195 160 165" stroke="#141414" stroke-linecap="round" stroke-opacity="0.75" stroke-width="2.2"></path>
+<path d="M161 258 C160 232 158 196 161 166" stroke="#141414" stroke-linecap="round" stroke-opacity="0.45" stroke-width="1.2"></path>
+<!-- Ginkgo Fan Radiating Mathematical Filaments (Subtle sumi ink bleed) -->
+<g stroke="#141414" stroke-linecap="round">
+<!-- Central Notch & Deep Ribs -->
+<path d="M160 165 C158 140 154 110 148 76" stroke-opacity="0.55" stroke-width="0.7"></path>
+<path d="M160 165 C162 140 166 110 172 76" stroke-opacity="0.55" stroke-width="0.7"></path>
+<!-- Outer Left Radiating Strokes -->
+<path d="M160 165 C145 155 110 145 68 135" stroke-opacity="0.42" stroke-width="0.5"></path>
+<path d="M160 165 C146 150 115 135 78 118" stroke-opacity="0.45" stroke-width="0.5"></path>
+<path d="M160 165 C148 144 122 125 90 102" stroke-opacity="0.48" stroke-width="0.55"></path>
+<path d="M160 165 C150 138 128 114 104 90" stroke-opacity="0.5" stroke-width="0.6"></path>
+<path d="M160 165 C152 133 135 105 118 80" stroke-opacity="0.46" stroke-width="0.5"></path>
+<path d="M160 165 C154 128 142 96 132 74" stroke-opacity="0.5" stroke-width="0.5"></path>
+<path d="M160 165 C156 125 148 90 142 68" stroke-opacity="0.48" stroke-width="0.5"></path>
+<!-- Outer Right Radiating Strokes -->
+<path d="M160 165 C164 125 172 90 178 68" stroke-opacity="0.48" stroke-width="0.5"></path>
+<path d="M160 165 C166 128 178 96 188 74" stroke-opacity="0.5" stroke-width="0.5"></path>
+<path d="M160 165 C168 133 185 105 202 80" stroke-opacity="0.46" stroke-width="0.5"></path>
+<path d="M160 165 C170 138 192 114 216 90" stroke-opacity="0.5" stroke-width="0.6"></path>
+<path d="M160 165 C172 144 198 125 230 102" stroke-opacity="0.48" stroke-width="0.55"></path>
+<path d="M160 165 C174 150 205 135 242 118" stroke-opacity="0.45" stroke-width="0.5"></path>
+<path d="M160 165 C175 155 210 145 252 135" stroke-opacity="0.42" stroke-width="0.5"></path>
+<!-- Dense Fan Undulation Layer (Micro-strokes) -->
+<path d="M160 165 C147 148 118 130 84 110" stroke-opacity="0.32" stroke-width="0.35"></path>
+<path d="M160 165 C149 141 125 120 97 96" stroke-opacity="0.35" stroke-width="0.35"></path>
+<path d="M160 165 C151 136 131 110 111 85" stroke-opacity="0.35" stroke-width="0.35"></path>
+<path d="M160 165 C153 130 138 101 125 77" stroke-opacity="0.38" stroke-width="0.35"></path>
+<path d="M160 165 C167 130 182 101 195 77" stroke-opacity="0.38" stroke-width="0.35"></path>
+<path d="M160 165 C169 136 189 110 209 85" stroke-opacity="0.35" stroke-width="0.35"></path>
+<path d="M160 165 C171 141 195 120 223 96" stroke-opacity="0.35" stroke-width="0.35"></path>
+<path d="M160 165 C173 148 202 130 236 110" stroke-opacity="0.32" stroke-width="0.35"></path>
+<!-- Ginkgo Leaf Margin Ripple Waves (부채꼴 가장자리 잔물결) -->
+<path d="M68 135 C74 125 82 112 90 102 C97 94 105 87 118 80 C125 76 135 70 142 68 C145 67 148 72 148 76 C152 79 160 84 160 85 C160 84 168 79 172 76 C172 72 175 67 178 68 C185 70 195 76 202 80 C215 87 223 94 230 102 C238 112 246 125 252 135" stroke-dasharray="2 1.5" stroke-opacity="0.6" stroke-width="0.8"></path>
+</g>
+</svg>
+</div>
+<!-- Critical Tactile Margin Note (Red Error Banner) -->
+<div class="absolute bottom-2 inset-x-2 z-30">
+<div class="flex items-center gap-2 px-space-sm py-2 rounded-lg bg-error-container text-on-error shadow-lg">
+<span class="material-symbols-outlined text-[17px] flex-shrink-0" style="font-variation-settings: 'FILL' 1;">warning</span>
+<span class="font-body-sm text-body-sm font-semibold truncate leading-tight">3행 25열: 한 줄에는 문장 하나만 쓸 수 있습니다</span>
+</div>
+</div>
+</div>
+<!-- Variable Slider Panel: Intentionally Suppressed/Hidden Due to Syntax Error State -->
+<!-- Script Editor (SF Mono Dark Editor Surface) -->
+<div class="w-full rounded-xl bg-surface-container-lowest overflow-hidden shadow-md flex flex-col">
+<!-- Editor Header Metainfo -->
+<div class="flex items-center justify-between px-space-md py-2 bg-surface-container-low text-secondary">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-error">error</span>
+<span class="font-code-sm text-code-sm text-on-surface">ginkgo_leaf.smk</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-error bg-error-container/20 px-1.5 py-0.5 rounded">컴파일 실패</span>
+</div>
+</div>
+<!-- Monospaced Code Buffer Container -->
+<div class="w-full overflow-x-auto py-2 font-code-sm text-code-sm select-text leading-relaxed">
+<!-- Line 1: Comment -->
+<div class="flex items-start px-space-sm">
+<span class="w-6 text-right pr-2 text-secondary-container select-none opacity-60">1</span>
+<span class="text-secondary opacity-70 truncate">// 은행잎 — 잎자루에서 가장자리로 펼쳐지는 부채</span>
+</div>
+<!-- Line 2: Ink configuration -->
+<div class="flex items-start px-space-sm">
+<span class="w-6 text-right pr-2 text-secondary-container select-none opacity-60">2</span>
+<div class="flex-1 whitespace-pre">
+<span class="text-primary-container font-semibold">ink</span> <span class="text-tertiary">#141414</span> <span class="text-secondary">width</span> <span class="text-primary">0.5</span> <span class="text-secondary">alpha</span> <span class="text-primary">0.45</span>
+</div>
+</div>
+<!-- Line 3: SCRIPT ERROR LINE (Highlighted with Error Pill Wash & Squiggle) -->
+<div class="flex items-start px-space-sm bg-error-container/25 relative">
+<span class="w-6 text-right pr-2 text-error font-bold select-none">3</span>
+<div class="flex-1 whitespace-pre">
+<span class="text-on-surface">let notch = 0.24 in [0, 0.5] </span><span class="text-error underline decoration-wavy font-bold">let ripple = 0.03</span><span class="text-on-surface"> in [0, 0.1]</span>
+</div>
+<span class="absolute right-2 top-1 w-1.5 h-1.5 rounded-full bg-error"></span>
+</div>
+<!-- Line 4: Generator block -->
+<div class="flex items-start px-space-sm">
+<span class="w-6 text-right pr-2 text-secondary-container select-none opacity-60">4</span>
+<div class="flex-1 whitespace-pre">
+<span class="text-primary-container font-semibold">segments</span> <span class="text-on-surface">k = 1 ... 700 {</span>
+</div>
+</div>
+<!-- Line 5: Generator from -->
+<div class="flex items-start px-space-sm">
+<span class="w-6 text-right pr-2 text-secondary-container select-none opacity-60">5</span>
+<div class="flex-1 whitespace-pre">
+<span class="text-on-surface">  from ( 0.05·sin(2π·s(k))·sin²(π·s(k)), −1 + 0.22·sin⁶(π·s(k)) )</span>
+</div>
+</div>
+<!-- Line 6: Generator to -->
+<div class="flex items-start px-space-sm">
+<span class="w-6 text-right pr-2 text-secondary-container select-none opacity-60">6</span>
+<div class="flex-1 whitespace-pre">
+<span class="text-on-surface">  to   ( r(k)·cos(θ(k)), r(k)·sin(θ(k)) − 0.25 )</span>
+</div>
+</div>
+<!-- Line 7: Block end -->
+<div class="flex items-start px-space-sm">
+<span class="w-6 text-right pr-2 text-secondary-container select-none opacity-60">7</span>
+<div class="flex-1 whitespace-pre text-on-surface">}</div>
+</div>
+<!-- Line 8: Where clause -->
+<div class="flex items-start px-space-sm">
+<span class="w-6 text-right pr-2 text-secondary-container select-none opacity-60">8</span>
+<div class="flex-1 whitespace-pre text-primary-container font-semibold">where</div>
+</div>
+<!-- Line 9: Helper formula 1 -->
+<div class="flex items-start px-space-sm">
+<span class="w-6 text-right pr-2 text-secondary-container select-none opacity-60">9</span>
+<div class="flex-1 whitespace-pre text-secondary">  s(k) = k/700</div>
+</div>
+<!-- Line 10: Helper formula 2 -->
+<div class="flex items-start px-space-sm">
+<span class="w-6 text-right pr-2 text-secondary-container select-none opacity-60">10</span>
+<div class="flex-1 whitespace-pre text-secondary">  θ(k) = π/2 + 1.3·(s(k) − 1/2)</div>
+</div>
+</div>
+<!-- Quick Accessory & Remediation Toolbar -->
+<div class="flex items-center justify-between px-space-sm py-1.5 bg-surface-container-high">
+<!-- Quick Math Symbolic Input Keys -->
+<div class="flex items-center gap-1 overflow-x-auto py-0.5">
+<button class="px-2 py-1 rounded bg-surface-container text-on-surface font-code-sm text-code-sm active:bg-surface-variant">π</button>
+<button class="px-2 py-1 rounded bg-surface-container text-on-surface font-code-sm text-code-sm active:bg-surface-variant">θ</button>
+<button class="px-2 py-1 rounded bg-surface-container text-on-surface font-code-sm text-code-sm active:bg-surface-variant">sin</button>
+<button class="px-2 py-1 rounded bg-surface-container text-on-surface font-code-sm text-code-sm active:bg-surface-variant">cos</button>
+<button class="px-2 py-1 rounded bg-surface-container text-on-surface font-code-sm text-code-sm active:bg-surface-variant">·</button>
+</div>
+<!-- Direct Recovery Action -->
+<button class="flex items-center gap-1 px-2.5 py-1 rounded bg-error-container text-on-error font-body-sm text-body-sm font-semibold active:scale-95 transition-transform" id="quick-fix-btn">
+<span class="material-symbols-outlined text-[15px]">undo</span>
+<span>실행 취소</span>
+</button>
+</div>
+</div>
+</div>
+<script>
+  // Interactive micro-interaction for error remediation and undo state
+  const quickFixBtn = document.getElementById('quick-fix-btn');
+  const undoBtn = document.getElementById('undo-btn');
+
+  function handleUndo() {
+    const errorLine = document.querySelector('.bg-error-container\\/25');
+    if (errorLine) {
+      errorLine.classList.remove('bg-error-container/25');
+      errorLine.classList.add('bg-surface-container-low');
+      const errorMsg = document.querySelector('.bg-error-container');
+      if (errorMsg) {
+        errorMsg.classList.add('opacity-0', 'transition-opacity', 'duration-300');
+        setTimeout(() => {
+          errorMsg.parentElement.remove();
+        }, 300);
+      }
+    }
+  }
+
+  if (quickFixBtn) quickFixBtn.addEventListener('click', handleUndo);
+  if (undoBtn) undoBtn.addEventListener('click', handleUndo);
+</script></main><nav class="fixed bottom-0 inset-x-0 z-50 pb-safe pointer-events-none flex justify-center" data-active-classes="text-secondary font-semibold"><div class="pointer-events-auto mx-margin mb-space-sm w-full max-w-[361px] h-16 rounded-full shadow-[0_8px_30px_rgba(0,0,0,0.6)] px-space-md flex items-center justify-around" style="background-color: rgba(20, 20, 20, 0.85); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border: 1px solid rgba(255, 255, 255, 0.12);"><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] transition-all gap-0.5" data-path="draw" href="#" style="color: #D94E36;"><span class="material-symbols-outlined text-[24px]">gesture</span><span class="font-label-chip text-label-chip">그리기</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] transition-all gap-0.5" data-path="reading" href="#" style="color: #98989D;"><span class="material-symbols-outlined text-[24px]">auto_stories</span><span class="font-label-chip text-label-chip">읽기</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] transition-all gap-0.5" data-path="gallery" href="#" style="color: #98989D;"><span class="material-symbols-outlined text-[24px]">grid_view</span><span class="font-label-chip text-label-chip">갤러리</span></a></div></nav></body></html>

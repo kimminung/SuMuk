@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: 'class', theme: { extend: { colors: { 'on-surface-variant': '#444748', 'on-secondary-fixed': '#3f0300', 'tertiary-fixed-dim': '#c7c6cb', 'surface-tint': '#5f5e5e', 'on-tertiary': '#ffffff', 'inverse-primary': '#c8c6c5', 'on-tertiary-container': '#848388', 'surface-dim': '#dcdad3', 'on-primary-fixed': '#1c1b1b', 'surface-container': '#f0eee7', 'on-error-container': '#93000a', 'error-container': '#ffdad6', 'secondary-fixed': '#ffdad3', 'primary-fixed': '#e5e2e1', 'on-primary-container': '#858383', 'on-surface': '#1c1c18', 'outline-variant': '#c4c7c7', 'tertiary-container': '#1a1b1f', 'on-error': '#ffffff', 'primary-container': '#1c1b1b', 'inverse-surface': '#31312c', 'primary': '#000000', 'on-secondary-container': '#6a0900', 'on-tertiary-fixed': '#1a1b1f', 'surface-bright': '#fcf9f2', 'surface-container-high': '#ebe8e1', 'secondary': '#ad321e', 'surface-container-low': '#f6f3ec', 'tertiary': '#000000', 'on-background': '#1c1c18', 'tertiary-fixed': '#e3e2e7', 'primary-fixed-dim': '#c8c6c5', 'on-tertiary-fixed-variant': '#46464b', 'on-primary': '#ffffff', 'surface': '#fcf9f2', 'inverse-on-surface': '#f3f0ea', 'on-secondary': '#ffffff', 'surface-variant': '#e5e2db', 'error': '#ba1a1a', 'surface-container-lowest': '#ffffff', 'secondary-fixed-dim': '#ffb4a6', 'on-secondary-fixed-variant': '#8b1908', 'outline': '#747878', 'secondary-container': '#ff6d53', 'on-primary-fixed-variant': '#474646', 'background': '#fcf9f2', 'surface-container-highest': '#e5e2db' }, borderRadius: { 'DEFAULT': '0.25rem', 'lg': '0.5rem', 'xl': '0.75rem', 'full': '9999px' }, spacing: { 'margin': '1rem', 'space-lg': '1rem', 'space-sm': '0.5rem', 'space-md': '0.75rem', 'gutter': '1rem', 'space-xl': '1.5rem', 'space-xs': '0.25rem' }, fontFamily: { 'headline-md': ['Public Sans'], 'body-lg': ['Public Sans'], 'label-math': ['Space Mono'], 'label-code': ['Space Mono'], 'label-chip': ['Space Mono'], 'headline-lg': ['Public Sans'], 'display-lg': ['Public Sans'], 'body-md': ['Public Sans'], 'body-sm': ['Public Sans'], 'display-lg-mobile': ['Public Sans'], 'headline-sm': ['Public Sans'] }, fontSize: { 'headline-md': ['20px', { lineHeight: '25px', letterSpacing: '-0.005em', fontWeight: '600' }], 'body-lg': ['17px', { lineHeight: '24px', fontWeight: '400' }], 'label-math': ['15px', { lineHeight: '20px', letterSpacing: '-0.01em', fontWeight: '700' }], 'label-code': ['13px', { lineHeight: '18px', letterSpacing: '0em', fontWeight: '400' }], 'label-chip': ['11px', { lineHeight: '14px', letterSpacing: '0.02em', fontWeight: '400' }], 'headline-lg': ['24px', { lineHeight: '30px', letterSpacing: '-0.01em', fontWeight: '600' }], 'display-lg': ['34px', { lineHeight: '41px', letterSpacing: '-0.02em', fontWeight: '700' }], 'body-md': ['15px', { lineHeight: '21px', fontWeight: '400' }], 'body-sm': ['13px', { lineHeight: '18px', fontWeight: '400' }], 'display-lg-mobile': ['28px', { lineHeight: '34px', letterSpacing: '-0.015em', fontWeight: '700' }], 'headline-sm': ['17px', { lineHeight: '22px', fontWeight: '600' }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head><body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 inset-x-0 z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.03)] pt-safe"><div class="h-14 px-margin flex items-center justify-between"><div class="flex items-center gap-space-xs"><span class="w-2.5 h-2.5 rounded-full bg-secondary inline-block"></span><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight font-semibold">수묵 · 數墨</span></div><h1 class="font-headline-sm text-headline-sm text-on-surface truncate px-space-xs">Draw</h1><div class="flex items-center gap-space-xs"><button aria-label="Menu actions" class="w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[20px]">tune</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-[0_1px_4px_rgba(0,0,0,0.08)]"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 flex flex-col relative w-full px-margin pt-14 pb-28 bg-surface"><div class="flex flex-col w-full relative">
+<!-- Backdrop Canvas Hint (tactile paper plane visible behind sheet) -->
+<div class="relative w-full rounded-xl bg-surface-container-high/60 p-space-md mb-space-md overflow-hidden">
+<div class="flex items-center justify-between text-on-surface-variant font-label-code text-label-code">
+<span class="flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary inline-block"></span>
+<span>캔버스 미리보기: f(θ) = r(1 - sin θ)</span>
+</span>
+<span class="font-label-chip text-label-chip opacity-70">편집 모드 일시정지</span>
+</div>
+</div>
+<!-- iOS Modal Sheet Container -->
+<section class="w-full bg-surface-container-lowest rounded-xl shadow-[0_12px_40px_rgba(28,28,24,0.12)] pt-space-xs pb-space-lg px-space-md flex flex-col relative transition-all">
+<!-- Grab Handle Bar -->
+<div class="w-full flex justify-center py-space-xs">
+<div class="w-9 h-1 bg-surface-dim rounded-full"></div>
+</div>
+<!-- Sheet Header -->
+<div class="flex items-start justify-between mt-space-xs mb-space-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<h2 class="font-headline-md text-headline-md text-primary font-semibold tracking-tight">프리셋 서랍</h2>
+<span class="bg-surface-container px-1.5 py-0.5 rounded text-on-surface-variant font-label-chip text-label-chip">6종</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+          전통 먹선과 수학적 곡선으로 빚은 표본 6종
+        </p>
+</div>
+<!-- Close Action -->
+<button aria-label="닫기" class="w-8 h-8 rounded-full bg-surface-container-low text-on-surface-variant hover:text-on-surface flex items-center justify-center transition-colors active:scale-95" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<!-- Filter & Category Bar -->
+<div class="flex items-center gap-space-xs overflow-x-auto pb-space-sm mb-space-sm no-scrollbar">
+<button class="px-2.5 py-1 rounded-full bg-primary text-on-primary font-label-chip text-label-chip flex items-center gap-1 shrink-0">
+<span>전체</span>
+<span class="opacity-70 font-label-code">6</span>
+</button>
+<button class="px-2.5 py-1 rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface font-label-chip text-label-chip shrink-0">
+        선분 계열 (4)
+      </button>
+<button class="px-2.5 py-1 rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface font-label-chip text-label-chip shrink-0">
+        원 계열 (2)
+      </button>
+<button class="px-2.5 py-1 rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface font-label-chip text-label-chip shrink-0">
+        인기 순
+      </button>
+</div>
+<!-- Presets 2-Column Grid -->
+<div class="grid grid-cols-2 gap-space-sm w-full" id="presets-grid">
+<!-- Item 1: 은행잎 (Active / Currently Loaded) -->
+<article class="relative flex flex-col bg-surface-container-low rounded-xl p-space-sm cursor-pointer transition-all active:scale-[0.98] group bg-gradient-to-b from-secondary-fixed/20 via-surface-container-low to-surface-container-low" data-preset-id="ginkgo">
+<!-- Vermilion Selected Seal Ribbon -->
+<div class="flex items-center justify-between mb-1.5">
+<span class="px-1.5 py-0.5 rounded bg-secondary text-on-secondary font-label-chip text-label-chip flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[11px]" style="font-variation-settings: 'FILL' 1;">check</span>
+<span>편집 중</span>
+</span>
+<span class="font-label-chip text-label-chip text-on-surface-variant bg-surface-container px-1 rounded">
+            선분
+          </span>
+</div>
+<!-- Thumbnail Container -->
+<div class="relative w-full aspect-square rounded-lg bg-surface-bright overflow-hidden flex items-center justify-center p-2 mb-2 shadow-inner">
+<img class="w-full h-full object-contain mix-blend-multiply transition-transform group-hover:scale-105" data-alt="A delicate East Asian sumi-e ink painting of a fan-shaped ginkgo leaf rendered with over 800 fine radial black ink line segments on warm fibrous cream rice paper. A distinct vermilion red square artist seal stamp sits quietly at the lower right corner. Minimalist, scholarly Korean literati art aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHYCw1yXqRPnnUWoxXBTq-Z2AInLg17unt3ouq7A8iX2_KIu3epCFKs-31P6eYYDWBnyUIQ_NvMjHczLem9CGj485Ho48FUBGm7k3ghX3kqApqB-VdIA62lpe7XtkoPlwnxrCFfOn8OyH7TO1xiFXzKE2CKb3b8HBGacKdt4id9uv-ADgTTJ-6r4iiqQRsGgcOQ58H47LwcVRQbec4vmw4yLtQMV7Ji5o-e-aUvwqk3HhhiWJgvdPV"/>
+<!-- Seal Stamp Replica -->
+<div class="absolute bottom-1.5 right-1.5 w-4 h-4 bg-secondary flex items-center justify-center rounded-[2px] shadow-sm pointer-events-none">
+<span class="text-[8px] text-surface font-serif font-bold leading-none">墨</span>
+</div>
+</div>
+<!-- Metadata -->
+<div class="flex flex-col min-w-0">
+<div class="flex items-baseline justify-between gap-1">
+<h3 class="font-headline-sm text-headline-sm text-primary font-semibold truncate">은행잎</h3>
+<span class="font-label-code text-label-code text-secondary font-bold">820개</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-0.5">
+            잎자루에서 물결치는 가장자리로
+          </p>
+</div>
+</article>
+<!-- Item 2: 달항아리 -->
+<article class="relative flex flex-col bg-surface-container-low rounded-xl p-space-sm cursor-pointer transition-all hover:bg-surface-container active:scale-[0.98] group" data-preset-id="moon-jar">
+<div class="flex items-center justify-between mb-1.5">
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-chip text-label-chip">
+            원 계열
+          </span>
+<span class="font-label-code text-label-code text-on-surface-variant opacity-60">#02</span>
+</div>
+<!-- Thumbnail Container -->
+<div class="relative w-full aspect-square rounded-lg bg-surface-bright overflow-hidden flex items-center justify-center p-2 mb-2 shadow-inner">
+<img class="w-full h-full object-contain mix-blend-multiply transition-transform group-hover:scale-105" data-alt="Classic Korean porcelain Moon Jar silhouette created purely with 4400 concentric circular sumi-e ink strokes, subtle variation in brush stroke pressure and charcoal dilution on authentic textured hanji mulberry paper. Deep tonal black and grey gradient contrast." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFrsgv9iJ99JDYK9A2iYAKqvWG6b8FXaBbj-V95fygRQfv0J-q9NoQcToxilJiT5w2DOGevBQyjVmCro0PGh-tRaKoKtv_rfIIYaypWjpI-7BG33yxILKI2cRSywpzrqW7S-JvdsrR3D3I6fSeTpEGQNnGJIIGqAsi-JmyU0I4hSMVX2AsJ5TOHyAwgsOWu0_7co5OjitTiEeblNd5c9ZKpXIJoL48QTstRIGKjdpO2hcvz7cvIok7"/>
+</div>
+<!-- Metadata -->
+<div class="flex flex-col min-w-0">
+<div class="flex items-baseline justify-between gap-1">
+<h3 class="font-headline-sm text-headline-sm text-primary font-semibold truncate">달항아리</h3>
+<span class="font-label-code text-label-code text-on-surface-variant">4.4k</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-0.5">
+            항아리 윤곽과 붓 압력의 궤적
+          </p>
+</div>
+</article>
+<!-- Item 3: 매화 -->
+<article class="relative flex flex-col bg-surface-container-low rounded-xl p-space-sm cursor-pointer transition-all hover:bg-surface-container active:scale-[0.98] group" data-preset-id="plum-blossom">
+<div class="flex items-center justify-between mb-1.5">
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-chip text-label-chip">
+            원 계열
+          </span>
+<span class="font-label-code text-label-code text-on-surface-variant opacity-60">#03</span>
+</div>
+<div class="relative w-full aspect-square rounded-lg bg-surface-bright overflow-hidden flex items-center justify-center p-2 mb-2 shadow-inner">
+<img class="w-full h-full object-contain mix-blend-multiply transition-transform group-hover:scale-105" data-alt="Delicate plum blossom branch rendered mathematically using 3561 miniature circular ink dots, five rounded petals clustered with tiny stamens, traditional Korean sumuk painting style on raw beige rice paper, serene and poetic composition." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWSthuK5ITGXpkXKWEbndHNUdM1mDFRNZQ3dyAYf6AWUb2-R9vHPJRryVrmfe65LyptiOD5vqtZFo_IKntBfZj622m6TdzNbLMNdrGiOD33zfz-u9f8zGIZiQqZTvWfr4KGbwyBswV536IiIr1a2H-ewhyDN8LbT-i-G1xFueL0Lqh98TTYI16qlUuH7bxoXJBBHiRYpiyFRQyJDmo03tg4SwcjTxcFzTpQOMpoOv_cMMg_4S17B50"/>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-baseline justify-between gap-1">
+<h3 class="font-headline-sm text-headline-sm text-primary font-semibold truncate">매화</h3>
+<span class="font-label-code text-label-code text-on-surface-variant">3,561개</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-0.5">
+            꽃잎 5장 × 700 + 수술 60
+          </p>
+</div>
+</article>
+<!-- Item 4: 잉어 -->
+<article class="relative flex flex-col bg-surface-container-low rounded-xl p-space-sm cursor-pointer transition-all hover:bg-surface-container active:scale-[0.98] group" data-preset-id="carp">
+<div class="flex items-center justify-between mb-1.5">
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-chip text-label-chip">
+            선분 계열
+          </span>
+<span class="font-label-code text-label-code text-on-surface-variant opacity-60">#04</span>
+</div>
+<div class="relative w-full aspect-square rounded-lg bg-surface-bright overflow-hidden flex items-center justify-center p-2 mb-2 shadow-inner">
+<img class="w-full h-full object-contain mix-blend-multiply transition-transform group-hover:scale-105" data-alt="Dynamic swimming koi carp fish composed of 2760 precise cross-hatching sumi-e ink segments, rhythmic undulating scales, and flowing fan-shaped dorsal and tail fins on warm organic paper background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHUtQRuz1H50QHc1Bhnh1fNxgwdqR89dMOdX6IDMBCTGA2ClJyPJ6hz4Fea52aVZ2lkRhKIHiVHw6l6FEG0c31MlxDEzbEGLd-rymjFfKEZmeXRisg1hXDAmbMUDZvw4xiYBwYYolP50fhShd31bGXAIU1yFZYpn-VBxw64Y5mQ_bBpam1TBwAnKn8pXPu3qO4W50Y6jXc7zbGUA4LUOU6PkTEGHb6GZowVJCNHF3nOewenxq8ZRq7"/>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-baseline justify-between gap-1">
+<h3 class="font-headline-sm text-headline-sm text-primary font-semibold truncate">잉어</h3>
+<span class="font-label-code text-label-code text-on-surface-variant">2,760개</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-0.5">
+            교차 해칭 몸통 + 부채꼴 꼬리
+          </p>
+</div>
+</article>
+<!-- Item 5: 학 -->
+<article class="relative flex flex-col bg-surface-container-low rounded-xl p-space-sm cursor-pointer transition-all hover:bg-surface-container active:scale-[0.98] group" data-preset-id="crane">
+<div class="flex items-center justify-between mb-1.5">
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-chip text-label-chip">
+            선분 계열
+          </span>
+<span class="font-label-code text-label-code text-on-surface-variant opacity-60">#05</span>
+</div>
+<div class="relative w-full aspect-square rounded-lg bg-surface-bright overflow-hidden flex items-center justify-center p-2 mb-2 shadow-inner">
+<img class="w-full h-full object-contain mix-blend-multiply transition-transform group-hover:scale-105" data-alt="A graceful flying East Asian red-crowned crane captured with sin seventh power winged curve ink lines, smooth S-curved long neck, stark black ink wash on textured raw paper with vermilion crown accent." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVchdsM-Ngkv1MbWXDwC9SGM077MEV9jp5CFOq5uu62SaDv53SykMNrrgeN59YuyS2WhHT2sAvc76IiuHLUZ_VBvSUfGmdtVPJIoidBscukbbrZby8AnpNy0d6SJLZYrKd-1AtNGwwKt2Trym7j2aJaqmcK2vOPb5etjrIL59c8PO7o098Kdar6W8RbQk9cILn_ZCYFB9jZzZFX0BZBS9e63YgU4KIlp0FGb32hoqJuxrUwG3WEsXk"/>
+<!-- Vermilion Crown Accent Dot -->
+<div class="absolute top-3.5 left-4 w-1.5 h-1.5 rounded-full bg-secondary"></div>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-baseline justify-between gap-1">
+<h3 class="font-headline-sm text-headline-sm text-primary font-semibold truncate">학</h3>
+<span class="font-label-code text-label-code text-on-surface-variant">2,760개</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-0.5">
+            sin⁷ 날개 + S자 목 곡선미
+          </p>
+</div>
+</article>
+<!-- Item 6: 빈 시작 -->
+<article class="relative flex flex-col bg-surface-container-low rounded-xl p-space-sm cursor-pointer transition-all hover:bg-surface-container active:scale-[0.98] group" data-preset-id="blank">
+<div class="flex items-center justify-between mb-1.5">
+<span class="px-1.5 py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-label-chip text-label-chip">
+            기본 템플릿
+          </span>
+<span class="font-label-code text-label-code text-on-surface-variant opacity-60">#06</span>
+</div>
+<div class="relative w-full aspect-square rounded-lg bg-surface-bright overflow-hidden flex flex-col items-center justify-center p-3 mb-2 shadow-inner">
+<!-- Minimal curve line segment graphic -->
+<svg class="w-14 h-14 text-on-surface-variant/40 group-hover:text-primary transition-colors" viewbox="0 0 80 80">
+<path d="M 12 55 Q 35 15, 68 35" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2.5"></path>
+<circle cx="12" cy="55" fill="currentColor" r="2.5"></circle>
+<circle cx="68" cy="35" fill="currentColor" r="2.5"></circle>
+</svg>
+<span class="font-label-chip text-label-chip text-on-surface-variant mt-1">f(x, y) = 0</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-baseline justify-between gap-1">
+<h3 class="font-headline-sm text-headline-sm text-primary font-semibold truncate">빈 시작</h3>
+<span class="font-label-code text-label-code text-on-surface-variant">초기화</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-0.5">
+            선분 계열 하나로 새로 그리기
+          </p>
+</div>
+</article>
+</div>
+<!-- Bottom Advisory Banner -->
+<div class="mt-space-md w-full bg-surface-container-low rounded-lg p-space-sm flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[20px] shrink-0">info</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-tight">
+        프리셋을 선택하면 캔버스와 수식 에디터에 즉시 반영됩니다.
+      </p>
+</div>
+<!-- Action Bar -->
+<div class="mt-space-sm w-full flex items-center gap-space-xs">
+<button class="flex-1 h-12 bg-surface-container rounded-lg font-headline-sm text-headline-sm text-on-surface flex items-center justify-center gap-1.5 transition-all active:scale-[0.98]" type="button">
+<span class="material-symbols-outlined text-[18px]">add_box</span>
+<span>내 프리셋 저장</span>
+</button>
+<button class="flex-1 h-12 bg-secondary text-on-secondary rounded-lg font-headline-sm text-headline-sm flex items-center justify-center gap-1.5 transition-all shadow-sm active:scale-[0.98]" type="button">
+<span class="material-symbols-outlined text-[18px]">brush</span>
+<span>적용하기</span>
+</button>
+</div>
+</section>
+</div>
+<script>
+  // Simple client-side micro-interaction for selecting preset items
+  document.addEventListener('DOMContentLoaded', () => {
+    const cards = document.querySelectorAll('#presets-grid article');
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        cards.forEach(c => {
+          c.classList.remove('bg-gradient-to-b', 'from-secondary-fixed/20');
+          const seal = c.querySelector('.bg-secondary');
+          if (seal && seal.textContent.includes('편집 중')) {
+            seal.remove();
+          }
+        });
+        card.classList.add('bg-gradient-to-b', 'from-secondary-fixed/20');
+      });
+    });
+  });
+</script></main><nav class="fixed bottom-0 inset-x-0 z-50 pb-safe pointer-events-none flex justify-center" data-active-classes="text-secondary font-semibold"><div class="pointer-events-auto mx-margin mb-space-sm w-full max-w-[361px] h-16 bg-surface-container-low/85 backdrop-blur-2xl rounded-full shadow-[0_8px_30px_rgba(28,28,24,0.08)] px-space-md flex items-center justify-around"><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-all gap-0.5" data-path="draw" href="#"><span class="material-symbols-outlined text-[24px]">gesture</span><span class="font-label-chip text-label-chip">그리기</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-all gap-0.5" data-path="reading" href="#"><span class="material-symbols-outlined text-[24px]">auto_stories</span><span class="font-label-chip text-label-chip">읽기</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-all gap-0.5" data-path="gallery" href="#"><span class="material-symbols-outlined text-[24px]">grid_view</span><span class="font-label-chip text-label-chip">갤러리</span></a></div></nav></body></html>

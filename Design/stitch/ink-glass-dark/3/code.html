@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="ko"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: 'class', theme: { extend: { colors: { 'on-surface-variant': '#444748', 'on-secondary-fixed': '#3f0300', 'tertiary-fixed-dim': '#c7c6cb', 'surface-tint': '#5f5e5e', 'on-tertiary': '#ffffff', 'inverse-primary': '#c8c6c5', 'on-tertiary-container': '#848388', 'surface-dim': '#dcdad3', 'on-primary-fixed': '#1c1b1b', 'surface-container': '#f0eee7', 'on-error-container': '#93000a', 'error-container': '#ffdad6', 'secondary-fixed': '#ffdad3', 'primary-fixed': '#e5e2e1', 'on-primary-container': '#858383', 'on-surface': '#1c1c18', 'outline-variant': '#c4c7c7', 'tertiary-container': '#1a1b1f', 'on-error': '#ffffff', 'primary-container': '#1c1b1b', 'inverse-surface': '#31312c', 'primary': '#000000', 'on-secondary-container': '#6a0900', 'on-tertiary-fixed': '#1a1b1f', 'surface-bright': '#fcf9f2', 'surface-container-high': '#ebe8e1', 'secondary': '#ad321e', 'surface-container-low': '#f6f3ec', 'tertiary': '#000000', 'on-background': '#1c1c18', 'tertiary-fixed': '#e3e2e7', 'primary-fixed-dim': '#c8c6c5', 'on-tertiary-fixed-variant': '#46464b', 'on-primary': '#ffffff', 'surface': '#fcf9f2', 'inverse-on-surface': '#f3f0ea', 'on-secondary': '#ffffff', 'surface-variant': '#e5e2db', 'error': '#ba1a1a', 'surface-container-lowest': '#ffffff', 'secondary-fixed-dim': '#ffb4a6', 'on-secondary-fixed-variant': '#8b1908', 'outline': '#747878', 'secondary-container': '#ff6d53', 'on-primary-fixed-variant': '#474646', 'background': '#fcf9f2', 'surface-container-highest': '#e5e2db' }, borderRadius: { 'DEFAULT': '0.25rem', 'lg': '0.5rem', 'xl': '0.75rem', 'full': '9999px' }, spacing: { 'margin': '1rem', 'space-lg': '1rem', 'space-sm': '0.5rem', 'space-md': '0.75rem', 'gutter': '1rem', 'space-xl': '1.5rem', 'space-xs': '0.25rem' }, fontFamily: { 'headline-md': ['Public Sans'], 'body-lg': ['Public Sans'], 'label-math': ['Space Mono'], 'label-code': ['Space Mono'], 'label-chip': ['Space Mono'], 'headline-lg': ['Public Sans'], 'display-lg': ['Public Sans'], 'body-md': ['Public Sans'], 'body-sm': ['Public Sans'], 'display-lg-mobile': ['Public Sans'], 'headline-sm': ['Public Sans'] }, fontSize: { 'headline-md': ['20px', { lineHeight: '25px', letterSpacing: '-0.005em', fontWeight: '600' }], 'body-lg': ['17px', { lineHeight: '24px', fontWeight: '400' }], 'label-math': ['15px', { lineHeight: '20px', letterSpacing: '-0.01em', fontWeight: '700' }], 'label-code': ['13px', { lineHeight: '18px', letterSpacing: '0em', fontWeight: '400' }], 'label-chip': ['11px', { lineHeight: '14px', letterSpacing: '0.02em', fontWeight: '400' }], 'headline-lg': ['24px', { lineHeight: '30px', letterSpacing: '-0.01em', fontWeight: '600' }], 'display-lg': ['34px', { lineHeight: '41px', letterSpacing: '-0.02em', fontWeight: '700' }], 'body-md': ['15px', { lineHeight: '21px', fontWeight: '400' }], 'body-sm': ['13px', { lineHeight: '18px', fontWeight: '400' }], 'display-lg-mobile': ['28px', { lineHeight: '34px', letterSpacing: '-0.015em', fontWeight: '700' }], 'headline-sm': ['17px', { lineHeight: '22px', fontWeight: '600' }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head><body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen" style="background-color: #121212; color: #F5F5F7; min-height: max(884px, 100dvh);"><header class="fixed top-0 inset-x-0 z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.03)] pt-safe" style="background-color: rgba(24, 24, 27, 0.82); border-bottom: 1px solid rgba(255, 255, 255, 0.08); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);"><div class="h-14 px-margin flex items-center justify-between"><div class="flex items-center gap-space-xs"><span class="w-2.5 h-2.5 rounded-full inline-block" style="background-color: #D94E36;"></span><span class="font-headline-sm text-headline-sm tracking-tight font-semibold" style="color: #F5F5F7;">수묵 · 數墨</span></div><h1 class="font-headline-sm text-headline-sm truncate px-space-xs font-semibold" style="color: #F5F5F7;">Draw</h1><div class="flex items-center gap-space-xs"><button aria-label="Menu actions" class="w-11 h-11 flex items-center justify-center rounded-full transition-colors" style="color: #98989D; background: rgba(255, 255, 255, 0.05);"><span class="material-symbols-outlined text-[20px]">tune</span></button><div class="w-8 h-8 rounded-full flex items-center justify-center shadow-sm" style="background-color: #2C2C2E; color: #F5F5F7; border: 1px solid rgba(255, 255, 255, 0.12);"><span class="material-symbols-outlined text-[18px]">person</span></div></div></div></header><main class="flex-1 flex flex-col relative w-full px-margin pt-14 pb-28 bg-surface" style="background-color: #121212;"><div class="flex flex-col w-full relative">
+<!-- Dimmed Draw Tab Canvas Background (Context Backdrop) -->
+<div class="relative w-full h-32 rounded-xl overflow-hidden mb-[-24px] pointer-events-none select-none">
+<!-- Underlying Hanji Rice Paper Surface with Ginkgo Leaf Ink Drawing -->
+<div class="absolute inset-0 bg-[#FAF7F0] flex items-center justify-center p-space-md">
+<svg class="w-48 h-28 opacity-85 text-[#141414]" fill="none" stroke="currentColor" viewbox="0 0 200 120">
+<!-- Generative Ginkgo Line Segments Representation -->
+<path d="M100 115 C98 90 95 70 85 55" stroke-linecap="round" stroke-width="2.5"></path>
+<path d="M85 55 C65 52 45 35 30 18" opacity="0.7" stroke-linecap="round" stroke-width="1.2"></path>
+<path d="M85 55 C72 45 58 26 48 10" opacity="0.8" stroke-linecap="round" stroke-width="1.1"></path>
+<path d="M85 55 C80 40 70 20 68 8" stroke-linecap="round" stroke-width="1.2"></path>
+<path d="M85 55 C88 38 86 18 90 6" stroke-linecap="round" stroke-width="1.3"></path>
+<path d="M85 55 C96 36 104 18 112 8" stroke-linecap="round" stroke-width="1.2"></path>
+<path d="M85 55 C105 40 120 22 134 12" opacity="0.8" stroke-linecap="round" stroke-width="1.1"></path>
+<path d="M85 55 C115 48 138 32 155 22" opacity="0.75" stroke-linecap="round" stroke-width="1.2"></path>
+<path d="M85 55 C125 56 150 44 170 36" opacity="0.6" stroke-linecap="round" stroke-width="1"></path>
+<!-- Fluted Fan Silhouette Ink Wash Contour -->
+<path d="M30 18 Q60 5 100 7 T170 36" opacity="0.4" stroke-dasharray="2 3" stroke-width="0.8"></path>
+</svg>
+<!-- Small Red Seal Stamp on Backdrop Paper -->
+<div class="absolute bottom-6 right-6 w-5 h-5 rounded-[2px] bg-primary-container flex items-center justify-center shadow-sm opacity-75">
+<span class="font-code-sm text-[8px] text-white font-bold leading-none select-none">數墨</span>
+</div>
+</div>
+<!-- Deep Obsidian Dark Dimmer Overlay with Liquid Blur -->
+<div class="absolute inset-0 bg-background/80 backdrop-blur-[6px]"></div>
+</div>
+<!-- iOS 26 Liquid Glass Modal Sheet Container -->
+<div class="relative w-full rounded-t-[28px] bg-surface-container-low/95 backdrop-blur-[32px] shadow-[0_-12px_40px_rgba(0,0,0,0.7)] px-margin pt-space-sm pb-space-xl flex flex-col gap-space-md z-10" style="-webkit-backdrop-filter: blur(32px);">
+<!-- Grab Handle Capsule -->
+<div class="w-full flex justify-center pt-space-xs pb-space-xs">
+<div class="w-10 h-1.5 rounded-full bg-white/20"></div>
+</div>
+<!-- Sheet Navigation Header -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-secondary tracking-wider uppercase">ALGORITHM PRESETS</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-semibold tracking-tight">프리셋 서랍</h2>
+<button aria-label="닫기" class="w-8 h-8 rounded-full bg-surface-variant/80 hover:bg-surface-bright active:scale-95 transition-all flex items-center justify-center text-on-surface shadow-sm" id="closePresetBtn" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<!-- Subtitle Meta Caption -->
+<p class="font-body-sm text-body-sm text-secondary -mt-space-xs leading-relaxed">
+      엄선된 6종의 수식 알고리즘 프리셋 · 탭하여 화선지에 즉시 투영
+    </p>
+<!-- Filter Segmented Chips -->
+<div class="flex items-center gap-space-xs overflow-x-auto pb-space-xs" id="filterContainer">
+<button class="px-space-md py-1.5 rounded-full font-label-sm text-label-sm bg-primary-container text-white font-medium shadow-sm transition-all flex items-center gap-1 shrink-0">
+<span>전체</span>
+<span class="opacity-80 text-[10px] bg-black/20 px-1.5 py-0.2 rounded-full">6</span>
+</button>
+<button class="px-space-md py-1.5 rounded-full font-label-sm text-label-sm bg-surface-container-high/70 hover:bg-surface-bright text-secondary hover:text-on-surface transition-all flex items-center gap-1 shrink-0">
+<span>선분 수식</span>
+<span class="opacity-60 text-[10px]">4</span>
+</button>
+<button class="px-space-md py-1.5 rounded-full font-label-sm text-label-sm bg-surface-container-high/70 hover:bg-surface-bright text-secondary hover:text-on-surface transition-all flex items-center gap-1 shrink-0">
+<span>원 수식</span>
+<span class="opacity-60 text-[10px]">2</span>
+</button>
+</div>
+<!-- Presets List (6 Crafted Algorithms with Preserved Rice Paper Thumbnails) -->
+<div class="flex flex-col gap-space-sm" id="presetList">
+<!-- Preset 1: 은행잎 (Current Active Preset) -->
+<div class="group relative flex items-center gap-space-md p-space-sm rounded-xl bg-surface-container/90 hover:bg-surface-bright/80 active:scale-[0.985] transition-all cursor-pointer shadow-md" role="button" tabindex="0">
+<!-- Vermilion Accent Ambient Left Pip Indicator -->
+<div class="absolute left-1 top-2.5 bottom-2.5 w-1 rounded-full bg-primary-container"></div>
+<!-- Sacred Hanji Canvas Preservation: Light Rice Paper Thumbnail -->
+<div class="relative w-16 h-16 rounded-lg bg-[#FAF7F0] shrink-0 overflow-hidden shadow-inner flex items-center justify-center p-1.5">
+<svg class="w-full h-full text-[#141414]" fill="none" stroke="currentColor" viewbox="0 0 64 64">
+<!-- Delicate radiating ginkgo strokes -->
+<path d="M32 58 C31 46 30 36 26 29" stroke-linecap="round" stroke-width="1.8"></path>
+<path d="M26 29 C20 26 14 18 10 11" stroke-width="0.8"></path>
+<path d="M26 29 C22 23 17 14 15 9" stroke-width="0.8"></path>
+<path d="M26 29 C25 21 21 12 21 7" stroke-width="0.9"></path>
+<path d="M26 29 C27 20 27 10 29 6" stroke-width="0.9"></path>
+<path d="M26 29 C30 19 33 11 36 7" stroke-width="0.8"></path>
+<path d="M26 29 C34 21 39 13 43 9" stroke-width="0.8"></path>
+<path d="M26 29 C38 25 45 18 50 13" stroke-width="0.8"></path>
+<path d="M26 29 C41 28 49 23 54 20" opacity="0.8" stroke-width="0.7"></path>
+<!-- Wavy crest line -->
+<path d="M10 11 Q20 5 32 6 T54 20" opacity="0.5" stroke-dasharray="1.5 2" stroke-width="0.5"></path>
+</svg>
+<!-- Vermilion Mini Seal Stamp in Corner -->
+<div class="absolute bottom-1 right-1 w-3.5 h-3.5 rounded-[1px] bg-primary-container flex items-center justify-center">
+<span class="font-code-sm text-[5.5px] text-white font-bold leading-none select-none">數</span>
+</div>
+</div>
+<!-- Info & Formula Meta -->
+<div class="flex-1 min-w-0 flex flex-col justify-center">
+<div class="flex items-center gap-space-xs mb-0.5">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold truncate">은행잎</h3>
+<span class="font-label-sm text-[10px] text-primary-container bg-primary-container/15 px-1.5 py-0.5 rounded-full font-medium">현재 적용됨</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary truncate">선분 820개 · 잎자루에서 물결치는 가장자리</p>
+<div class="flex items-center gap-1.5 mt-1 font-label-sm text-label-sm text-on-surface-variant">
+<span class="bg-surface-variant px-1.5 py-0.5 rounded text-[10px]">선분 계열 2</span>
+<span class="text-secondary opacity-60">·</span>
+<span class="font-code-sm text-[10px]">820 Segments</span>
+</div>
+</div>
+<!-- Selection Icon Indicator -->
+<div class="w-7 h-7 rounded-full bg-primary-container text-white flex items-center justify-center shrink-0 shadow-sm mr-1">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</div>
+</div>
+<!-- Preset 2: 달항아리 (Moon Jar) -->
+<div class="group flex items-center gap-space-md p-space-sm rounded-xl bg-surface-container/60 hover:bg-surface-bright/80 active:scale-[0.985] transition-all cursor-pointer shadow-sm" role="button" tabindex="0">
+<!-- Sacred Hanji Canvas Preservation: Light Rice Paper Thumbnail -->
+<div class="relative w-16 h-16 rounded-lg bg-[#FAF7F0] shrink-0 overflow-hidden shadow-inner flex items-center justify-center p-1.5">
+<svg class="w-full h-full text-[#141414]" fill="none" viewbox="0 0 64 64">
+<!-- Concentric organic circles forming Moon Jar form -->
+<ellipse cx="32" cy="14" opacity="0.6" rx="10" ry="2.2" stroke="currentColor" stroke-width="0.8"></ellipse>
+<ellipse cx="32" cy="52" opacity="0.6" rx="9" ry="2" stroke="currentColor" stroke-width="0.8"></ellipse>
+<!-- Layered sweeping ring arcs simulating brush weight -->
+<circle cx="32" cy="32" opacity="0.4" r="18" stroke="currentColor" stroke-dasharray="2 1" stroke-width="0.6"></circle>
+<path d="M22 14 C16 22 14 30 16 38 C18 45 23 50 24 52" stroke="currentColor" stroke-linecap="round" stroke-width="1.6"></path>
+<path d="M42 14 C48 22 50 30 48 38 C46 45 41 50 40 52" stroke="currentColor" stroke-linecap="round" stroke-width="1.8"></path>
+<circle cx="32" cy="33" opacity="0.5" r="14" stroke="currentColor" stroke-width="0.7"></circle>
+<circle cx="32" cy="31" opacity="0.3" r="9" stroke="currentColor" stroke-width="0.5"></circle>
+</svg>
+<!-- Vermilion Mini Seal Stamp -->
+<div class="absolute bottom-1 right-1 w-3.5 h-3.5 rounded-[1px] bg-primary-container flex items-center justify-center">
+<span class="font-code-sm text-[5.5px] text-white font-bold leading-none select-none">墨</span>
+</div>
+</div>
+<!-- Info & Formula Meta -->
+<div class="flex-1 min-w-0 flex flex-col justify-center">
+<div class="flex items-center gap-space-xs mb-0.5">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold truncate">달항아리 · 月壺</h3>
+</div>
+<p class="font-body-sm text-body-sm text-secondary truncate">원 4,400개 · 중심은 항아리 윤곽, 반지름은 붓 압력</p>
+<div class="flex items-center gap-1.5 mt-1 font-label-sm text-label-sm text-on-surface-variant">
+<span class="bg-surface-variant px-1.5 py-0.5 rounded text-[10px]">원 계열 1</span>
+<span class="text-secondary opacity-60">·</span>
+<span class="font-code-sm text-[10px]">r = f(pressure)</span>
+</div>
+</div>
+<div class="text-secondary group-hover:text-on-surface transition-colors pr-1">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</div>
+</div>
+<!-- Preset 3: 매화 · 梅花 (Plum Blossom) -->
+<div class="group flex items-center gap-space-md p-space-sm rounded-xl bg-surface-container/60 hover:bg-surface-bright/80 active:scale-[0.985] transition-all cursor-pointer shadow-sm" role="button" tabindex="0">
+<!-- Sacred Hanji Canvas Preservation: Light Rice Paper Thumbnail -->
+<div class="relative w-16 h-16 rounded-lg bg-[#FAF7F0] shrink-0 overflow-hidden shadow-inner flex items-center justify-center p-1.5">
+<svg class="w-full h-full text-[#141414]" fill="none" viewbox="0 0 64 64">
+<!-- Branch segment -->
+<path d="M12 56 C22 46 26 40 32 32" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path>
+<path d="M32 32 C38 24 45 22 52 16" stroke="currentColor" stroke-linecap="round" stroke-width="1.2"></path>
+<!-- 5 Petal Concentric Circles -->
+<circle cx="32" cy="22" fill="currentColor" fill-opacity="0.08" r="6" stroke="currentColor" stroke-width="0.9"></circle>
+<circle cx="41" cy="28" fill="currentColor" fill-opacity="0.08" r="6" stroke="currentColor" stroke-width="0.9"></circle>
+<circle cx="38" cy="39" fill="currentColor" fill-opacity="0.08" r="6" stroke="currentColor" stroke-width="0.9"></circle>
+<circle cx="26" cy="39" fill="currentColor" fill-opacity="0.08" r="6" stroke="currentColor" stroke-width="0.9"></circle>
+<circle cx="23" cy="28" fill="currentColor" fill-opacity="0.08" r="6" stroke="currentColor" stroke-width="0.9"></circle>
+<!-- Central Stamens -->
+<circle cx="32" cy="31" fill="#D94E36" r="1.5"></circle>
+</svg>
+<!-- Vermilion Mini Seal Stamp -->
+<div class="absolute bottom-1 right-1 w-3.5 h-3.5 rounded-[1px] bg-primary-container flex items-center justify-center">
+<span class="font-code-sm text-[5.5px] text-white font-bold leading-none select-none">梅</span>
+</div>
+</div>
+<!-- Info & Formula Meta -->
+<div class="flex-1 min-w-0 flex flex-col justify-center">
+<div class="flex items-center gap-space-xs mb-0.5">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold truncate">매화 · 梅花</h3>
+</div>
+<p class="font-body-sm text-body-sm text-secondary truncate">원 3,561개 · 꽃잎 5장 × 700 + 수술 60</p>
+<div class="flex items-center gap-1.5 mt-1 font-label-sm text-label-sm text-on-surface-variant">
+<span class="bg-surface-variant px-1.5 py-0.5 rounded text-[10px]">사군자 계열</span>
+<span class="text-secondary opacity-60">·</span>
+<span class="font-code-sm text-[10px]">3,561 Circles</span>
+</div>
+</div>
+<div class="text-secondary group-hover:text-on-surface transition-colors pr-1">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</div>
+</div>
+<!-- Preset 4: 잉어 · 鯉 (Carp) -->
+<div class="group flex items-center gap-space-md p-space-sm rounded-xl bg-surface-container/60 hover:bg-surface-bright/80 active:scale-[0.985] transition-all cursor-pointer shadow-sm" role="button" tabindex="0">
+<!-- Sacred Hanji Canvas Preservation: Light Rice Paper Thumbnail -->
+<div class="relative w-16 h-16 rounded-lg bg-[#FAF7F0] shrink-0 overflow-hidden shadow-inner flex items-center justify-center p-1.5">
+<svg class="w-full h-full text-[#141414]" fill="none" stroke="currentColor" viewbox="0 0 64 64">
+<!-- Carp Body Arcs & Cross-Hatching -->
+<path d="M14 24 C24 16 38 18 48 30 C38 42 22 40 14 24Z" stroke-linecap="round" stroke-width="1.3"></path>
+<!-- Hatching Scale Segments -->
+<path d="M22 21 C24 26 24 33 22 37" stroke-width="0.8"></path>
+<path d="M28 20 C31 27 30 35 28 39" stroke-width="0.8"></path>
+<path d="M34 22 C37 28 36 34 34 37" stroke-width="0.8"></path>
+<!-- Fanning Tail Fins -->
+<path d="M48 30 C53 26 57 20 60 16" stroke-linecap="round" stroke-width="1"></path>
+<path d="M48 30 C54 31 59 30 61 28" stroke-linecap="round" stroke-width="0.9"></path>
+<path d="M48 30 C53 35 58 40 60 44" stroke-linecap="round" stroke-width="1"></path>
+</svg>
+<!-- Vermilion Mini Seal Stamp -->
+<div class="absolute bottom-1 right-1 w-3.5 h-3.5 rounded-[1px] bg-primary-container flex items-center justify-center">
+<span class="font-code-sm text-[5.5px] text-white font-bold leading-none select-none">鯉</span>
+</div>
+</div>
+<!-- Info & Formula Meta -->
+<div class="flex-1 min-w-0 flex flex-col justify-center">
+<div class="flex items-center gap-space-xs mb-0.5">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold truncate">잉어 · 鯉</h3>
+</div>
+<p class="font-body-sm text-body-sm text-secondary truncate">선분 2,760개 · 교차 해칭 몸통 + 부채꼴 꼬리</p>
+<div class="flex items-center gap-1.5 mt-1 font-label-sm text-label-sm text-on-surface-variant">
+<span class="bg-surface-variant px-1.5 py-0.5 rounded text-[10px]">비늘 해칭</span>
+<span class="text-secondary opacity-60">·</span>
+<span class="font-code-sm text-[10px]">2,760 Segments</span>
+</div>
+</div>
+<div class="text-secondary group-hover:text-on-surface transition-colors pr-1">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</div>
+</div>
+<!-- Preset 5: 학 · 鶴 (Crane) -->
+<div class="group flex items-center gap-space-md p-space-sm rounded-xl bg-surface-container/60 hover:bg-surface-bright/80 active:scale-[0.985] transition-all cursor-pointer shadow-sm" role="button" tabindex="0">
+<!-- Sacred Hanji Canvas Preservation: Light Rice Paper Thumbnail -->
+<div class="relative w-16 h-16 rounded-lg bg-[#FAF7F0] shrink-0 overflow-hidden shadow-inner flex items-center justify-center p-1.5">
+<svg class="w-full h-full text-[#141414]" fill="none" stroke="currentColor" viewbox="0 0 64 64">
+<!-- Graceful Crane S-Curve Neck & Sine Wings -->
+<path d="M22 12 Q24 8 28 8" stroke-linecap="round" stroke-width="1.2"></path>
+<path d="M22 12 C20 18 24 24 22 32" stroke-linecap="round" stroke-width="1.2"></path>
+<!-- Sinusoidal feather envelope lines -->
+<path d="M22 32 C14 30 8 36 6 42" stroke-width="0.9"></path>
+<path d="M22 32 C30 28 42 22 56 18" stroke-linecap="round" stroke-width="1.4"></path>
+<path d="M24 34 C32 31 44 26 54 24" opacity="0.8" stroke-width="0.9"></path>
+<path d="M26 36 C34 34 44 32 50 32" opacity="0.7" stroke-width="0.8"></path>
+<!-- Stately Stilt Legs -->
+<path d="M25 40 L24 58" stroke-linecap="round" stroke-width="1"></path>
+<path d="M28 40 L30 57" stroke-linecap="round" stroke-width="0.8"></path>
+</svg>
+<!-- Vermilion Mini Seal Stamp -->
+<div class="absolute bottom-1 right-1 w-3.5 h-3.5 rounded-[1px] bg-primary-container flex items-center justify-center">
+<span class="font-code-sm text-[5.5px] text-white font-bold leading-none select-none">鶴</span>
+</div>
+</div>
+<!-- Info & Formula Meta -->
+<div class="flex-1 min-w-0 flex flex-col justify-center">
+<div class="flex items-center gap-space-xs mb-0.5">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold truncate">학 · 鶴</h3>
+</div>
+<p class="font-body-sm text-body-sm text-secondary truncate">선분 2,760개 · sin⁷ 날개 포락선 + S자 목</p>
+<div class="flex items-center gap-1.5 mt-1 font-label-sm text-label-sm text-on-surface-variant">
+<span class="bg-surface-variant px-1.5 py-0.5 rounded text-[10px]">sin⁷ envelope</span>
+<span class="text-secondary opacity-60">·</span>
+<span class="font-code-sm text-[10px]">2,760 Segments</span>
+</div>
+</div>
+<div class="text-secondary group-hover:text-on-surface transition-colors pr-1">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</div>
+</div>
+<!-- Preset 6: 빈 시작 (Blank Canvas / New Formula) -->
+<div class="group flex items-center gap-space-md p-space-sm rounded-xl bg-surface-container/60 hover:bg-surface-bright/80 active:scale-[0.985] transition-all cursor-pointer shadow-sm" role="button" tabindex="0">
+<!-- Sacred Hanji Canvas Preservation: Light Rice Paper Thumbnail -->
+<div class="relative w-16 h-16 rounded-lg bg-[#FAF7F0] shrink-0 overflow-hidden shadow-inner flex items-center justify-center p-1.5">
+<svg class="w-full h-full text-[#141414]" fill="none" stroke="currentColor" viewbox="0 0 64 64">
+<!-- Minimalist initial baseline stroke & coordinate axes -->
+<line opacity="0.4" stroke-dasharray="2 2" stroke-width="0.8" x1="12" x2="52" y1="32" y2="32"></line>
+<line opacity="0.4" stroke-dasharray="2 2" stroke-width="0.8" x1="32" x2="32" y1="12" y2="52"></line>
+<!-- Single organic seed brushstroke -->
+<path d="M20 40 Q32 20 44 26" stroke-linecap="round" stroke-width="2.2"></path>
+</svg>
+<!-- Gentle Vermilion Plus Overlay Badge -->
+<div class="absolute top-1 right-1 w-4 h-4 rounded-full bg-primary-container text-white flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[11px] leading-none">add</span>
+</div>
+</div>
+<!-- Info & Formula Meta -->
+<div class="flex-1 min-w-0 flex flex-col justify-center">
+<div class="flex items-center gap-space-xs mb-0.5">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold truncate">빈 시작 · 新構想</h3>
+</div>
+<p class="font-body-sm text-body-sm text-secondary truncate">선분 계열 하나로 시작하는 순수 스크립트</p>
+<div class="flex items-center gap-1.5 mt-1 font-label-sm text-label-sm text-on-surface-variant">
+<span class="bg-surface-variant px-1.5 py-0.5 rounded text-[10px]">기본 템플릿</span>
+<span class="text-secondary opacity-60">·</span>
+<span class="font-code-sm text-[10px]">새 수식 편집</span>
+</div>
+</div>
+<div class="text-secondary group-hover:text-on-surface transition-colors pr-1">
+<span class="material-symbols-outlined text-[20px]">add_circle_outline</span>
+</div>
+</div>
+</div>
+<!-- Footnote Meta Readout Banner -->
+<div class="flex items-center gap-space-xs p-space-sm rounded-lg bg-surface-container-high/60 mt-space-xs">
+<span class="material-symbols-outlined text-[16px] text-primary shrink-0">info</span>
+<p class="font-body-sm text-[11px] text-secondary leading-snug">
+        프리셋을 선택하면 현재 캔버스에 수식과 렌더링이 즉시 반영됩니다.
+      </p>
+</div>
+</div>
+</div>
+<script>
+  // Micro-interactions: Preset selection and close button behavior
+  (function() {
+    const list = document.getElementById('presetList');
+    const closeBtn = document.getElementById('closePresetBtn');
+
+    if (list) {
+      const items = list.querySelectorAll('[role="button"]');
+      items.forEach((item) => {
+        item.addEventListener('click', () => {
+          // Remove active styles from siblings
+          items.forEach((el) => {
+            el.classList.remove('bg-surface-container/90');
+            el.classList.add('bg-surface-container/60');
+            const checkIndicator = el.querySelector('.bg-primary-container.text-white.rounded-full');
+            const leftPip = el.querySelector('.absolute.left-1');
+            const badge = el.querySelector('.text-primary-container.bg-primary-container\\/15');
+            if (leftPip) leftPip.remove();
+            if (badge) badge.remove();
+            if (checkIndicator && !checkIndicator.classList.contains('top-1')) {
+              // Convert checkmark to chevron
+              checkIndicator.outerHTML = '<div class="text-secondary group-hover:text-on-surface transition-colors pr-1"><span class="material-symbols-outlined text-[20px]">chevron_right</span></div>';
+            }
+          });
+
+          // Apply active styling to clicked preset
+          item.classList.remove('bg-surface-container/60');
+          item.classList.add('bg-surface-container/90');
+
+          // Prepend left vermilion pip if missing
+          if (!item.querySelector('.absolute.left-1')) {
+            const pip = document.createElement('div');
+            pip.className = 'absolute left-1 top-2.5 bottom-2.5 w-1 rounded-full bg-primary-container';
+            item.prepend(pip);
+          }
+
+          // Add active badge if absent
+          const titleContainer = item.querySelector('.flex.items-center.gap-space-xs');
+          if (titleContainer && !titleContainer.querySelector('.text-primary-container')) {
+            const newBadge = document.createElement('span');
+            newBadge.className = 'font-label-sm text-[10px] text-primary-container bg-primary-container/15 px-1.5 py-0.5 rounded-full font-medium';
+            newBadge.textContent = '현재 적용됨';
+            titleContainer.appendChild(newBadge);
+          }
+
+          // Replace trailing icon with vermilion checkmark
+          const trailingIcon = item.querySelector('.material-symbols-outlined.text-\\[20px\\]');
+          if (trailingIcon) {
+            const parent = trailingIcon.parentElement;
+            parent.outerHTML = '<div class="w-7 h-7 rounded-full bg-primary-container text-white flex items-center justify-center shrink-0 shadow-sm mr-1"><span class="material-symbols-outlined text-[16px]">check</span></div>';
+          }
+        });
+      });
+    }
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => {
+        const sheet = closeBtn.closest('.rounded-t-\\[28px\\]');
+        if (sheet) {
+          sheet.style.transform = 'translateY(100%)';
+          sheet.style.transition = 'transform 0.28s cubic-bezier(0.32, 0.72, 0, 1)';
+          setTimeout(() => {
+            sheet.style.transform = 'translateY(0)';
+          }, 600);
+        }
+      });
+    }
+  })();
+</script></main><nav class="fixed bottom-0 inset-x-0 z-50 pb-safe pointer-events-none flex justify-center" data-active-classes="text-secondary font-semibold"><div class="pointer-events-auto mx-margin mb-space-sm w-full max-w-[361px] h-16 rounded-full shadow-[0_8px_30px_rgba(0,0,0,0.6)] px-space-md flex items-center justify-around" style="background-color: rgba(20, 20, 20, 0.85); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border: 1px solid rgba(255, 255, 255, 0.12);"><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] transition-all gap-0.5" data-path="draw" href="#" style="color: #D94E36;"><span class="material-symbols-outlined text-[24px]">gesture</span><span class="font-label-chip text-label-chip">그리기</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] transition-all gap-0.5" data-path="reading" href="#" style="color: #98989D;"><span class="material-symbols-outlined text-[24px]">auto_stories</span><span class="font-label-chip text-label-chip">읽기</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] transition-all gap-0.5" data-path="gallery" href="#" style="color: #98989D;"><span class="material-symbols-outlined text-[24px]">grid_view</span><span class="font-label-chip text-label-chip">갤러리</span></a></div></nav></body></html>

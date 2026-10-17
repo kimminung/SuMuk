@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="ko"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: 'class', theme: { extend: { colors: { 'on-surface-variant': '#444748', 'on-secondary-fixed': '#3f0300', 'tertiary-fixed-dim': '#c7c6cb', 'surface-tint': '#5f5e5e', 'on-tertiary': '#ffffff', 'inverse-primary': '#c8c6c5', 'on-tertiary-container': '#848388', 'surface-dim': '#dcdad3', 'on-primary-fixed': '#1c1b1b', 'surface-container': '#f0eee7', 'on-error-container': '#93000a', 'error-container': '#ffdad6', 'secondary-fixed': '#ffdad3', 'primary-fixed': '#e5e2e1', 'on-primary-container': '#858383', 'on-surface': '#1c1c18', 'outline-variant': '#c4c7c7', 'tertiary-container': '#1a1b1f', 'on-error': '#ffffff', 'primary-container': '#1c1b1b', 'inverse-surface': '#31312c', 'primary': '#000000', 'on-secondary-container': '#6a0900', 'on-tertiary-fixed': '#1a1b1f', 'surface-bright': '#fcf9f2', 'surface-container-high': '#ebe8e1', 'secondary': '#ad321e', 'surface-container-low': '#f6f3ec', 'tertiary': '#000000', 'on-background': '#1c1c18', 'tertiary-fixed': '#e3e2e7', 'primary-fixed-dim': '#c8c6c5', 'on-tertiary-fixed-variant': '#46464b', 'on-primary': '#ffffff', 'surface': '#fcf9f2', 'inverse-on-surface': '#f3f0ea', 'on-secondary': '#ffffff', 'surface-variant': '#e5e2db', 'error': '#ba1a1a', 'surface-container-lowest': '#ffffff', 'secondary-fixed-dim': '#ffb4a6', 'on-secondary-fixed-variant': '#8b1908', 'outline': '#747878', 'secondary-container': '#ff6d53', 'on-primary-fixed-variant': '#474646', 'background': '#fcf9f2', 'surface-container-highest': '#e5e2db' }, borderRadius: { 'DEFAULT': '0.25rem', 'lg': '0.5rem', 'xl': '0.75rem', 'full': '9999px' }, spacing: { 'margin': '1rem', 'space-lg': '1rem', 'space-sm': '0.5rem', 'space-md': '0.75rem', 'gutter': '1rem', 'space-xl': '1.5rem', 'space-xs': '0.25rem' }, fontFamily: { 'headline-md': ['Public Sans'], 'body-lg': ['Public Sans'], 'label-math': ['Space Mono'], 'label-code': ['Space Mono'], 'label-chip': ['Space Mono'], 'headline-lg': ['Public Sans'], 'display-lg': ['Public Sans'], 'body-md': ['Public Sans'], 'body-sm': ['Public Sans'], 'display-lg-mobile': ['Public Sans'], 'headline-sm': ['Public Sans'] }, fontSize: { 'headline-md': ['20px', { lineHeight: '25px', letterSpacing: '-0.005em', fontWeight: '600' }], 'body-lg': ['17px', { lineHeight: '24px', fontWeight: '400' }], 'label-math': ['15px', { lineHeight: '20px', letterSpacing: '-0.01em', fontWeight: '700' }], 'label-code': ['13px', { lineHeight: '18px', letterSpacing: '0em', fontWeight: '400' }], 'label-chip': ['11px', { lineHeight: '14px', letterSpacing: '0.02em', fontWeight: '400' }], 'headline-lg': ['24px', { lineHeight: '30px', letterSpacing: '-0.01em', fontWeight: '600' }], 'display-lg': ['34px', { lineHeight: '41px', letterSpacing: '-0.02em', fontWeight: '700' }], 'body-md': ['15px', { lineHeight: '21px', fontWeight: '400' }], 'body-sm': ['13px', { lineHeight: '18px', fontWeight: '400' }], 'display-lg-mobile': ['28px', { lineHeight: '34px', letterSpacing: '-0.015em', fontWeight: '700' }], 'headline-sm': ['17px', { lineHeight: '22px', fontWeight: '600' }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head><body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen" style="background-color: #121212; color: #F5F5F7; min-height: max(884px, 100dvh);"><header class="fixed top-0 inset-x-0 z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.03)] pt-safe" style="background-color: rgba(24, 24, 27, 0.82); border-bottom: 1px solid rgba(255, 255, 255, 0.08); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);"><div class="h-14 px-margin flex items-center justify-between"><div class="flex items-center gap-space-xs"><span class="w-2.5 h-2.5 rounded-full inline-block" style="background-color: #D94E36;"></span><span class="font-headline-sm text-headline-sm tracking-tight font-semibold" style="color: #F5F5F7;">수묵 · 數墨</span></div><h1 class="font-headline-sm text-headline-sm truncate px-space-xs font-semibold" style="color: #F5F5F7;">Draw</h1><div class="flex items-center gap-space-xs"><button aria-label="Menu actions" class="w-11 h-11 flex items-center justify-center rounded-full transition-colors" style="color: #98989D; background: rgba(255, 255, 255, 0.05);"><span class="material-symbols-outlined text-[20px]">tune</span></button><div class="w-8 h-8 rounded-full flex items-center justify-center shadow-sm" style="background-color: #2C2C2E; color: #F5F5F7; border: 1px solid rgba(255, 255, 255, 0.12);"><span class="material-symbols-outlined text-[18px]">person</span></div></div></div></header><main class="flex-1 flex flex-col relative w-full px-margin pt-14 pb-28 bg-surface" style="background-color: #121212;"><div class="flex flex-col w-full pb-6 space-y-space-md">
+<!-- Inline Sub-Header Navigation & Control -->
+<div class="flex items-center justify-between pt-space-xs px-space-xs">
+<div class="flex items-center gap-space-sm">
+<div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight">읽기 · 사진 → 수식</h2>
+</div>
+<button class="flex items-center gap-1.5 px-space-md py-1.5 rounded-full bg-surface-container-high text-on-surface shadow-sm active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">photo_library</span>
+<span class="font-label-sm text-label-sm font-medium">사진</span>
+</button>
+</div>
+<!-- 1. PREVIEW CARD: Visual Metaphor (Hanji / Photo + Ink Overlay) -->
+<div class="relative w-full h-[352px] rounded-xl overflow-hidden bg-surface-container-lowest shadow-2xl flex flex-col justify-between p-space-md">
+<!-- Authentic Rice Paper / Photo Backdrop with Ink Simulation -->
+<div class="absolute inset-0 bg-[#FAF7F0] overflow-hidden">
+<!-- Dimmed source photographic shelf composition -->
+<div class="absolute inset-0 bg-cover bg-center opacity-40 mix-blend-multiply filter contrast-125" data-alt="An upright wooden artisanal snack and tea canister display shelf with soft natural ambient lighting, photographed at eye level, clean East Asian aesthetic with warm timber textures and porcelain jars." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAutaL7_vDNBybGoBzPq79l6momLrj4QHOTtBDT1qxrp7GquZHN3r696ArKslfYEI5pqpZ5GPjAzqzhpXnTzifRK0qpX248oZqrBcR369sQiKbC4l2RQaRs1XqY-qkgUdgPz-qabRlIfBDsl71woyLzQJtv9dDwdKM3lKMYRayqsy5sYKSp3UIA9tGRuVd-IfiGa2J9HCIemgfkFSXUL8q1QXbNs0IAY_gQD8V78Z_XeopBrKzEjsQy')">
+</div>
+<!-- Ink Stipple & Fourier Curve Overlay (East Asian Sumuk Rendering) -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none" fill="none" viewbox="0 0 360 352" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<radialgradient cx="50%" cy="50%" id="inkGlow" r="50%">
+<stop offset="0%" stop-color="#141414" stop-opacity="0.85"></stop>
+<stop offset="100%" stop-color="#141414" stop-opacity="0"></stop>
+</radialgradient>
+</defs>
+<!-- Sumuk Stipple Cloud Field (Simulated DCT Densities) -->
+<g fill="#141414" opacity="0.78">
+<circle cx="82" cy="74" r="1.2"></circle>
+<circle cx="86" cy="78" r="0.9"></circle>
+<circle cx="91" cy="72" r="1.4"></circle>
+<circle cx="95" cy="80" r="1.1"></circle>
+<circle cx="102" cy="76" r="0.8"></circle>
+<circle cx="114" cy="84" r="1.3"></circle>
+<circle cx="120" cy="88" r="1.6"></circle>
+<circle cx="124" cy="79" r="1.0"></circle>
+<circle cx="132" cy="92" r="0.8"></circle>
+<!-- Central Cluster Density -->
+<circle cx="170" cy="142" r="1.5"></circle>
+<circle cx="174" cy="148" r="1.2"></circle>
+<circle cx="168" cy="155" r="1.8"></circle>
+<circle cx="182" cy="150" r="1.1"></circle>
+<circle cx="190" cy="158" r="1.4"></circle>
+<circle cx="178" cy="164" r="1.7"></circle>
+<circle cx="184" cy="170" r="1.3"></circle>
+<circle cx="162" cy="166" r="1.0"></circle>
+<circle cx="194" cy="146" r="0.9"></circle>
+<circle cx="204" cy="154" r="1.2"></circle>
+<circle cx="212" cy="160" r="1.5"></circle>
+<circle cx="218" cy="172" r="1.1"></circle>
+<circle cx="156" cy="180" r="1.6"></circle>
+<circle cx="165" cy="192" r="1.4"></circle>
+<circle cx="172" cy="188" r="1.9"></circle>
+<circle cx="180" cy="198" r="1.2"></circle>
+<circle cx="192" cy="190" r="1.7"></circle>
+<circle cx="228" cy="204" r="1.3"></circle>
+<circle cx="236" cy="216" r="1.0"></circle>
+<circle cx="240" cy="222" r="1.5"></circle>
+<circle cx="248" cy="210" r="1.2"></circle>
+<!-- Fine Granular Stipples -->
+<circle cx="78" cy="230" r="1.1"></circle>
+<circle cx="85" cy="242" r="1.3"></circle>
+<circle cx="92" cy="236" r="0.9"></circle>
+<circle cx="98" cy="250" r="1.4"></circle>
+<circle cx="106" cy="244" r="1.2"></circle>
+<circle cx="118" cy="256" r="1.6"></circle>
+<circle cx="128" cy="260" r="1.1"></circle>
+<circle cx="138" cy="268" r="1.5"></circle>
+<circle cx="146" cy="274" r="1.0"></circle>
+</g>
+<!-- 12-Harmonic Fourier Mathematical Contours -->
+<path d="M60 290 C 70 240, 80 180, 75 140 C 72 110, 92 68, 130 65 C 168 62, 195 82, 210 115 C 220 138, 260 160, 275 195 C 290 230, 285 270, 270 300 Z" opacity="0.92" stroke="#141414" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+<path d="M120 70 C 135 90, 140 130, 138 180 C 136 215, 148 240, 170 255 C 190 270, 220 260, 240 235 C 255 215, 250 170, 242 145" opacity="0.75" stroke="#141414" stroke-dasharray="2 1" stroke-width="1.1"></path>
+<path d="M150 110 C 160 125, 175 130, 190 128 C 205 125, 215 135, 218 150 C 220 165, 210 180, 195 185 C 178 190, 162 178, 158 160 Z" opacity="0.88" stroke="#141414" stroke-width="1.4"></path>
+<!-- Vermilion Anchor Callout Points -->
+<circle cx="130" cy="65" fill="#D94E36" r="3"></circle>
+<circle cx="210" cy="115" fill="#D94E36" r="3"></circle>
+<circle cx="178" cy="164" fill="#D94E36" r="3"></circle>
+<circle cx="270" cy="300" fill="#D94E36" r="3"></circle>
+</svg>
+</div>
+<!-- Canvas Inner Ambient Seal -->
+<div class="relative z-10 flex items-center justify-between w-full">
+<!-- Transient Status Telemetry Pill -->
+<div class="flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-surface-container-lowest/85 backdrop-blur-md shadow-md">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-on-surface font-medium tracking-tight">수식 분석 완료 · 2,202점 스티플</span>
+</div>
+<!-- Segmented Toggle (누끼 | 원본) -->
+<div class="flex items-center p-0.5 rounded-lg bg-surface-container-lowest/85 backdrop-blur-md shadow-md">
+<button class="px-2.5 py-1 rounded bg-secondary-container text-on-surface font-label-sm text-label-sm font-semibold shadow-sm" type="button">
+          누끼
+        </button>
+<button class="px-2.5 py-1 rounded text-secondary font-label-sm text-label-sm font-normal active:text-on-surface" type="button">
+          원본
+        </button>
+</div>
+</div>
+<!-- Bottom Left Subtle Paper Density Tag -->
+<div class="relative z-10 flex items-center justify-between w-full">
+<div class="px-2 py-0.5 rounded bg-surface-container-lowest/70 backdrop-blur-sm">
+<span class="font-label-sm text-label-sm text-on-secondary-container font-mono tracking-wider">HANJI ABSORPTION 74%</span>
+</div>
+<div class="w-7 h-7 rounded-full bg-surface-container-lowest/80 backdrop-blur-md flex items-center justify-center text-on-surface shadow">
+<span class="material-symbols-outlined text-[16px]">aspect_ratio</span>
+</div>
+</div>
+</div>
+<!-- 2. ORIENTATION & TILT ROW -->
+<div class="flex items-center justify-between p-space-md rounded-xl bg-surface-container-low shadow-sm">
+<div class="flex items-center gap-space-sm">
+<span class="font-headline-sm text-headline-sm text-on-surface font-medium">방향</span>
+<div class="flex items-center gap-1 bg-surface-container-high p-0.5 rounded-lg">
+<button class="w-7 h-7 rounded flex items-center justify-center text-secondary active:text-on-surface active:bg-surface-variant transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">rotate_left</span>
+</button>
+<button class="w-7 h-7 rounded flex items-center justify-center text-secondary active:text-on-surface active:bg-surface-variant transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">rotate_right</span>
+</button>
+</div>
+<span class="font-label-md text-label-md text-on-surface font-mono font-semibold px-1.5 py-0.5 rounded bg-surface-container-highest">90°</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="font-body-sm text-body-sm text-secondary">수평 자동 보정</span>
+<!-- Custom Vermilion Toggle -->
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-10 h-6 bg-secondary-container rounded-full peer peer-checked:bg-primary-container peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-on-surface after:rounded-full after:h-5 after:w-5 after:transition-all shadow-inner"></div>
+</label>
+</div>
+</div>
+<!-- 3. PIPELINE STEPS CARD (5-Step Execution Telemetry) -->
+<div class="flex flex-col p-space-md rounded-xl bg-surface-container-low shadow-sm space-y-space-sm">
+<div class="flex items-center justify-between pb-space-xs">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight">수식 변환 파이프라인</span>
+<span class="font-label-sm text-label-sm text-secondary font-mono">총 424 ms</span>
+</div>
+<!-- Stepper Item List -->
+<div class="flex flex-col space-y-3 relative">
+<!-- Connected Track Line -->
+<div class="absolute left-2.5 top-3 bottom-3 w-0.5 bg-surface-container-highest -z-0"></div>
+<!-- Step 0 -->
+<div class="relative flex items-start gap-space-md z-10">
+<div class="w-5 h-5 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container mt-0.5 shadow-sm">
+<span class="material-symbols-outlined text-[12px] font-bold">check</span>
+</div>
+<div class="flex-1 flex items-baseline justify-between min-w-0">
+<div class="flex flex-col min-w-0 pr-2">
+<span class="font-body-md text-body-md text-on-surface font-medium truncate">0 방향 보정</span>
+<span class="font-body-sm text-body-sm text-secondary truncate">회전 90° · 수평선 3.2° 미세정렬</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-mono shrink-0">79 ms</span>
+</div>
+</div>
+<!-- Step 1 -->
+<div class="relative flex items-start gap-space-md z-10">
+<div class="w-5 h-5 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container mt-0.5 shadow-sm">
+<span class="material-symbols-outlined text-[12px] font-bold">check</span>
+</div>
+<div class="flex-1 flex items-baseline justify-between min-w-0">
+<div class="flex flex-col min-w-0 pr-2">
+<span class="font-body-md text-body-md text-on-surface font-medium truncate">1 업스케일 텐서</span>
+<span class="font-body-sm text-body-sm text-secondary truncate">1.0× → 3024 × 4032 원본 정규화</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-mono shrink-0">0 ms</span>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="relative flex items-start gap-space-md z-10">
+<div class="w-5 h-5 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container mt-0.5 shadow-sm">
+<span class="material-symbols-outlined text-[12px] font-bold">check</span>
+</div>
+<div class="flex-1 flex items-baseline justify-between min-w-0">
+<div class="flex flex-col min-w-0 pr-2">
+<span class="font-body-md text-body-md text-on-surface font-medium truncate">2 누끼 추출</span>
+<span class="font-body-sm text-body-sm text-secondary truncate">피사체 분리 (배경 화선지 #FAF7F0 치환)</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-mono shrink-0">32 ms</span>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="relative flex items-start gap-space-md z-10">
+<div class="w-5 h-5 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container mt-0.5 shadow-sm">
+<span class="material-symbols-outlined text-[12px] font-bold">check</span>
+</div>
+<div class="flex-1 flex items-baseline justify-between min-w-0">
+<div class="flex flex-col min-w-0 pr-2">
+<span class="font-body-md text-body-md text-on-surface font-medium truncate">3 윤곽 수식화</span>
+<span class="font-body-sm text-body-sm text-secondary truncate">12개 (실루엣 0) 푸리에 조화 16</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-mono shrink-0">251 ms</span>
+</div>
+</div>
+<!-- Step 4 -->
+<div class="relative flex items-start gap-space-md z-10">
+<div class="w-5 h-5 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container mt-0.5 shadow-sm">
+<span class="material-symbols-outlined text-[12px] font-bold">check</span>
+</div>
+<div class="flex-1 flex items-baseline justify-between min-w-0">
+<div class="flex flex-col min-w-0 pr-2">
+<span class="font-body-md text-body-md text-on-surface font-medium truncate">4 농담 밀도 분포</span>
+<span class="font-body-sm text-body-sm text-secondary truncate">DCT 220항 (27×36) · 스티플 2,202점</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-mono shrink-0">62 ms</span>
+</div>
+</div>
+</div>
+</div>
+<!-- 4. CONTOUR CHIPS SECTION -->
+<div class="flex flex-col space-y-space-sm">
+<div class="flex items-center justify-between px-space-xs">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">윤곽 선택</span>
+<span class="font-body-sm text-body-sm text-secondary">(면적순 6개)</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm active:bg-surface-variant transition-colors" type="button">
+          모두 선택
+        </button>
+<button class="px-2 py-0.5 rounded bg-surface-container-high text-secondary font-label-sm text-label-sm active:bg-surface-variant transition-colors" type="button">
+          해제
+        </button>
+</div>
+</div>
+<!-- Horizontally Scrollable Pills -->
+<div class="flex items-center gap-space-sm overflow-x-auto no-scrollbar py-1 -mx-margin px-margin">
+<!-- Active Vermilion Chips -->
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary-container/20 text-primary font-label-md text-label-md font-mono shrink-0 shadow-sm active:scale-95 transition-transform" type="button">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+        7,141점
+      </button>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary-container/20 text-primary font-label-md text-label-md font-mono shrink-0 shadow-sm active:scale-95 transition-transform" type="button">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+        1,887점
+      </button>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary-container/20 text-primary font-label-md text-label-md font-mono shrink-0 shadow-sm active:scale-95 transition-transform" type="button">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+        1,384점
+      </button>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary-container/20 text-primary font-label-md text-label-md font-mono shrink-0 shadow-sm active:scale-95 transition-transform" type="button">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+        1,337점
+      </button>
+<!-- Inactive Dark Chips -->
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container text-secondary font-label-md text-label-md font-mono shrink-0 active:scale-95 transition-transform" type="button">
+        679점
+      </button>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container text-secondary font-label-md text-label-md font-mono shrink-0 active:scale-95 transition-transform" type="button">
+        539점
+      </button>
+</div>
+</div>
+<!-- 5. RECIPE SLIDERS & CONTROLS -->
+<div class="flex flex-col p-space-md rounded-xl bg-surface-container-low space-y-space-md shadow-sm">
+<!-- Curve Toggle & Slider Group -->
+<div class="flex flex-col space-y-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">gesture</span>
+<span class="font-body-md text-body-md text-on-surface font-semibold">곡선 — 윤곽을 푸리에 곡선으로</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-secondary-container rounded-full peer peer-checked:bg-primary-container peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-on-surface after:rounded-full after:h-4 after:w-4 after:transition-all shadow-inner"></div>
+</label>
+</div>
+<!-- Fourier Harmonics Slider -->
+<div class="flex items-center gap-space-md pl-6">
+<span class="font-label-sm text-label-sm text-secondary font-mono shrink-0">조화</span>
+<div class="relative flex-1 flex items-center">
+<input class="w-full h-1.5 bg-surface-container-highest rounded-full appearance-none cursor-pointer accent-primary-container" max="32" min="2" type="range" value="16"/>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface font-mono font-semibold px-2 py-0.5 rounded bg-surface-container-high">16</span>
+</div>
+</div>
+<!-- Divider Bar -->
+<div class="w-full h-px bg-surface-container-highest"></div>
+<!-- Stipple Toggle & Slider Group -->
+<div class="flex flex-col space-y-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">grain</span>
+<span class="font-body-md text-body-md text-on-surface font-semibold">점 — 농담을 밀도로 (스티플)</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-secondary-container rounded-full peer peer-checked:bg-primary-container peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-on-surface after:rounded-full after:h-4 after:w-4 after:transition-all shadow-inner"></div>
+</label>
+</div>
+<!-- Stipple Points Slider -->
+<div class="flex items-center gap-space-md pl-6">
+<span class="font-label-sm text-label-sm text-secondary font-mono shrink-0">점 수</span>
+<div class="relative flex-1 flex items-center">
+<input class="w-full h-1.5 bg-surface-container-highest rounded-full appearance-none cursor-pointer accent-primary-container" max="5000" min="500" type="range" value="2202"/>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface font-mono font-semibold px-2 py-0.5 rounded bg-surface-container-high">2,202</span>
+</div>
+<!-- Gamma Slider -->
+<div class="flex items-center gap-space-md pl-6">
+<span class="font-label-sm text-label-sm text-secondary font-mono shrink-0">감마</span>
+<div class="relative flex-1 flex items-center">
+<input class="w-full h-1.5 bg-surface-container-highest rounded-full appearance-none cursor-pointer accent-primary-container" max="3.0" min="0.3" step="0.05" type="range" value="1.0"/>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface font-mono font-semibold px-2 py-0.5 rounded bg-surface-container-high">1.00</span>
+</div>
+</div>
+</div>
+<!-- 6. RESULT SCRIPT PREVIEW (SF Mono / JetBrains Terminal Window) -->
+<div class="flex flex-col p-space-md rounded-xl bg-surface-container-lowest shadow-inner space-y-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-[16px]">terminal</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">결과 스크립트</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-mono">윤곽 오차 0.37% · 26,221자</span>
+</div>
+<!-- Code Block -->
+<div class="p-3 rounded-lg bg-background overflow-x-auto text-left font-code-sm text-code-sm leading-relaxed shadow-sm">
+<p class="text-secondary select-none">// 사진 → 수식 (회전 90° → 수평 보정 3.2° → Vision 윤곽 → 푸리에 16조화 → 곡선 + 농담 점)</p>
+<p class="text-on-surface mt-1"><span class="text-primary-container font-semibold">canvas</span> 750 × 1000</p>
+<p class="text-on-surface"><span class="text-primary-container font-semibold">ink</span> <span class="text-tertiary">#141414</span> <span class="text-secondary">width</span> 0.5 <span class="text-secondary">alpha</span> 0.8</p>
+<p class="text-on-surface"><span class="text-primary-container font-semibold">let</span> gamma = <span class="text-tertiary">1.0</span> in [<span class="text-tertiary">0.3</span>, <span class="text-tertiary">3.0</span>]</p>
+<p class="text-secondary mt-1">// Fourier Harmonic Coeffs &amp; Stipple Distribution matrix loaded...</p>
+</div>
+</div>
+<!-- 7. PRIMARY ACTION: Vermilion Seal Callout CTA -->
+<div class="pt-space-xs">
+<button class="w-full h-14 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center gap-space-sm shadow-xl active:scale-[0.98] transition-all" type="button">
+<span class="material-symbols-outlined text-[22px]">draw</span>
+<span class="font-headline-sm text-headline-sm font-bold tracking-tight text-white">스크립트로 열기</span>
+</button>
+</div>
+</div></main><nav class="fixed bottom-0 inset-x-0 z-50 pb-safe pointer-events-none flex justify-center" data-active-classes="text-secondary font-semibold"><div class="pointer-events-auto mx-margin mb-space-sm w-full max-w-[361px] h-16 rounded-full shadow-[0_8px_30px_rgba(0,0,0,0.6)] px-space-md flex items-center justify-around" style="background-color: rgba(20, 20, 20, 0.85); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border: 1px solid rgba(255, 255, 255, 0.12);"><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] transition-all gap-0.5" data-path="draw" href="#" style="color: #D94E36;"><span class="material-symbols-outlined text-[24px]">gesture</span><span class="font-label-chip text-label-chip">그리기</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] transition-all gap-0.5" data-path="reading" href="#" style="color: #98989D;"><span class="material-symbols-outlined text-[24px]">auto_stories</span><span class="font-label-chip text-label-chip">읽기</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] transition-all gap-0.5" data-path="gallery" href="#" style="color: #98989D;"><span class="material-symbols-outlined text-[24px]">grid_view</span><span class="font-label-chip text-label-chip">갤러리</span></a></div></nav></body></html>

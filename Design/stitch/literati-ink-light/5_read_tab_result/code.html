@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-tertiary-fixed-variant": "#46464b", "secondary-fixed-dim": "#ffb4a6", "surface": "#fcf9f2", "surface-variant": "#e5e2db", "surface-container-highest": "#e5e2db", "on-surface-variant": "#444748", "primary": "#000000", "tertiary-container": "#1a1b1f", "on-primary-fixed": "#1c1b1b", "surface-dim": "#dcdad3", "on-error": "#ffffff", "on-surface": "#1c1c18", "on-tertiary": "#ffffff", "secondary-container": "#ff6d53", "on-secondary-fixed": "#3f0300", "surface-bright": "#fcf9f2", "on-tertiary-container": "#848388", "primary-container": "#1c1b1b", "surface-tint": "#5f5e5e", "on-secondary": "#ffffff", "inverse-surface": "#31312c", "secondary": "#ad321e", "on-primary-fixed-variant": "#474646", "on-error-container": "#93000a", "background": "#fcf9f2", "surface-container": "#f0eee7", "tertiary-fixed-dim": "#c7c6cb", "outline": "#747878", "primary-fixed-dim": "#c8c6c5", "inverse-primary": "#c8c6c5", "on-secondary-fixed-variant": "#8b1908", "surface-container-lowest": "#ffffff", "on-secondary-container": "#6a0900", "secondary-fixed": "#ffdad3", "inverse-on-surface": "#f3f0ea", "outline-variant": "#c4c7c7", "tertiary": "#000000", "on-tertiary-fixed": "#1a1b1f", "tertiary-fixed": "#e3e2e7", "on-primary-container": "#858383", "surface-container-low": "#f6f3ec", "primary-fixed": "#e5e2e1", "on-primary": "#ffffff", "on-background": "#1c1c18", "surface-container-high": "#ebe8e1", "error-container": "#ffdad6", "error": "#ba1a1a" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-xl": "1.5rem", "space-lg": "1rem", "margin": "1rem", "gutter": "1rem", "space-md": "0.75rem", "space-xs": "0.25rem", "space-sm": "0.5rem" }, "fontFamily": { "label-chip": ["Space Mono"], "headline-lg": ["Public Sans"], "body-sm": ["Public Sans"], "body-lg": ["Public Sans"], "display-lg-mobile": ["Public Sans"], "label-code": ["Space Mono"], "body-md": ["Public Sans"], "headline-md": ["Public Sans"], "label-math": ["Space Mono"], "headline-sm": ["Public Sans"], "display-lg": ["Public Sans"] }, "fontSize": { "label-chip": ["11px", { "lineHeight": "14px", "letterSpacing": "0.02em", "fontWeight": "400" }], "headline-lg": ["24px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }], "body-lg": ["17px", { "lineHeight": "24px", "fontWeight": "400" }], "display-lg-mobile": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "700" }], "label-code": ["13px", { "lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "400" }], "body-md": ["15px", { "lineHeight": "21px", "fontWeight": "400" }], "headline-md": ["20px", { "lineHeight": "25px", "letterSpacing": "-0.005em", "fontWeight": "600" }], "label-math": ["15px", { "lineHeight": "20px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "headline-sm": ["17px", { "lineHeight": "22px", "fontWeight": "600" }], "display-lg": ["34px", { "lineHeight": "41px", "letterSpacing": "-0.02em", "fontWeight": "700" }] } } } };</script><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head><body class="bg-surface text-on-surface font-body-md text-body-md min-h-screen flex flex-col antialiased selection:bg-secondary-fixed selection:text-on-secondary-fixed"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-margin flex items-center justify-between"><div class="flex items-center gap-space-sm min-w-0"><span class="w-2 h-2 rounded-full bg-secondary shrink-0"></span><h1 class="font-headline-sm text-headline-sm text-on-surface truncate tracking-tight">Read</h1></div><div class="flex items-center gap-space-sm shrink-0"><button class="min-w-[44px] min-h-[44px] px-space-sm py-space-xs rounded-full bg-surface-container flex items-center gap-space-xs text-on-surface hover:bg-surface-container-high transition-colors" type="button"><span class="material-symbols-outlined text-[18px] text-secondary">add_photo_alternate</span><span class="font-label-chip text-label-chip text-on-surface font-medium">사진 고르기</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-16 pb-28 px-margin bg-surface flex-1"><div class="flex flex-col w-full pb-8 space-y-4">
+<!-- TOP SUB-HEADER BAR -->
+<div class="flex items-center justify-between px-1">
+<div class="flex items-baseline gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface">분석 결과</span>
+<span class="font-label-chip text-label-chip text-secondary font-medium tracking-tight bg-secondary-fixed/50 px-2 py-0.5 rounded-full">사진 → 수식</span>
+</div>
+<div class="flex items-center gap-1.5">
+<button class="flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-surface-container-high text-on-surface hover:bg-surface-dim transition-colors text-body-sm font-body-sm" type="button">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">photo_library</span>
+<span>사진 변경</span>
+</button>
+<button aria-label="공유" class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface hover:bg-surface-dim transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</button>
+</div>
+</div>
+<!-- PREVIEW CARD WITH MATHEMATICAL INK OVERLAY -->
+<div class="relative w-full h-[336px] rounded-xl overflow-hidden bg-surface-container-low shadow-sm flex items-center justify-center select-none">
+<!-- Dimmed Snack Shelf Pantry Substrate Image -->
+<div class="absolute inset-0 bg-cover bg-center opacity-40 mix-blend-multiply filter contrast-125 brightness-95" data-alt="A detailed straight-on photograph of neatly organized convenience store snack shelves and pantry packaging, illuminated by soft diffuse lighting, warm organic tones, rice paper grain filter texture, quiet atmospheric depth." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCCJJKxDwm8SoKWxHIsx5Lv4G9V0ZoqbNqdkpiFamn6rhgmsrWs1bRRw4Sek69sRPgzGAqCURvA4_UFMW63xjklE2487EY_Ug_q5K0zR_UtV0JmY0l5K7nYTDiBf1mjFh10SbULSugm2zGWE-6CfsBhfnfIacF9F13U6_xAdzdRggtBHeueWsABrRVRn4Ue5LRU_dy6GPXpsReDagKci7gfBrqBBX6U05gzOb_6EXojQAmES-XY_Z-K')"></div>
+<!-- Mathematical Hanji (Rice Paper) Texture Gradient Filter -->
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/40 to-surface/20 pointer-events-none"></div>
+<!-- Generative Vector Fourier Ink Overlay & Stippling -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none" fill="none" viewbox="0 0 361 336" xmlns="http://www.w3.org/2000/svg">
+<!-- Shelf horizontal datum line & guides -->
+<line stroke="#1c1c18" stroke-dasharray="2 3" stroke-opacity="0.35" stroke-width="0.75" x1="24" x2="337" y1="112" y2="112"></line>
+<line stroke="#1c1c18" stroke-dasharray="2 3" stroke-opacity="0.35" stroke-width="0.75" x1="24" x2="337" y1="214" y2="214"></line>
+<!-- Contour 1: Main Shelf Lip & Boxes (Fourier approximation spline) -->
+<path d="M 32 110 C 68 108, 92 112, 134 111 C 182 110, 240 114, 328 111" stroke="#1c1c18" stroke-linecap="round" stroke-width="1.3"></path>
+<path d="M 34 212 C 72 210, 150 215, 220 213 C 280 212, 305 214, 330 212" stroke="#1c1c18" stroke-linecap="round" stroke-width="1.2"></path>
+<!-- Contour 2-4: Snack Box Silhouettes Top Row -->
+<path d="M 46 110 C 44 80, 48 58, 52 46 C 68 44, 94 45, 110 47 C 114 62, 112 88, 110 110 Z" stroke="#1c1c18" stroke-linejoin="round" stroke-width="1.1"></path>
+<path d="M 124 110 C 122 72, 126 50, 132 38 C 158 37, 186 38, 204 40 C 206 64, 202 89, 200 110 Z" stroke="#1c1c18" stroke-linejoin="round" stroke-width="1.2"></path>
+<path d="M 220 110 C 218 68, 222 56, 228 44 C 258 43, 290 45, 316 46 C 314 74, 312 94, 308 110 Z" stroke="#1c1c18" stroke-linejoin="round" stroke-width="1.1"></path>
+<!-- Package Graphic Flourishes (Simulated Fourier 16 Harmoniques) -->
+<path d="M 60 76 C 70 66, 90 66, 100 78 C 88 88, 72 86, 60 76 Z" stroke="#1c1c18" stroke-opacity="0.8" stroke-width="0.75"></path>
+<path d="M 144 72 C 158 60, 178 62, 192 76 C 174 86, 156 82, 144 72 Z" stroke="#1c1c18" stroke-opacity="0.8" stroke-width="0.75"></path>
+<!-- Contour 5-8: Bottom Row Snack Bags with dynamic calligraphy stroke weights -->
+<path d="M 50 212 C 46 180, 40 152, 58 136 C 80 134, 108 135, 118 140 C 126 158, 122 186, 120 212 Z" stroke="#1c1c18" stroke-width="1.2"></path>
+<path d="M 136 212 C 132 174, 130 148, 150 132 C 178 130, 202 134, 214 142 C 220 166, 216 190, 212 212 Z" stroke="#1c1c18" stroke-width="1.3"></path>
+<path d="M 230 212 C 228 178, 224 150, 246 134 C 274 132, 298 136, 314 144 C 318 170, 312 192, 306 212 Z" stroke="#1c1c18" stroke-width="1.1"></path>
+<!-- Stipple Dots Matrix (Sparse on labels, dense in shadows/recesses) -->
+<!-- Shadow Crevice 1: Left Wall -->
+<g fill="#1c1c18" opacity="0.85">
+<circle cx="36" cy="116" r="0.75"></circle><circle cx="40" cy="118" r="0.6"></circle><circle cx="34" cy="122" r="0.9"></circle><circle cx="38" cy="128" r="0.65"></circle>
+<circle cx="42" cy="132" r="0.85"></circle><circle cx="36" cy="138" r="0.75"></circle><circle cx="44" cy="144" r="0.6"></circle><circle cx="38" cy="150" r="0.85"></circle>
+<circle cx="35" cy="158" r="0.75"></circle><circle cx="40" cy="164" r="0.65"></circle><circle cx="45" cy="170" r="0.85"></circle><circle cx="37" cy="178" r="0.7"></circle>
+<!-- Shelf Crevice Under Mid Packages -->
+<circle cx="114" cy="116" r="0.85"></circle><circle cx="118" cy="117" r="0.75"></circle><circle cx="122" cy="116" r="0.65"></circle><circle cx="116" cy="120" r="0.9"></circle>
+<circle cx="206" cy="117" r="0.85"></circle><circle cx="210" cy="118" r="0.7"></circle><circle cx="214" cy="117" r="0.8"></circle><circle cx="208" cy="121" r="0.9"></circle>
+<circle cx="122" cy="216" r="0.85"></circle><circle cx="126" cy="218" r="0.7"></circle><circle cx="216" cy="216" r="0.8"></circle><circle cx="220" cy="217" r="0.9"></circle>
+<!-- Volumetric Shading Particles on Bags -->
+<circle cx="82" cy="180" r="0.6"></circle><circle cx="86" cy="184" r="0.75"></circle><circle cx="92" cy="188" r="0.7"></circle><circle cx="78" cy="190" r="0.8"></circle><circle cx="84" cy="194" r="0.65"></circle><circle cx="90" cy="198" r="0.85"></circle>
+<circle cx="166" cy="176" r="0.6"></circle><circle cx="172" cy="182" r="0.75"></circle><circle cx="180" cy="186" r="0.7"></circle><circle cx="164" cy="192" r="0.85"></circle><circle cx="174" cy="196" r="0.65"></circle><circle cx="182" cy="202" r="0.8"></circle>
+<circle cx="260" cy="178" r="0.65"></circle><circle cx="268" cy="184" r="0.8"></circle><circle cx="274" cy="186" r="0.7"></circle><circle cx="258" cy="192" r="0.85"></circle><circle cx="266" cy="198" r="0.6"></circle><circle cx="278" cy="200" r="0.75"></circle>
+</g>
+</svg>
+<!-- Top Left Status Pill Badge -->
+<div class="absolute top-3 left-3 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-lowest/80 backdrop-blur-md shadow-[0_2px_8px_rgba(0,0,0,0.06)]">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+<span class="font-label-chip text-label-chip text-on-surface font-medium tracking-tight">분석 완료 · 12개 윤곽 · 2,202점</span>
+</div>
+<!-- Top Right Toggle Pill: 누끼 / 원본 -->
+<div class="absolute top-3 right-3 p-0.5 rounded-full bg-surface-container-lowest/80 backdrop-blur-md shadow-[0_2px_8px_rgba(0,0,0,0.06)] flex items-center">
+<button class="px-2 py-0.5 rounded-full font-label-chip text-label-chip text-on-surface-variant transition-colors" type="button">
+        누끼
+      </button>
+<button class="px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface font-label-chip text-label-chip font-bold transition-all shadow-sm" type="button">
+        원본
+      </button>
+</div>
+<!-- Bottom Right Korean Seal Stamp: 數墨 (Do-jang) -->
+<div class="absolute bottom-3 right-3 w-8 h-8 rounded bg-secondary flex items-center justify-center shadow-[0_2px_6px_rgba(173,50,30,0.25)] select-none">
+<span class="text-surface font-label-math text-[13px] leading-tight font-bold tracking-tighter text-center">數<br/>墨</span>
+</div>
+</div>
+<!-- STRUCTURAL PIPELINE STEPS CARD (5-STAGE STEPPER) -->
+<div class="w-full rounded-xl p-3.5 bg-surface-container-low shadow-sm flex flex-col space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">account_tree</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface tracking-tight">구조화 파이프라인 (5단계)</h2>
+</div>
+<span class="font-label-code text-label-code text-secondary font-bold bg-secondary-fixed/50 px-2 py-0.5 rounded">
+        전체 완료 424 ms
+      </span>
+</div>
+<!-- Connected Stepper Flow -->
+<div class="relative flex flex-col pl-2 space-y-2.5">
+<!-- Continuous vertical ink hairline -->
+<div class="absolute left-[19px] top-3 bottom-3 w-[1px] bg-outline-variant/60"></div>
+<!-- Step 0 -->
+<div class="relative flex items-center justify-between z-10">
+<div class="flex items-center gap-2.5 min-w-0">
+<div class="w-6 h-6 rounded-full bg-surface-container-highest text-on-surface font-label-code text-label-chip font-bold flex items-center justify-center shrink-0 shadow-sm">
+            0
+          </div>
+<div class="flex items-baseline gap-1.5 truncate">
+<span class="font-body-sm text-body-sm text-on-surface font-bold">방향</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">회전 90° · 수평선 3.2° 보정됨</span>
+</div>
+</div>
+<span class="font-label-code text-label-code text-on-surface-variant shrink-0 ml-2">79 ms</span>
+</div>
+<!-- Step 1 -->
+<div class="relative flex items-center justify-between z-10">
+<div class="flex items-center gap-2.5 min-w-0">
+<div class="w-6 h-6 rounded-full bg-surface-container-highest text-on-surface font-label-code text-label-chip font-bold flex items-center justify-center shrink-0 shadow-sm">
+            1
+          </div>
+<div class="flex items-baseline gap-1.5 truncate">
+<span class="font-body-sm text-body-sm text-on-surface font-bold">업스케일</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">1.0× → 3024 × 4032</span>
+</div>
+</div>
+<span class="font-label-code text-label-code text-on-surface-variant shrink-0 ml-2">0 ms</span>
+</div>
+<!-- Step 2 -->
+<div class="relative flex items-center justify-between z-10">
+<div class="flex items-center gap-2.5 min-w-0">
+<div class="w-6 h-6 rounded-full bg-surface-container-highest text-on-surface font-label-code text-label-chip font-bold flex items-center justify-center shrink-0 shadow-sm">
+            2
+          </div>
+<div class="flex items-baseline gap-1.5 truncate">
+<span class="font-body-sm text-body-sm text-on-surface font-bold">누끼</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">피사체 분리됨 (배경 흰색)</span>
+</div>
+</div>
+<span class="font-label-code text-label-code text-on-surface-variant shrink-0 ml-2">32 ms</span>
+</div>
+<!-- Step 3 -->
+<div class="relative flex items-center justify-between z-10">
+<div class="flex items-center gap-2.5 min-w-0">
+<div class="w-6 h-6 rounded-full bg-surface-container-highest text-on-surface font-label-code text-label-chip font-bold flex items-center justify-center shrink-0 shadow-sm">
+            3
+          </div>
+<div class="flex items-baseline gap-1.5 truncate">
+<span class="font-body-sm text-body-sm text-on-surface font-bold">윤곽</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">12개 (실루엣 0)</span>
+</div>
+</div>
+<span class="font-label-code text-label-code text-on-surface-variant shrink-0 ml-2">251 ms</span>
+</div>
+<!-- Step 4 -->
+<div class="relative flex items-center justify-between z-10">
+<div class="flex items-center gap-2.5 min-w-0">
+<div class="w-6 h-6 rounded-full bg-secondary text-on-secondary font-label-code text-label-chip font-bold flex items-center justify-center shrink-0 shadow-sm">
+            4
+          </div>
+<div class="flex items-baseline gap-1.5 truncate">
+<span class="font-body-sm text-body-sm text-on-surface font-bold">농담</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">DCT 220항 (27×36)</span>
+</div>
+</div>
+<span class="font-label-code text-label-code text-secondary font-bold shrink-0 ml-2">62 ms</span>
+</div>
+</div>
+</div>
+<!-- ORIENTATION & LEVELING ROW -->
+<div class="w-full rounded-xl p-3 bg-surface-container-low shadow-sm flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="font-body-sm text-body-sm text-on-surface font-bold">방향</span>
+<span class="font-label-code text-label-chip px-2 py-0.5 rounded bg-surface-container-highest text-on-surface font-semibold">90°</span>
+<div class="flex items-center gap-1 ml-1">
+<button aria-label="반시계 90도 회전" class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center text-on-surface hover:bg-surface-dim transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">rotate_left</span>
+</button>
+<button aria-label="시계 90도 회전" class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center text-on-surface hover:bg-surface-dim transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">rotate_right</span>
+</button>
+</div>
+</div>
+<label class="flex items-center gap-2 cursor-pointer select-none">
+<span class="font-body-sm text-body-sm text-on-surface-variant">수평 자동 보정 (3.2°)</span>
+<div class="relative inline-flex items-center">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-surface after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-secondary"></div>
+</div>
+</label>
+</div>
+<!-- CONTOUR SELECTION CHIPS SECTION -->
+<div class="flex flex-col space-y-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="font-body-sm text-body-sm text-on-surface font-bold tracking-tight">윤곽 선택 (면적순)</span>
+<span class="font-label-chip text-label-chip text-on-surface-variant">4개 활성</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="font-label-chip text-label-chip text-secondary font-semibold hover:underline" type="button">모두 선택</button>
+<span class="text-outline-variant text-[10px]">|</span>
+<button class="font-label-chip text-label-chip text-on-surface-variant hover:text-on-surface" type="button">해제</button>
+</div>
+</div>
+<!-- Scrollable Horizontal Wrap of Chips -->
+<div class="flex flex-wrap gap-1.5">
+<!-- Selected 1 -->
+<button class="flex items-center gap-1 px-2.5 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed shadow-sm" type="button">
+<span class="material-symbols-outlined text-[14px]">check</span>
+<span class="font-label-code text-label-chip font-bold">7,141점</span>
+</button>
+<!-- Selected 2 -->
+<button class="flex items-center gap-1 px-2.5 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed shadow-sm" type="button">
+<span class="material-symbols-outlined text-[14px]">check</span>
+<span class="font-label-code text-label-chip font-bold">1,887점</span>
+</button>
+<!-- Selected 3 -->
+<button class="flex items-center gap-1 px-2.5 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed shadow-sm" type="button">
+<span class="material-symbols-outlined text-[14px]">check</span>
+<span class="font-label-code text-label-chip font-bold">1,384점</span>
+</button>
+<!-- Selected 4 -->
+<button class="flex items-center gap-1 px-2.5 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed shadow-sm" type="button">
+<span class="material-symbols-outlined text-[14px]">check</span>
+<span class="font-label-code text-label-chip font-bold">1,337점</span>
+</button>
+<!-- Unselected 5 -->
+<button class="flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container text-on-surface-variant hover:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-[13px] opacity-60">crop_square</span>
+<span class="font-label-code text-label-chip">679점</span>
+</button>
+<!-- Unselected 6 -->
+<button class="flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container text-on-surface-variant hover:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-[13px] opacity-60">crop_square</span>
+<span class="font-label-code text-label-chip">539점</span>
+</button>
+<!-- Unselected 7 -->
+<button class="flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container text-on-surface-variant hover:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-[13px] opacity-60">crop_square</span>
+<span class="font-label-code text-label-chip">312점</span>
+</button>
+</div>
+</div>
+<!-- CONVERSION PARAMETER RECIPE CARD -->
+<div class="w-full rounded-xl p-3.5 bg-surface-container-low shadow-sm flex flex-col space-y-3.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">tune</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface tracking-tight">변환 레시피 설정</h2>
+</div>
+<span class="font-label-chip text-label-chip text-on-surface-variant">즉시 연산</span>
+</div>
+<!-- Toggle & Sub-Slider 1: Fourier Curves -->
+<div class="flex flex-col space-y-2 p-2.5 rounded-lg bg-surface-container">
+<div class="flex items-center justify-between">
+<label class="font-body-sm text-body-sm text-on-surface font-semibold cursor-pointer" for="toggle-fourier">
+          곡선 — 윤곽을 푸리에 곡선으로
+        </label>
+<div class="relative inline-flex items-center">
+<input checked="" class="sr-only peer" id="toggle-fourier" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-surface after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-secondary"></div>
+</div>
+</div>
+<div class="flex items-center justify-between gap-3 pt-1">
+<span class="font-label-code text-label-chip text-on-surface-variant shrink-0">조화 16</span>
+<input class="w-full h-1.5 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-secondary" max="64" min="2" type="range" value="16"/>
+<span class="font-label-code text-label-chip text-on-surface-variant shrink-0">64</span>
+</div>
+</div>
+<!-- Toggle 2: Dotted contour (OFF) -->
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container">
+<label class="font-body-sm text-body-sm text-on-surface-variant cursor-pointer" for="toggle-dotted">
+        점 — 윤곽을 점선으로
+      </label>
+<div class="relative inline-flex items-center">
+<input class="sr-only peer" id="toggle-dotted" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-surface after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-secondary"></div>
+</div>
+</div>
+<!-- Toggle & Sub-Sliders 3: Stipple Density Mesh -->
+<div class="flex flex-col space-y-2.5 p-2.5 rounded-lg bg-surface-container">
+<div class="flex items-center justify-between">
+<label class="font-body-sm text-body-sm text-on-surface font-semibold cursor-pointer" for="toggle-stipple">
+          점 — 농담을 밀도로 (스티플)
+        </label>
+<div class="relative inline-flex items-center">
+<input checked="" class="sr-only peer" id="toggle-stipple" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-surface after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-secondary"></div>
+</div>
+</div>
+<!-- Slider: 점 수 -->
+<div class="flex items-center justify-between gap-3">
+<span class="font-label-code text-label-chip text-on-surface-variant shrink-0">점 2,202</span>
+<input class="w-full h-1.5 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-secondary" max="12000" min="1000" type="range" value="2202"/>
+<span class="font-label-code text-label-chip text-on-surface-variant shrink-0">12K</span>
+</div>
+<!-- Slider: 감마 -->
+<div class="flex items-center justify-between gap-3">
+<span class="font-label-code text-label-chip text-on-surface-variant shrink-0">감마 1.00</span>
+<input class="w-full h-1.5 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-secondary" max="300" min="30" type="range" value="100"/>
+<span class="font-label-code text-label-chip text-on-surface-variant shrink-0">3.0</span>
+</div>
+</div>
+<!-- Toggle 4: Invert/Background Tint -->
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container">
+<label class="font-body-sm text-body-sm text-on-surface font-semibold cursor-pointer" for="toggle-dark-contour">
+        어두운 윤곽 (밝은 배경)
+      </label>
+<div class="relative inline-flex items-center">
+<input checked="" class="sr-only peer" id="toggle-dark-contour" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-surface after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-secondary"></div>
+</div>
+</div>
+</div>
+<!-- RESULT SCRIPT PREVIEW CARD -->
+<div class="w-full rounded-xl p-3.5 bg-surface-container-low shadow-sm flex flex-col space-y-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">terminal</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface tracking-tight">결과 스크립트</h2>
+</div>
+<span class="font-label-chip text-label-chip text-on-surface-variant">윤곽 오차 0.37% · 26,221자</span>
+</div>
+<!-- Code Display Substrate -->
+<div class="relative p-3 rounded-lg bg-surface-container overflow-hidden">
+<pre class="font-label-code text-label-code text-on-surface leading-relaxed overflow-x-hidden select-text"><code><span class="text-on-surface-variant opacity-70">// 사진 → 수식 (회전 90° → 수평 보정 3.2° → 업스케일 1.0× → Vision 윤곽 → 푸리에 16조화 → 곡선 + 농담 점)</span>
+<span class="text-secondary font-bold">canvas</span> 750 × 1000
+<span class="text-secondary font-bold">ink</span> <span class="text-on-surface">#141414</span> width 0.5 alpha 0.8
+<span class="text-secondary font-bold">let</span> gamma = 1.00 <span class="text-on-surface-variant">in</span> [0.3, 3.0]
+<span class="text-secondary font-bold">curve</span> fourier_contour_1(t) {
+  <span class="text-on-surface-variant opacity-80">∑ [A_k·cos(kt) + B_k·sin(kt)], k ∈ [1..16]</span>
+}
+<span class="text-secondary font-bold">stipple</span> density_mesh {
+  points: 2202, distribution: poisson_dct
+}</code></pre>
+<!-- Gradient code fade overlay -->
+<div class="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-surface-container to-transparent flex items-end justify-center pb-0.5">
+<span class="font-label-chip text-label-chip text-on-surface-variant font-medium">외 420행 생략...</span>
+</div>
+</div>
+</div>
+<!-- PRIMARY ACTION CALL-TO-ACTION (VERMILION CTA) -->
+<div class="flex flex-col space-y-1.5 pt-1">
+<button class="w-full py-3.5 px-4 rounded-xl bg-secondary hover:bg-on-secondary-fixed-variant text-on-secondary font-headline-sm text-headline-sm flex items-center justify-center gap-2 shadow-md transition-all active:scale-[0.99]" type="button">
+<span class="material-symbols-outlined text-[20px]">draw</span>
+<span>스크립트로 열기</span>
+</button>
+<p class="text-center font-body-sm text-body-sm text-on-surface-variant">
+      그리기 탭으로 스크립트를 전달하여 즉시 캔버스에서 연산합니다.
+    </p>
+</div>
+</div>
+<script>
+  // Micro-interaction: Interactive chip selection toggles
+  document.querySelectorAll('.flex-wrap > button').forEach(button => {
+    button.addEventListener('click', () => {
+      const isSelected = button.classList.contains('bg-secondary-fixed');
+      if (isSelected) {
+        button.classList.remove('bg-secondary-fixed', 'text-on-secondary-fixed', 'shadow-sm');
+        button.classList.add('bg-surface-container', 'text-on-surface-variant');
+        const icon = button.querySelector('.material-symbols-outlined');
+        if (icon) {
+          icon.textContent = 'crop_square';
+          icon.classList.add('opacity-60');
+          icon.classList.remove('text-[14px]');
+          icon.classList.add('text-[13px]');
+        }
+      } else {
+        button.classList.add('bg-secondary-fixed', 'text-on-secondary-fixed', 'shadow-sm');
+        button.classList.remove('bg-surface-container', 'text-on-surface-variant');
+        const icon = button.querySelector('.material-symbols-outlined');
+        if (icon) {
+          icon.textContent = 'check';
+          icon.classList.remove('opacity-60', 'text-[13px]');
+          icon.classList.add('text-[14px]');
+        }
+      }
+    });
+  });
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe pointer-events-none" data-active-classes="text-secondary"><div class="max-w-xs mx-auto mb-space-sm px-space-xs py-space-xs bg-surface-container-lowest/80 backdrop-blur-xl rounded-full shadow-[0_4px_24px_rgba(0,0,0,0.08)] pointer-events-auto flex items-center justify-around"><a class="min-w-[44px] min-h-[44px] flex flex-col items-center justify-center px-space-md py-space-xs rounded-full text-on-surface-variant hover:text-on-surface transition-colors" data-path="draw" href="#"><span class="material-symbols-outlined text-[22px]">draw</span><span class="font-label-chip text-label-chip mt-0.5">그리기</span></a><a class="min-w-[44px] min-h-[44px] flex flex-col items-center justify-center px-space-md py-space-xs rounded-full text-on-surface-variant hover:text-on-surface transition-colors" data-path="read" href="#"><span class="material-symbols-outlined text-[22px]">filter_frames</span><span class="font-label-chip text-label-chip mt-0.5">읽기</span></a><a class="min-w-[44px] min-h-[44px] flex flex-col items-center justify-center px-space-md py-space-xs rounded-full text-on-surface-variant hover:text-on-surface transition-colors" data-path="gallery" href="#"><span class="material-symbols-outlined text-[22px]">grid_view</span><span class="font-label-chip text-label-chip mt-0.5">갤러리</span></a></div></nav></body></html>

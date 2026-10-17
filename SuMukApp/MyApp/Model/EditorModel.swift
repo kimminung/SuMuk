@@ -7,7 +7,33 @@ import SwiftUI
 @Observable
 final class EditorModel {
     var script: String {
-        didSet { if script != oldValue { scheduleParse() } }
+        didSet {
+            guard script != oldValue else { return }
+            if !programmaticChange { captureTypingUndo(oldValue) }
+            scheduleParse()
+        }
+    }
+
+    /// Set while the model itself rewrites the text (presets, undo/redo, sliders) so typing-undo is not captured.
+    private var programmaticChange = false
+    private var lastTypingSnapshot: Date = .distantPast
+
+    /// Typing is coalesced into one undo step per pause of 1.5 s (a keystroke-level stack would be useless).
+    private func captureTypingUndo(_ previous: String) {
+        let now = Date()
+        if now.timeIntervalSince(lastTypingSnapshot) > 1.5 {
+            undoStack.append(previous)
+            if undoStack.count > 100 { undoStack.removeFirst() }
+            redoStack.removeAll()
+        }
+        lastTypingSnapshot = now
+    }
+
+    private func setProgrammatically(_ text: String) {
+        programmaticChange = true
+        script = text
+        programmaticChange = false
+        lastTypingSnapshot = .distantPast
     }
     private(set) var artwork: Artwork?
     private(set) var rendered: RenderedArtwork?
@@ -62,6 +88,18 @@ final class EditorModel {
         }
     }
 
+    /// Re-run the pipeline immediately (the "수식 재계산" button).
+    func reparseNow() { scheduleParse(immediately: true) }
+
+    /// Short file-like name for the editor header, taken from the first comment line ("// 은행잎 — …" → "은행잎.smk").
+    var scriptName: String {
+        guard let first = script.split(separator: "\n").first(where: { !$0.trimmingCharacters(in: .whitespaces).isEmpty }), first.hasPrefix("//") else { return "script.smk" }
+        let body = first.dropFirst(2).trimmingCharacters(in: .whitespaces)
+        let title = body.components(separatedBy: CharacterSet(charactersIn: "—(:·")).first?.trimmingCharacters(in: .whitespaces) ?? body
+        let compact = title.prefix(18)
+        return compact.isEmpty ? "script.smk" : "\(compact).smk"
+    }
+
     // MARK: - edits
 
     /// Bumped whenever the whole text is swapped (preset, import, undo/redo) so the editor view
@@ -71,7 +109,7 @@ final class EditorModel {
     /// Replace the whole script as one undoable step (preset load, importer, reset).
     func replaceScript(_ text: String) {
         pushUndo()
-        script = text
+        setProgrammatically(text)
         scriptVersion += 1
     }
 
@@ -92,7 +130,7 @@ final class EditorModel {
         if recordUndo { pushUndo() }
         lines[idx] = rebuilt
         let text = lines.joined(separator: "\n")
-        if text != script { script = text }
+        if text != script { setProgrammatically(text) }
     }
 
     static func format(_ v: Double) -> String {
@@ -117,14 +155,14 @@ final class EditorModel {
     func undo() {
         guard let prev = undoStack.popLast() else { return }
         redoStack.append(script)
-        script = prev
+        setProgrammatically(prev)
         scriptVersion += 1
     }
 
     func redo() {
         guard let next = redoStack.popLast() else { return }
         undoStack.append(script)
-        script = next
+        setProgrammatically(next)
         scriptVersion += 1
     }
 

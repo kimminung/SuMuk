@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: 'class', theme: { extend: { colors: { 'on-surface-variant': '#444748', 'on-secondary-fixed': '#3f0300', 'tertiary-fixed-dim': '#c7c6cb', 'surface-tint': '#5f5e5e', 'on-tertiary': '#ffffff', 'inverse-primary': '#c8c6c5', 'on-tertiary-container': '#848388', 'surface-dim': '#dcdad3', 'on-primary-fixed': '#1c1b1b', 'surface-container': '#f0eee7', 'on-error-container': '#93000a', 'error-container': '#ffdad6', 'secondary-fixed': '#ffdad3', 'primary-fixed': '#e5e2e1', 'on-primary-container': '#858383', 'on-surface': '#1c1c18', 'outline-variant': '#c4c7c7', 'tertiary-container': '#1a1b1f', 'on-error': '#ffffff', 'primary-container': '#1c1b1b', 'inverse-surface': '#31312c', 'primary': '#000000', 'on-secondary-container': '#6a0900', 'on-tertiary-fixed': '#1a1b1f', 'surface-bright': '#fcf9f2', 'surface-container-high': '#ebe8e1', 'secondary': '#ad321e', 'surface-container-low': '#f6f3ec', 'tertiary': '#000000', 'on-background': '#1c1c18', 'tertiary-fixed': '#e3e2e7', 'primary-fixed-dim': '#c8c6c5', 'on-tertiary-fixed-variant': '#46464b', 'on-primary': '#ffffff', 'surface': '#fcf9f2', 'inverse-on-surface': '#f3f0ea', 'on-secondary': '#ffffff', 'surface-variant': '#e5e2db', 'error': '#ba1a1a', 'surface-container-lowest': '#ffffff', 'secondary-fixed-dim': '#ffb4a6', 'on-secondary-fixed-variant': '#8b1908', 'outline': '#747878', 'secondary-container': '#ff6d53', 'on-primary-fixed-variant': '#474646', 'background': '#fcf9f2', 'surface-container-highest': '#e5e2db' }, borderRadius: { 'DEFAULT': '0.25rem', 'lg': '0.5rem', 'xl': '0.75rem', 'full': '9999px' }, spacing: { 'margin': '1rem', 'space-lg': '1rem', 'space-sm': '0.5rem', 'space-md': '0.75rem', 'gutter': '1rem', 'space-xl': '1.5rem', 'space-xs': '0.25rem' }, fontFamily: { 'headline-md': ['Public Sans'], 'body-lg': ['Public Sans'], 'label-math': ['Space Mono'], 'label-code': ['Space Mono'], 'label-chip': ['Space Mono'], 'headline-lg': ['Public Sans'], 'display-lg': ['Public Sans'], 'body-md': ['Public Sans'], 'body-sm': ['Public Sans'], 'display-lg-mobile': ['Public Sans'], 'headline-sm': ['Public Sans'] }, fontSize: { 'headline-md': ['20px', { lineHeight: '25px', letterSpacing: '-0.005em', fontWeight: '600' }], 'body-lg': ['17px', { lineHeight: '24px', fontWeight: '400' }], 'label-math': ['15px', { lineHeight: '20px', letterSpacing: '-0.01em', fontWeight: '700' }], 'label-code': ['13px', { lineHeight: '18px', letterSpacing: '0em', fontWeight: '400' }], 'label-chip': ['11px', { lineHeight: '14px', letterSpacing: '0.02em', fontWeight: '400' }], 'headline-lg': ['24px', { lineHeight: '30px', letterSpacing: '-0.01em', fontWeight: '600' }], 'display-lg': ['34px', { lineHeight: '41px', letterSpacing: '-0.02em', fontWeight: '700' }], 'body-md': ['15px', { lineHeight: '21px', fontWeight: '400' }], 'body-sm': ['13px', { lineHeight: '18px', fontWeight: '400' }], 'display-lg-mobile': ['28px', { lineHeight: '34px', letterSpacing: '-0.015em', fontWeight: '700' }], 'headline-sm': ['17px', { lineHeight: '22px', fontWeight: '600' }] } } } };</script></head><body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 inset-x-0 z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.03)] pt-safe"><div class="h-14 px-margin flex items-center justify-between"><div class="flex items-center gap-space-xs"><span class="w-2.5 h-2.5 rounded-full bg-secondary inline-block"></span><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight font-semibold">수묵 · 數墨</span></div><h1 class="font-headline-sm text-headline-sm text-on-surface truncate px-space-xs">Draw</h1><div class="flex items-center gap-space-xs"><button aria-label="Menu actions" class="w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[20px]">tune</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-[0_1px_4px_rgba(0,0,0,0.08)]"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 flex flex-col relative w-full px-margin pt-14 pb-28 bg-surface"><div class="flex flex-col w-full gap-space-sm select-none">
+<!-- Top Document Toolbar / Sub-navigation -->
+<div class="flex items-center justify-between w-full px-space-xs py-space-xs rounded-xl bg-surface-container-low shadow-sm">
+<div class="flex items-center gap-space-xs">
+<button aria-label="실행 취소" class="w-8 h-8 flex items-center justify-center rounded-lg text-outline-variant transition-opacity cursor-not-allowed opacity-50">
+<span class="material-symbols-outlined text-[19px]">undo</span>
+</button>
+<button aria-label="다시 실행" class="w-8 h-8 flex items-center justify-center rounded-lg text-outline-variant transition-opacity cursor-not-allowed opacity-50">
+<span class="material-symbols-outlined text-[19px]">redo</span>
+</button>
+<span class="w-px h-3.5 bg-outline-variant/40 mx-0.5"></span>
+<div class="flex items-center gap-1.5 px-space-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="font-label-chip text-label-chip text-on-surface-variant font-medium tracking-tight">수식 제어 모드</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<button aria-label="프리셋 선택" class="w-8 h-8 flex items-center justify-center rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all">
+<span class="material-symbols-outlined text-[19px]">dataset</span>
+</button>
+<button aria-label="공유" class="w-8 h-8 flex items-center justify-center rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all">
+<span class="material-symbols-outlined text-[19px]">ios_share</span>
+</button>
+<button aria-label="화첩에 저장" class="flex items-center gap-1 px-2.5 h-8 rounded-lg bg-surface-container-highest text-secondary hover:bg-secondary/10 transition-colors">
+<span class="material-symbols-outlined text-[18px]">download_done</span>
+<span class="font-label-chip text-label-chip font-bold">인각</span>
+</button>
+</div>
+</div>
+<!-- Drawing Canvas Frame (Pure Hanji Paper Substrate) -->
+<div class="relative w-full aspect-[4/3] rounded-2xl bg-surface-container-lowest overflow-hidden shadow-sm flex items-center justify-center">
+<!-- Paper texture overlay simulation using dry organic grain -->
+<div class="absolute inset-0 opacity-[0.035] pointer-events-none bg-[radial-gradient(#1c1c18_1px,transparent_1px)] [background-size:12px_12px]"></div>
+<!-- Coordinate faint grid guides (Hwasun Paper Scoring) -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none stroke-surface-container-high/60" xmlns="http://www.w3.org/2000/svg">
+<line stroke-dasharray="3 4" stroke-width="0.8" x1="50%" x2="50%" y1="0" y2="100%"></line>
+<line stroke-dasharray="3 4" stroke-width="0.8" x1="0" x2="100%" y1="62%" y2="62%"></line>
+<circle class="fill-secondary" cx="50%" cy="62%" r="2"></circle>
+</svg>
+<!-- Algorithmic Ginkgo Leaf Ink Drawing (Sumuk Radiations) -->
+<svg class="w-full h-full p-2 relative z-10" id="sumuk-canvas" preserveaspectratio="xMidYMid meet" viewbox="-1.2 -1.4 2.4 2.1">
+<!-- Petiole (Leaf Stem) with subtle ink modulation -->
+<path d="M 0.0,-1.02 C -0.01,-0.75 -0.005,-0.48 0.0,-0.25" fill="none" opacity="0.82" stroke="#1c1c18" stroke-linecap="round" stroke-width="0.018"></path>
+<path d="M 0.002,-1.01 C 0.008,-0.75 0.012,-0.5 0.0,-0.25" fill="none" opacity="0.45" stroke="#1c1c18" stroke-linecap="round" stroke-width="0.009"></path>
+<!-- Radiating ink-wash veins (700 calculated generative fan lines) -->
+<g opacity="0.52" stroke="#1c1c18" stroke-linecap="round">
+<!-- Center-left radiating cluster -->
+<path d="M 0,-0.25 Q -0.15,0.18 -0.85,0.22 M 0,-0.25 Q -0.14,0.20 -0.82,0.28 M 0,-0.25 Q -0.13,0.22 -0.79,0.34 M 0,-0.25 Q -0.12,0.24 -0.75,0.41 M 0,-0.25 Q -0.11,0.27 -0.70,0.48 M 0,-0.25 Q -0.10,0.29 -0.65,0.54 M 0,-0.25 Q -0.09,0.31 -0.59,0.60 M 0,-0.25 Q -0.08,0.33 -0.52,0.66 M 0,-0.25 Q -0.06,0.35 -0.45,0.71 M 0,-0.25 Q -0.05,0.37 -0.37,0.75 M 0,-0.25 Q -0.03,0.38 -0.29,0.78 M 0,-0.25 Q -0.02,0.39 -0.21,0.80 M 0,-0.25 Q -0.01,0.39 -0.12,0.80 M 0,-0.25 Q -0.005,0.38 -0.04,0.64" fill="none" stroke-width="0.0035"></path>
+<!-- Center-right radiating cluster with sinusoidal ripple -->
+<path d="M 0,-0.25 Q 0.15,0.18 0.85,0.22 M 0,-0.25 Q 0.14,0.20 0.82,0.28 M 0,-0.25 Q 0.13,0.22 0.79,0.34 M 0,-0.25 Q 0.12,0.24 0.75,0.41 M 0,-0.25 Q 0.11,0.27 0.70,0.48 M 0,-0.25 Q 0.10,0.29 0.65,0.54 M 0,-0.25 Q 0.09,0.31 0.59,0.60 M 0,-0.25 Q 0.08,0.33 0.52,0.66 M 0,-0.25 Q 0.06,0.35 0.45,0.71 M 0,-0.25 Q 0.05,0.37 0.37,0.75 M 0,-0.25 Q 0.03,0.38 0.29,0.78 M 0,-0.25 Q 0.02,0.39 0.21,0.80 M 0,-0.25 Q 0.01,0.39 0.12,0.80 M 0,-0.25 Q 0.005,0.38 0.04,0.64" fill="none" stroke-width="0.0035"></path>
+<!-- Middle density shading (soft wash overlay effect) -->
+<path d="M 0,-0.25 Q -0.08,0.2 -0.6,0.38 M 0,-0.25 Q -0.07,0.24 -0.48,0.52 M 0,-0.25 Q -0.04,0.28 -0.33,0.63 M 0,-0.25 Q -0.02,0.3 -0.18,0.71" fill="none" opacity="0.3" stroke-width="0.006"></path>
+<path d="M 0,-0.25 Q 0.08,0.2 0.6,0.38 M 0,-0.25 Q 0.07,0.24 0.48,0.52 M 0,-0.25 Q 0.04,0.28 0.33,0.63 M 0,-0.25 Q 0.02,0.3 0.18,0.71" fill="none" opacity="0.3" stroke-width="0.006"></path>
+</g>
+<!-- Scalloped Ginkgo Margin with characteristic central cleft (notch) -->
+<path d="M -0.85,0.22 
+               C -0.82,0.38 -0.68,0.55 -0.52,0.66 
+               C -0.38,0.76 -0.22,0.82 -0.08,0.76 
+               C -0.04,0.74 -0.02,0.65 0.0,0.61 
+               C 0.02,0.65 0.04,0.74 0.08,0.76 
+               C 0.22,0.82 0.38,0.76 0.52,0.66 
+               C 0.68,0.55 0.82,0.38 0.85,0.22" fill="none" opacity="0.75" stroke="#1c1c18" stroke-linecap="round" stroke-width="0.007"></path>
+<!-- Literati Vermilion Chop Seal (인장 · 印章) Stamp -->
+<g transform="translate(0.68, -0.96)">
+<rect class="fill-secondary/90" height="0.26" rx="0.02" width="0.26" x="0" y="0"></rect>
+<text fill="#fcf9f2" font-family="'Public Sans', sans-serif" font-size="0.085" font-weight="700" text-anchor="middle" x="0.13" y="0.10">數</text>
+<text fill="#fcf9f2" font-family="'Public Sans', sans-serif" font-size="0.085" font-weight="700" text-anchor="middle" x="0.13" y="0.21">墨</text>
+</g>
+</svg>
+<!-- Top-Left Floating Liquid Status Capsule -->
+<div class="absolute top-3 left-3 z-20 flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-low/80 backdrop-blur-md shadow-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="font-label-chip text-label-chip text-on-surface tracking-normal font-semibold">
+        계열 2 · 선분 820 · 4 ms
+      </span>
+</div>
+<!-- Canvas Zoom & Grid Meta Indicator -->
+<div class="absolute bottom-3 right-3 z-20 flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container-low/70 backdrop-blur-sm">
+<span class="font-label-chip text-label-chip text-on-surface-variant text-[10px]">1.0× HANJI</span>
+</div>
+</div>
+<!-- Variable Sliders Panel -->
+<div class="w-full flex flex-col gap-space-xs p-space-md rounded-2xl bg-surface-container-low shadow-sm">
+<div class="flex items-center justify-between text-on-surface-variant mb-0.5">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">tune</span>
+<span class="font-label-chip text-label-chip uppercase tracking-wider font-semibold">동적 매개변수</span>
+</div>
+<span class="font-label-chip text-label-chip text-on-surface-variant">2 변수 연결됨</span>
+</div>
+<!-- Parameter 1: Notch -->
+<div class="flex items-center gap-space-md h-9 px-space-sm rounded-xl bg-surface-container">
+<div class="w-16 shrink-0 flex items-center">
+<span class="font-label-code text-label-code text-on-surface font-semibold tracking-tight">notch</span>
+</div>
+<div class="flex-1 flex items-center relative py-2">
+<input class="w-full h-1.5 bg-surface-variant rounded-full appearance-none cursor-pointer accent-secondary focus:outline-none" id="slider-notch" max="0.5" min="0" step="0.01" type="range" value="0.24"/>
+</div>
+<div class="w-12 text-right">
+<span class="font-label-code text-label-code text-secondary font-bold" id="val-notch">0.24</span>
+</div>
+</div>
+<!-- Parameter 2: Ripple -->
+<div class="flex items-center gap-space-md h-9 px-space-sm rounded-xl bg-surface-container">
+<div class="w-16 shrink-0 flex items-center">
+<span class="font-label-code text-label-code text-on-surface font-semibold tracking-tight">ripple</span>
+</div>
+<div class="flex-1 flex items-center relative py-2">
+<input class="w-full h-1.5 bg-surface-variant rounded-full appearance-none cursor-pointer accent-secondary focus:outline-none" id="slider-ripple" max="0.1" min="0" step="0.005" type="range" value="0.03"/>
+</div>
+<div class="w-12 text-right">
+<span class="font-label-code text-label-code text-secondary font-bold" id="val-ripple">0.03</span>
+</div>
+</div>
+</div>
+<!-- Mathematical Script Editor Surface -->
+<div class="w-full rounded-2xl bg-surface-container-low shadow-sm overflow-hidden flex flex-col">
+<!-- Editor Ribbon Header -->
+<div class="flex items-center justify-between px-space-md py-2 bg-surface-container">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-secondary">terminal</span>
+<span class="font-label-chip text-label-chip text-on-surface font-semibold">ginkgo_leaf.smk</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-emerald-600 inline-block"></span>
+<span class="font-label-chip text-label-chip text-on-surface-variant text-[10px]">수렴 연산됨</span>
+</div>
+</div>
+<!-- Monospaced Code Workspace -->
+<div class="p-space-md font-label-code text-label-code leading-[1.45] text-on-surface overflow-x-auto whitespace-pre">
+<span class="text-on-surface-variant italic">// 은행잎 — 잎자루에서 가장자리로 펼쳐지는 부채</span>
+<span class="text-outline font-medium">ink</span> <span class="text-on-surface font-bold">#141414</span> <span class="text-outline font-medium">width</span> <span class="text-secondary font-semibold">0.5</span> <span class="text-outline font-medium">alpha</span> <span class="text-secondary font-semibold">0.45</span>
+<span class="text-outline font-medium">let</span> <span class="text-on-surface font-semibold">notch</span> = <span class="text-secondary font-bold" id="code-notch">0.24</span> <span class="text-outline font-medium">in</span> [0, 0.5]
+<span class="text-outline font-medium">let</span> <span class="text-on-surface font-semibold">ripple</span> = <span class="text-secondary font-bold" id="code-ripple">0.03</span> <span class="text-outline font-medium">in</span> [0, 0.1]
+
+<span class="text-outline font-medium">segments</span> k = 1 ... 700 {
+  <span class="text-outline font-medium">from</span> ( 0.05·sin(2π·s(k))·sin²(π·s(k)),  −1 + 0.22·sin⁶(π·s(k)) )
+  <span class="text-outline font-medium">to</span>   ( r(k)·cos(θ(k)),  r(k)·sin(θ(k)) − 0.25 )
+}
+<span class="text-outline font-medium">where</span>
+  s(k) = k/700
+  θ(k) = π/2 + 1.3·(s(k) − 1/2)</div>
+<!-- Bottom Quick Action Toolbar for Equation Editing -->
+<div class="flex items-center justify-between px-space-md py-2 bg-surface-container/60">
+<div class="flex items-center gap-1 overflow-x-auto text-on-surface-variant">
+<button class="px-2 py-0.5 rounded bg-surface-container font-label-math text-[13px] text-on-surface hover:bg-surface-variant">π</button>
+<button class="px-2 py-0.5 rounded bg-surface-container font-label-math text-[13px] text-on-surface hover:bg-surface-variant">θ</button>
+<button class="px-2 py-0.5 rounded bg-surface-container font-label-math text-[13px] text-on-surface hover:bg-surface-variant">sin</button>
+<button class="px-2 py-0.5 rounded bg-surface-container font-label-math text-[13px] text-on-surface hover:bg-surface-variant">cos</button>
+<button class="px-2 py-0.5 rounded bg-surface-container font-label-math text-[13px] text-on-surface hover:bg-surface-variant">·</button>
+</div>
+<button class="flex items-center gap-1 text-secondary font-label-chip text-label-chip font-semibold hover:opacity-80">
+<span class="material-symbols-outlined text-[15px]">play_arrow</span>
+<span>수식 재계산</span>
+</button>
+</div>
+</div>
+</div>
+<script>
+  // Dynamic sync between parameter sliders and formula view
+  const notchSlider = document.getElementById('slider-notch');
+  const rippleSlider = document.getElementById('slider-ripple');
+  const notchVal = document.getElementById('val-notch');
+  const rippleVal = document.getElementById('val-ripple');
+  const codeNotch = document.getElementById('code-notch');
+  const codeRipple = document.getElementById('code-ripple');
+
+  if (notchSlider && notchVal && codeNotch) {
+    notchSlider.addEventListener('input', (e) => {
+      const v = Number(e.target.value).toFixed(2);
+      notchVal.textContent = v;
+      codeNotch.textContent = v;
+    });
+  }
+
+  if (rippleSlider && rippleVal && codeRipple) {
+    rippleSlider.addEventListener('input', (e) => {
+      const v = Number(e.target.value).toFixed(2);
+      rippleVal.textContent = v;
+      codeRipple.textContent = v;
+    });
+  }
+</script></main><nav class="fixed bottom-0 inset-x-0 z-50 pb-safe pointer-events-none flex justify-center" data-active-classes="text-secondary font-semibold"><div class="pointer-events-auto mx-margin mb-space-sm w-full max-w-[361px] h-16 bg-surface-container-low/85 backdrop-blur-2xl rounded-full shadow-[0_8px_30px_rgba(28,28,24,0.08)] px-space-md flex items-center justify-around"><a aria-current="page" class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] transition-all gap-0.5 text-secondary font-semibold" data-path="draw" href="#"><span class="material-symbols-outlined text-[24px]">gesture</span><span class="font-label-chip text-label-chip">그리기</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-all gap-0.5" data-path="reading" href="#"><span class="material-symbols-outlined text-[24px]">auto_stories</span><span class="font-label-chip text-label-chip">읽기</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-all gap-0.5" data-path="gallery" href="#"><span class="material-symbols-outlined text-[24px]">grid_view</span><span class="font-label-chip text-label-chip">갤러리</span></a></div></nav></body></html>

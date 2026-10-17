@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@100..900&amp;family=Space+Mono:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "surface-variant": "#e5e2db", "on-tertiary-container": "#848388", "primary-container": "#1c1b1b", "on-secondary": "#ffffff", "on-secondary-fixed": "#3f0300", "outline-variant": "#c4c7c7", "on-secondary-fixed-variant": "#8b1908", "error": "#ba1a1a", "surface-bright": "#fcf9f2", "on-surface": "#1c1c18", "surface-tint": "#5f5e5e", "primary-fixed-dim": "#c8c6c5", "tertiary": "#000000", "secondary-fixed": "#ffdad3", "outline": "#747878", "on-primary-container": "#858383", "inverse-surface": "#31312c", "on-primary-fixed-variant": "#474646", "on-secondary-container": "#6a0900", "tertiary-container": "#1a1b1f", "tertiary-fixed": "#e3e2e7", "surface-container-lowest": "#ffffff", "surface-container-low": "#f6f3ec", "tertiary-fixed-dim": "#c7c6cb", "surface": "#fcf9f2", "background": "#fcf9f2", "on-error": "#ffffff", "surface-container": "#f0eee7", "surface-container-highest": "#e5e2db", "error-container": "#ffdad6", "on-primary": "#ffffff", "on-background": "#1c1c18", "secondary": "#ad321e", "inverse-primary": "#c8c6c5", "inverse-on-surface": "#f3f0ea", "on-surface-variant": "#444748", "surface-container-high": "#ebe8e1", "on-error-container": "#93000a", "surface-dim": "#dcdad3", "on-tertiary-fixed": "#1a1b1f", "on-tertiary": "#ffffff", "secondary-fixed-dim": "#ffb4a6", "primary": "#000000", "on-tertiary-fixed-variant": "#46464b", "secondary-container": "#ff6d53", "on-primary-fixed": "#1c1b1b", "primary-fixed": "#e5e2e1" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "space-xl": "1.5rem", "space-md": "0.75rem", "space-sm": "0.5rem", "space-lg": "1rem", "margin": "1rem", "gutter": "1rem", "space-xs": "0.25rem" }, fontFamily: { "label-chip": ["Space Mono"], "display-lg-mobile": ["Public Sans"], "headline-lg": ["Public Sans"], "headline-sm": ["Public Sans"], "body-sm": ["Public Sans"], "headline-md": ["Public Sans"], "label-code": ["Space Mono"], "body-md": ["Public Sans"], "label-math": ["Space Mono"], "display-lg": ["Public Sans"], "body-lg": ["Public Sans"] }, fontSize: { "label-chip": ["11px", { "lineHeight": "14px", "letterSpacing": "0.02em", "fontWeight": "400" }], "display-lg-mobile": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "700" }], "headline-lg": ["24px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-sm": ["17px", { "lineHeight": "22px", "fontWeight": "600" }], "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }], "headline-md": ["20px", { "lineHeight": "25px", "letterSpacing": "-0.005em", "fontWeight": "600" }], "label-code": ["13px", { "lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "400" }], "body-md": ["15px", { "lineHeight": "21px", "fontWeight": "400" }], "label-math": ["15px", { "lineHeight": "20px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "display-lg": ["34px", { "lineHeight": "41px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "body-lg": ["17px", { "lineHeight": "24px", "fontWeight": "400" }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head><body class="bg-background font-body-md text-on-surface antialiased flex flex-col min-h-screen selection:bg-secondary-fixed selection:text-on-secondary-fixed"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.03)]"><div class="h-16 px-space-lg flex items-center justify-between"><div class="flex items-center gap-space-sm"><span class="w-2.5 h-2.5 bg-secondary rounded-full inline-block"></span><h1 class="font-headline-md text-headline-md text-on-surface tracking-tight font-semibold">Gallery</h1></div><div class="flex items-center gap-space-md"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-16 pb-28 bg-surface min-h-screen"><div class="flex flex-col w-full px-space-lg gap-space-lg">
+<!-- Top Sub-Navigation -->
+<div class="flex items-center justify-between py-space-xs">
+<button class="flex items-center gap-1 text-on-surface-variant active:text-on-surface transition-colors py-1 -ml-1" type="button">
+<span class="material-symbols-outlined text-[20px]">chevron_left</span>
+<span class="font-body-md text-body-md font-medium">갤러리</span>
+</button>
+<div class="flex flex-col items-center text-center">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight">학</span>
+<span class="font-label-chip text-label-chip text-on-surface-variant font-normal tracking-normal">(Crane)</span>
+</div>
+<span class="font-label-chip text-[10px] leading-tight text-on-surface-variant/80 tracking-wide mt-0.5">수식 계열 · 선분 2,760</span>
+</div>
+<div class="flex items-center gap-1">
+<button aria-label="즐겨찾기" class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant active:scale-95 transition-transform" id="star-btn" type="button">
+<span class="material-symbols-outlined text-[19px] transition-colors" id="star-icon">grade</span>
+</button>
+<button aria-label="정보" class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant active:scale-95 transition-transform" type="button">
+<span class="material-symbols-outlined text-[19px]">info</span>
+</button>
+</div>
+</div>
+<!-- Hero Canvas Preview (360pt) -->
+<div class="relative w-full h-[360px] rounded-xl bg-surface-container-lowest overflow-hidden shadow-sm flex items-center justify-center select-none" id="canvas-card">
+<!-- Subtle Hanji Texture Matrix via SVG Backdrop -->
+<svg class="absolute inset-0 w-full h-full opacity-35 pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+<filter id="hanjiNoise">
+<feturbulence basefrequency="0.04" numoctaves="4" stitchtiles="stitch" type="fractalNoise"></feturbulence>
+<fecolormatrix type="matrix" values="0 0 0 0 0.94  0 0 0 0 0.92  0 0 0 0 0.88  0 0 0 0.25 0"></fecolormatrix>
+</filter>
+<rect filter="url(#hanjiNoise)" height="100%" width="100%"></rect>
+</svg>
+<!-- East-Asian Axis/Grid Marks -->
+<div class="absolute inset-0 p-4 pointer-events-none flex flex-col justify-between">
+<div class="flex justify-between font-label-chip text-[9px] text-outline-variant/70">
+<span>+0.00 x</span>
+<span>750 × 1000 PT</span>
+</div>
+<div class="flex justify-between font-label-chip text-[9px] text-outline-variant/70">
+<span>SOOMUK V3.4</span>
+<span>+1.00 y</span>
+</div>
+</div>
+<!-- Mathematical Ink Artwork: 학 (Crane) Envelope Waves -->
+<svg class="w-full h-full relative z-10" fill="none" viewbox="0 0 360 360" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<radialgradient cx="50%" cy="50%" id="inkSpill" r="50%">
+<stop offset="0%" stop-color="#141414" stop-opacity="0.12"></stop>
+<stop offset="100%" stop-color="#141414" stop-opacity="0"></stop>
+</radialgradient>
+</defs>
+<!-- Soft ink wash glow beneath wings -->
+<ellipse cx="175" cy="180" fill="url(#inkSpill)" rx="110" ry="60" transform="rotate(-12 175 180)"></ellipse>
+<!-- Wing envelope curve group (sin⁷ envelope simulated via algorithmic sweeps) -->
+<g stroke="#141414" stroke-linecap="round" stroke-opacity="0.45" stroke-width="0.5">
+<!-- Sin^7 Wing sweeps - Left wing spread -->
+<path d="M 60 210 Q 110 130 185 195"></path>
+<path d="M 64 207 Q 112 126 185 195"></path>
+<path d="M 68 204 Q 115 122 185 195"></path>
+<path d="M 72 201 Q 118 118 185 195"></path>
+<path d="M 76 198 Q 120 114 185 195"></path>
+<path d="M 80 195 Q 122 110 185 195"></path>
+<path d="M 85 191 Q 125 106 185 195"></path>
+<path d="M 90 188 Q 128 102 185 195"></path>
+<path d="M 95 185 Q 131 98 185 195"></path>
+<path d="M 100 182 Q 134 94 185 195"></path>
+<path d="M 106 179 Q 137 91 185 195"></path>
+<path d="M 112 176 Q 140 88 185 195"></path>
+<path d="M 118 173 Q 143 85 185 195"></path>
+<path d="M 124 170 Q 146 83 185 195"></path>
+<path d="M 130 168 Q 150 81 185 195"></path>
+<path d="M 137 165 Q 154 80 185 195"></path>
+<path d="M 144 163 Q 158 80 185 195"></path>
+<path d="M 152 161 Q 163 81 185 195"></path>
+<path d="M 160 160 Q 168 83 185 195"></path>
+<path d="M 168 160 Q 174 86 185 195"></path>
+<!-- Right wing expansive lift -->
+<path d="M 185 195 Q 230 110 305 130"></path>
+<path d="M 185 195 Q 228 114 301 135"></path>
+<path d="M 185 195 Q 225 118 296 141"></path>
+<path d="M 185 195 Q 222 122 291 147"></path>
+<path d="M 185 195 Q 219 126 286 153"></path>
+<path d="M 185 195 Q 216 131 280 159"></path>
+<path d="M 185 195 Q 213 136 274 166"></path>
+<path d="M 185 195 Q 210 141 267 172"></path>
+<path d="M 185 195 Q 206 147 260 179"></path>
+<path d="M 185 195 Q 202 153 252 185"></path>
+<path d="M 185 195 Q 198 159 244 192"></path>
+<path d="M 185 195 Q 194 166 235 198"></path>
+<path d="M 185 195 Q 190 173 226 204"></path>
+<path d="M 185 195 Q 187 180 216 210"></path>
+</g>
+<!-- Higher density wing feathers & tail -->
+<g stroke="#141414" stroke-opacity="0.65" stroke-width="0.35">
+<path d="M 182 195 C 170 215, 140 235, 120 260"></path>
+<path d="M 183 195 C 172 216, 144 237, 126 262"></path>
+<path d="M 184 195 C 174 217, 148 239, 132 264"></path>
+<path d="M 185 195 C 176 218, 152 241, 138 266"></path>
+<path d="M 186 195 C 178 220, 156 243, 144 267"></path>
+<path d="M 187 195 C 180 221, 160 244, 150 268"></path>
+</g>
+<!-- S-Curve Crane Neck & Head Family (segments m = 1..760) -->
+<g stroke="#141414" stroke-linecap="round" stroke-opacity="0.75" stroke-width="0.6">
+<path d="M 185 195 C 188 170, 192 145, 182 120 C 176 102, 168 85, 178 72 C 182 66, 192 64, 197 70 C 201 76, 198 84, 192 90"></path>
+<path d="M 184 195 C 187 170, 191 145, 181 120 C 175 102, 167 85, 177 72 C 181 66, 191 64, 196 70 C 200 76, 197 84, 191 90"></path>
+<path d="M 186 195 C 189 170, 193 145, 183 120 C 177 102, 169 85, 179 72 C 183 66, 193 64, 198 70 C 202 76, 199 84, 193 90"></path>
+<!-- Fine beak extension -->
+<path d="M 197 70 L 222 66" stroke-opacity="0.85" stroke-width="0.7"></path>
+</g>
+<!-- Red Crown Vermilion Accent of the Crane -->
+<circle cx="187" cy="65" fill="#ad321e" r="2.2"></circle>
+</svg>
+<!-- Top-Left Floating Metadata Capsule -->
+<div class="absolute top-3.5 left-3.5 z-20 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-high/90 backdrop-blur-md shadow-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="font-label-chip text-[10.5px] leading-none text-on-surface tracking-tight font-medium">선분 2,760 · 4 ms · 2026. 10. 17.</span>
+</div>
+<!-- Top-Right Fullscreen / Zoom Toggle -->
+<button aria-label="전체화면 확대" class="absolute top-3.5 right-3.5 z-20 w-8 h-8 rounded-full bg-surface-container-high/90 backdrop-blur-md shadow-sm flex items-center justify-center text-on-surface active:scale-90 transition-transform" type="button">
+<span class="material-symbols-outlined text-[17px]">zoom_out_map</span>
+</button>
+<!-- East Asian Vermilion Seal Stamp (인장: 數墨) in Lower Right -->
+<div class="absolute bottom-3.5 right-3.5 z-20 flex flex-col items-center select-none group active:scale-95 transition-transform cursor-pointer">
+<div class="w-8 h-8 rounded-DEFAULT bg-secondary flex flex-col items-center justify-center text-on-secondary shadow-sm">
+<div class="grid grid-cols-2 gap-0.5 leading-none text-center font-bold text-[9px] tracking-tighter" style="font-family: 'Public Sans', serif;">
+<span>數</span>
+<span>墨</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Primary Action Row -->
+<div class="flex items-center gap-space-sm w-full">
+<!-- Primary Vermilion Button -->
+<button class="flex-1 h-12 rounded-xl bg-secondary text-on-secondary flex items-center justify-center gap-2 font-headline-sm text-headline-sm font-semibold active:opacity-90 active:scale-[0.99] transition-all shadow-sm" type="button">
+<span class="material-symbols-outlined text-[20px]">draw</span>
+<span>스크립트로 열기</span>
+</button>
+<!-- Borderless Paper Tonal Share Button -->
+<button aria-label="공유" class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-on-surface active:bg-surface-container-highest active:scale-95 transition-all shadow-sm" type="button">
+<span class="material-symbols-outlined text-[20px]">ios_share</span>
+</button>
+<!-- Destructive Button -->
+<button aria-label="삭제" class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-error active:bg-error-container active:scale-95 transition-all shadow-sm" type="button">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+<!-- Meta Information & Characteristics Strip -->
+<div class="w-full rounded-xl bg-surface-container-low p-space-md grid grid-cols-2 gap-y-3 gap-x-4">
+<div class="flex flex-col min-w-0">
+<span class="font-label-chip text-label-chip text-on-surface-variant">유형</span>
+<span class="font-body-md text-body-md text-on-surface font-medium truncate mt-0.5">선분 가족 (Segments)</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-chip text-label-chip text-on-surface-variant">복잡도</span>
+<span class="font-body-md text-body-md text-on-surface font-medium truncate mt-0.5">2,760개 선</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-chip text-label-chip text-on-surface-variant">용량</span>
+<span class="font-label-code text-label-code text-on-surface font-medium truncate mt-0.5">1.4 KB</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-chip text-label-chip text-on-surface-variant">종이 규격</span>
+<span class="font-label-code text-label-code text-on-surface font-medium truncate mt-0.5">750 × 1000 PT</span>
+</div>
+</div>
+<!-- Section Header & Script Block -->
+<div class="flex flex-col w-full gap-space-sm mb-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight">스크립트</h2>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-chip text-[10px]">DSL v2</span>
+</div>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container text-on-surface active:bg-surface-container-highest transition-colors" id="copy-btn" type="button">
+<span class="material-symbols-outlined text-[15px]" id="copy-icon">content_copy</span>
+<span class="font-label-chip text-label-chip" id="copy-text">코드 복사</span>
+</button>
+</div>
+<!-- Code Block with Scholar Paper Tint -->
+<div class="w-full rounded-xl bg-surface-container p-space-md font-label-code text-[12px] leading-relaxed text-on-surface select-text overflow-x-auto shadow-sm">
+<div class="flex gap-3">
+<!-- Line Numbers Column -->
+<div class="flex flex-col text-right text-on-surface-variant/40 font-label-chip select-none pr-1">
+<span>01</span>
+<span>02</span>
+<span>03</span>
+<span>04</span>
+<span>05</span>
+<span>06</span>
+<span>07</span>
+<span>08</span>
+<span>09</span>
+<span>10</span>
+<span>11</span>
+<span>12</span>
+<span>13</span>
+<span>14</span>
+<span>15</span>
+<span>16</span>
+<span>17</span>
+<span>18</span>
+<span>19</span>
+<span>20</span>
+</div>
+<!-- Script Content with Syntax Tinting -->
+<pre class="font-label-code whitespace-pre overflow-x-auto flex-1"><span class="text-on-surface-variant/70 italic">// 학 (Crane) — sin⁷ 곡률 날개와 S자 목의 선분 가족</span>
+<span class="font-semibold text-secondary">canvas</span> <span class="text-on-surface">750 × 1000</span>
+<span class="font-semibold text-secondary">ink</span> <span class="text-on-surface">#141414</span> <span class="text-on-surface-variant">width</span> <span class="text-on-surface">0.45</span> <span class="text-on-surface-variant">alpha</span> <span class="text-on-surface">0.65</span>
+
+<span class="text-on-surface-variant">let</span> wing_span = <span class="text-secondary font-medium">0.85</span> <span class="text-on-surface-variant">in</span> [<span class="text-on-surface">0.5</span>, <span class="text-on-surface">1.2</span>]
+<span class="text-on-surface-variant">let</span> neck_curl = <span class="text-secondary font-medium">1.42</span> <span class="text-on-surface-variant">in</span> [<span class="text-on-surface">1.0</span>, <span class="text-on-surface">2.0</span>]
+
+<span class="text-on-surface-variant/70 italic">// 날개 펼침 선분 계열 (sin⁷ 날개 포락선)</span>
+<span class="font-semibold text-secondary">segments</span> k = <span class="text-on-surface">1 ... 2000</span> {
+  <span class="text-on-surface-variant">from</span> ( <span class="text-on-surface">-0.6·s(k)</span>, <span class="text-on-surface">-0.1 + 0.55·sin^7(π·s(k))</span> )
+  <span class="text-on-surface-variant">to</span>   (  <span class="text-on-surface">0.7·s(k)</span>,  <span class="text-on-surface">0.35·cos(π·s(k)) - 0.2</span> )
+}
+<span class="font-semibold text-on-surface-variant">where</span>
+  s(k) = k/<span class="text-on-surface">2000</span>
+
+<span class="text-on-surface-variant/70 italic">// 목과 머리 선분 계열 (S자 곡선)</span>
+<span class="font-semibold text-secondary">segments</span> m = <span class="text-on-surface">1 ... 760</span> {
+  <span class="text-on-surface-variant">from</span> ( <span class="text-on-surface">0.05·sin(2π·t(m))</span>, <span class="text-on-surface">0.1 + 0.8·t(m)</span> )
+  <span class="text-on-surface-variant">to</span>   ( <span class="text-on-surface">0.08·cos(π·t(m)) + 0.02</span>, <span class="text-on-surface">0.2 + 0.75·t(m)</span> )
+}
+<span class="font-semibold text-on-surface-variant">where</span>
+  t(m) = m/<span class="text-on-surface">760</span></pre>
+</div>
+</div>
+</div>
+<script>
+    (function() {
+      // Highlight "갤러리" tab in bottom navigation shell
+      const navLinks = document.querySelectorAll('nav a');
+      navLinks.forEach(link => {
+        if (link.getAttribute('data-path') === 'gallery') {
+          link.classList.remove('text-on-surface-variant');
+          link.classList.add('text-secondary', 'font-semibold');
+        } else {
+          link.classList.remove('text-secondary', 'font-semibold');
+          link.classList.add('text-on-surface-variant');
+        }
+      });
+
+      // Star / Favorite toggle interaction
+      const starBtn = document.getElementById('star-btn');
+      const starIcon = document.getElementById('star-icon');
+      let isStarred = false;
+      if (starBtn && starIcon) {
+        starBtn.addEventListener('click', () => {
+          isStarred = !isStarred;
+          if (isStarred) {
+            starIcon.style.fontVariationSettings = "'FILL' 1";
+            starIcon.classList.add('text-secondary');
+            starIcon.classList.remove('text-on-surface-variant');
+          } else {
+            starIcon.style.fontVariationSettings = "'FILL' 0";
+            starIcon.classList.remove('text-secondary');
+            starIcon.classList.add('text-on-surface-variant');
+          }
+        });
+      }
+
+      // Copy Code interaction
+      const copyBtn = document.getElementById('copy-btn');
+      const copyText = document.getElementById('copy-text');
+      const copyIcon = document.getElementById('copy-icon');
+      if (copyBtn && copyText && copyIcon) {
+        copyBtn.addEventListener('click', () => {
+          copyText.textContent = '복사됨';
+          copyIcon.textContent = 'check';
+          copyBtn.classList.add('bg-secondary-fixed', 'text-on-secondary-fixed');
+          setTimeout(() => {
+            copyText.textContent = '코드 복사';
+            copyIcon.textContent = 'content_copy';
+            copyBtn.classList.remove('bg-secondary-fixed', 'text-on-secondary-fixed');
+          }, 2000);
+        });
+      }
+    })();
+  </script>
+</div></main><div class="fixed bottom-0 w-full z-50 pb-safe pointer-events-none px-space-lg mb-space-sm"><nav class="pointer-events-auto mx-auto max-w-sm rounded-full bg-surface-container-low/85 backdrop-blur-2xl shadow-[0_4px_24px_rgba(0,0,0,0.06)] px-space-md py-space-xs" data-active-classes="text-secondary font-semibold"><div class="flex items-center justify-around h-14"><a class="flex flex-col items-center justify-center min-w-[56px] h-12 text-on-surface-variant hover:text-on-surface transition-colors" data-path="canvas" href="#"><span class="material-symbols-outlined text-[22px]">gesture</span><span class="font-label-chip text-label-chip mt-space-xs tracking-wider">그리기</span></a><a class="flex flex-col items-center justify-center min-w-[56px] h-12 text-on-surface-variant hover:text-on-surface transition-colors" data-path="reading" href="#"><span class="material-symbols-outlined text-[22px]">auto_stories</span><span class="font-label-chip text-label-chip mt-space-xs tracking-wider">읽기</span></a><a class="flex flex-col items-center justify-center min-w-[56px] h-12 text-on-surface-variant hover:text-on-surface transition-colors" data-path="gallery" href="#"><span class="material-symbols-outlined text-[22px]">grid_view</span><span class="font-label-chip text-label-chip mt-space-xs tracking-wider">갤러리</span></a></div></nav></div></body></html>

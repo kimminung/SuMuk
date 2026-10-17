@@ -23,7 +23,7 @@ nonisolated enum Presets {
 
     static let ginkgo = Preset(id: "ginkgo", title: "은행잎", subtitle: "선분 820개 · 잎자루에서 물결치는 가장자리로", script: """
     // 은행잎 — 잎자루에서 가장자리로 펼쳐지는 부채
-    ink #141414 width 0.5 alpha 0.45
+    ink #141414 width 0.3 alpha 0.14
     let notch = 0.24 in [0, 0.5]
     let ripple = 0.03 in [0, 0.1]
 

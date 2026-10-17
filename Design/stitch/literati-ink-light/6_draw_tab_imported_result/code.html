@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: 'class', theme: { extend: { colors: { 'on-surface-variant': '#444748', 'on-secondary-fixed': '#3f0300', 'tertiary-fixed-dim': '#c7c6cb', 'surface-tint': '#5f5e5e', 'on-tertiary': '#ffffff', 'inverse-primary': '#c8c6c5', 'on-tertiary-container': '#848388', 'surface-dim': '#dcdad3', 'on-primary-fixed': '#1c1b1b', 'surface-container': '#f0eee7', 'on-error-container': '#93000a', 'error-container': '#ffdad6', 'secondary-fixed': '#ffdad3', 'primary-fixed': '#e5e2e1', 'on-primary-container': '#858383', 'on-surface': '#1c1c18', 'outline-variant': '#c4c7c7', 'tertiary-container': '#1a1b1f', 'on-error': '#ffffff', 'primary-container': '#1c1b1b', 'inverse-surface': '#31312c', 'primary': '#000000', 'on-secondary-container': '#6a0900', 'on-tertiary-fixed': '#1a1b1f', 'surface-bright': '#fcf9f2', 'surface-container-high': '#ebe8e1', 'secondary': '#ad321e', 'surface-container-low': '#f6f3ec', 'tertiary': '#000000', 'on-background': '#1c1c18', 'tertiary-fixed': '#e3e2e7', 'primary-fixed-dim': '#c8c6c5', 'on-tertiary-fixed-variant': '#46464b', 'on-primary': '#ffffff', 'surface': '#fcf9f2', 'inverse-on-surface': '#f3f0ea', 'on-secondary': '#ffffff', 'surface-variant': '#e5e2db', 'error': '#ba1a1a', 'surface-container-lowest': '#ffffff', 'secondary-fixed-dim': '#ffb4a6', 'on-secondary-fixed-variant': '#8b1908', 'outline': '#747878', 'secondary-container': '#ff6d53', 'on-primary-fixed-variant': '#474646', 'background': '#fcf9f2', 'surface-container-highest': '#e5e2db' }, borderRadius: { 'DEFAULT': '0.25rem', 'lg': '0.5rem', 'xl': '0.75rem', 'full': '9999px' }, spacing: { 'margin': '1rem', 'space-lg': '1rem', 'space-sm': '0.5rem', 'space-md': '0.75rem', 'gutter': '1rem', 'space-xl': '1.5rem', 'space-xs': '0.25rem' }, fontFamily: { 'headline-md': ['Public Sans'], 'body-lg': ['Public Sans'], 'label-math': ['Space Mono'], 'label-code': ['Space Mono'], 'label-chip': ['Space Mono'], 'headline-lg': ['Public Sans'], 'display-lg': ['Public Sans'], 'body-md': ['Public Sans'], 'body-sm': ['Public Sans'], 'display-lg-mobile': ['Public Sans'], 'headline-sm': ['Public Sans'] }, fontSize: { 'headline-md': ['20px', { lineHeight: '25px', letterSpacing: '-0.005em', fontWeight: '600' }], 'body-lg': ['17px', { lineHeight: '24px', fontWeight: '400' }], 'label-math': ['15px', { lineHeight: '20px', letterSpacing: '-0.01em', fontWeight: '700' }], 'label-code': ['13px', { lineHeight: '18px', letterSpacing: '0em', fontWeight: '400' }], 'label-chip': ['11px', { lineHeight: '14px', letterSpacing: '0.02em', fontWeight: '400' }], 'headline-lg': ['24px', { lineHeight: '30px', letterSpacing: '-0.01em', fontWeight: '600' }], 'display-lg': ['34px', { lineHeight: '41px', letterSpacing: '-0.02em', fontWeight: '700' }], 'body-md': ['15px', { lineHeight: '21px', fontWeight: '400' }], 'body-sm': ['13px', { lineHeight: '18px', fontWeight: '400' }], 'display-lg-mobile': ['28px', { lineHeight: '34px', letterSpacing: '-0.015em', fontWeight: '700' }], 'headline-sm': ['17px', { lineHeight: '22px', fontWeight: '600' }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head><body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 inset-x-0 z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.03)] pt-safe"><div class="h-14 px-margin flex items-center justify-between"><div class="flex items-center gap-space-xs"><span class="w-2.5 h-2.5 rounded-full bg-secondary inline-block"></span><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight font-semibold">수묵 · 數墨</span></div><h1 class="font-headline-sm text-headline-sm text-on-surface truncate px-space-xs">Draw</h1><div class="flex items-center gap-space-xs"><button aria-label="Menu actions" class="w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[20px]">tune</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-[0_1px_4px_rgba(0,0,0,0.08)]"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 flex flex-col relative w-full px-margin pt-14 pb-28 bg-surface"><div class="flex flex-col w-full pb-6 space-y-4">
+<!-- Mode & Quick Action Ribbon -->
+<div class="flex items-center justify-between px-1">
+<div class="flex items-center gap-space-sm">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="font-label-chip text-label-chip font-bold tracking-tight">수식 제어 모드</span>
+</div>
+<div class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-code text-label-code">
+<span>shelf_01.smk</span>
+</div>
+</div>
+<!-- Undo / Redo & Action Icons -->
+<div class="flex items-center gap-1">
+<button aria-label="실행 취소" class="w-8 h-8 rounded-full flex items-center justify-center text-primary hover:bg-surface-container-high active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[19px]">undo</span>
+</button>
+<button aria-label="다시 실행" class="w-8 h-8 rounded-full flex items-center justify-center text-outline/50 cursor-not-allowed" disabled="">
+<span class="material-symbols-outlined text-[19px]">redo</span>
+</button>
+<div class="w-px h-4 bg-outline-variant mx-0.5"></div>
+<button aria-label="사전 설정" class="w-8 h-8 rounded-full flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[18px]">grid_view</span>
+</button>
+<button aria-label="공유" class="w-8 h-8 rounded-full flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</button>
+<button aria-label="인각 저장" class="h-8 px-2.5 rounded-full bg-secondary text-on-secondary flex items-center gap-1 shadow-sm active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+<span class="font-label-chip text-label-chip font-semibold">인각</span>
+</button>
+</div>
+</div>
+<!-- Hero Canvas (Aspect Ratio 3:4 portrait Hanji paper plane) -->
+<div class="relative w-full aspect-[3/4] max-w-[361px] mx-auto rounded-xl bg-surface-container-lowest shadow-[0_8px_24px_rgba(28,28,24,0.06)] overflow-hidden flex items-center justify-center">
+<!-- Hanji Fine Grid & Texture Layer -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none opacity-40" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern height="24" id="hanjiGrid" patternunits="userSpaceOnUse" width="24">
+<path d="M 24 0 L 0 0 0 24" fill="none" stroke="#D9D4C8" stroke-width="0.5"></path>
+</pattern>
+<!-- Procedural brush stipple grain filter -->
+<filter height="120%" id="inkBleed" width="120%" x="-10%" y="-10%">
+<feturbulence basefrequency="0.08" numoctaves="3" result="noise" type="fractalNoise"></feturbulence>
+<fedisplacementmap in="SourceGraphic" in2="noise" scale="1.4" xchannelselector="R" ychannelselector="G"></fedisplacementmap>
+</filter>
+</defs>
+<rect fill="url(#hanjiGrid)" height="100%" width="100%"></rect>
+<!-- Subtle Hanji Fibers -->
+<path d="M 40 80 Q 90 85 130 76 M 220 180 Q 260 210 290 190 M 80 340 Q 110 320 170 345" fill="none" opacity="0.6" stroke="#D9D4C8" stroke-width="0.4"></path>
+</svg>
+<!-- Vectorized Generative Ink Curves (12 contour curves tracing snack shelves + packages) -->
+<svg class="relative z-10 w-full h-full p-4" fill="none" viewbox="0 0 300 400" xmlns="http://www.w3.org/2000/svg">
+<!-- Upper Shelf Contours -->
+<path d="M 24 95 C 75 92, 220 93, 276 96" filter="url(#inkBleed)" opacity="0.85" stroke="#1c1b1b" stroke-linecap="round" stroke-width="1.1"></path>
+<path d="M 26 102 C 90 100, 210 101, 274 104" opacity="0.55" stroke="#1c1b1b" stroke-dasharray="2 1" stroke-width="0.5"></path>
+<!-- Shelf Item 1 (Chip Bag High Contours) -->
+<path d="M 42 90 C 40 62, 54 42, 78 40 C 98 38, 112 55, 110 91" filter="url(#inkBleed)" opacity="0.9" stroke="#1c1b1b" stroke-width="0.9"></path>
+<path d="M 46 54 C 62 48, 92 49, 106 58" opacity="0.7" stroke="#1c1b1b" stroke-width="0.6"></path>
+<path d="M 52 70 C 68 64, 88 66, 102 74" opacity="0.65" stroke="#1c1b1b" stroke-width="0.5"></path>
+<!-- Shelf Item 2 (Canisters / Boxes) -->
+<path d="M 124 91 L 124 48 C 124 45, 126 43, 130 43 L 168 43 C 172 43, 174 45, 174 48 L 174 92" opacity="0.85" stroke="#1c1b1b" stroke-width="0.8"></path>
+<path d="M 124 62 C 140 60, 160 60, 174 62" opacity="0.5" stroke="#1c1b1b" stroke-width="0.5"></path>
+<!-- Shelf Item 3 (Snack Pouch 2) -->
+<path d="M 188 92 C 185 68, 196 52, 224 50 C 248 48, 260 62, 258 93" filter="url(#inkBleed)" opacity="0.9" stroke="#1c1b1b" stroke-width="0.9"></path>
+<path d="M 194 65 C 210 58, 238 60, 252 69" opacity="0.6" stroke="#1c1b1b" stroke-width="0.6"></path>
+<!-- Middle Structural Shelf Contour -->
+<path d="M 20 205 C 80 202, 220 203, 280 206" filter="url(#inkBleed)" opacity="0.95" stroke="#1c1b1b" stroke-linecap="round" stroke-width="1.3"></path>
+<path d="M 20 213 C 80 211, 220 212, 280 215" opacity="0.45" stroke="#1c1b1b" stroke-width="0.6"></path>
+<!-- Middle Shelf Bulky Snack Bags (Multiple Harmonic Contours) -->
+<path d="M 36 202 C 32 165, 48 135, 86 130 C 120 126, 132 155, 130 203" opacity="0.9" stroke="#1c1b1b" stroke-width="1"></path>
+<path d="M 44 148 C 65 140, 105 142, 122 154" opacity="0.75" stroke="#1c1b1b" stroke-width="0.6"></path>
+<path d="M 50 172 C 72 162, 108 165, 122 178" opacity="0.7" stroke="#1c1b1b" stroke-width="0.65"></path>
+<path d="M 142 203 C 138 160, 155 128, 198 124 C 235 120, 254 148, 250 204" filter="url(#inkBleed)" opacity="0.92" stroke="#1c1b1b" stroke-width="1.1"></path>
+<path d="M 152 144 C 176 136, 218 138, 238 152" opacity="0.75" stroke="#1c1b1b" stroke-width="0.7"></path>
+<path d="M 158 168 C 182 158, 222 162, 240 176" opacity="0.7" stroke="#1c1b1b" stroke-width="0.65"></path>
+<!-- Lower Deep Shelf Foundation Line -->
+<path d="M 16 325 C 90 321, 210 322, 284 326" filter="url(#inkBleed)" opacity="0.95" stroke="#1c1b1b" stroke-linecap="round" stroke-width="1.5"></path>
+<!-- Lower Crinkled Package Geometries -->
+<path d="M 40 322 C 34 275, 52 238, 102 232 C 145 228, 160 262, 156 323" opacity="0.88" stroke="#1c1b1b" stroke-width="1"></path>
+<path d="M 166 323 C 160 270, 180 230, 234 226 C 274 222, 286 258, 280 324" opacity="0.88" stroke="#1c1b1b" stroke-width="1"></path>
+<!-- Dense Sumuk Poisson-disc Ink Stippling (Simulating 2,202 parametric dots) -->
+<g class="transition-opacity duration-300" fill="#1c1b1b" id="stippleMesh" opacity="0.75">
+<!-- Top shelf stipple gradient -->
+<circle cx="56" cy="78" r="0.8"></circle><circle cx="62" cy="82" r="0.6"></circle><circle cx="70" cy="85" r="0.9"></circle><circle cx="78" cy="80" r="0.7"></circle><circle cx="86" cy="86" r="0.8"></circle><circle cx="94" cy="82" r="0.5"></circle><circle cx="100" cy="87" r="0.8"></circle><circle cx="134" cy="74" r="0.7"></circle><circle cx="142" cy="82" r="0.8"></circle><circle cx="152" cy="80" r="0.6"></circle><circle cx="160" cy="86" r="0.8"></circle><circle cx="204" cy="80" r="0.7"></circle><circle cx="212" cy="85" r="0.9"></circle><circle cx="224" cy="82" r="0.6"></circle><circle cx="236" cy="87" r="0.8"></circle><circle cx="244" cy="84" r="0.7"></circle>
+<!-- Mid shelf heavier bag shading -->
+<circle cx="48" cy="182" r="1.1"></circle><circle cx="54" cy="190" r="0.9"></circle><circle cx="60" cy="178" r="0.8"></circle><circle cx="68" cy="194" r="1.2"></circle><circle cx="76" cy="188" r="0.9"></circle><circle cx="82" cy="196" r="1.1"></circle><circle cx="90" cy="190" r="1.0"></circle><circle cx="98" cy="197" r="1.2"></circle><circle cx="106" cy="192" r="0.8"></circle><circle cx="114" cy="198" r="1.1"></circle><circle cx="120" cy="194" r="0.9"></circle><circle cx="154" cy="184" r="1.0"></circle><circle cx="162" cy="194" r="1.2"></circle><circle cx="170" cy="188" r="0.9"></circle><circle cx="178" cy="198" r="1.1"></circle><circle cx="186" cy="192" r="1.0"></circle><circle cx="194" cy="199" r="1.3"></circle><circle cx="204" cy="190" r="0.9"></circle><circle cx="214" cy="197" r="1.1"></circle><circle cx="224" cy="194" r="1.0"></circle><circle cx="234" cy="200" r="1.2"></circle><circle cx="242" cy="196" r="0.9"></circle>
+<!-- Deep shelf heavy clusters (denser ink concentration) -->
+<circle cx="46" cy="305" r="1.2"></circle><circle cx="52" cy="315" r="1.3"></circle><circle cx="60" cy="310" r="1.1"></circle><circle cx="68" cy="318" r="1.4"></circle><circle cx="76" cy="312" r="1.2"></circle><circle cx="84" cy="320" r="1.3"></circle><circle cx="92" cy="314" r="1.2"></circle><circle cx="100" cy="321" r="1.4"></circle><circle cx="108" cy="316" r="1.1"></circle><circle cx="116" cy="322" r="1.3"></circle><circle cx="124" cy="318" r="1.2"></circle><circle cx="132" cy="323" r="1.4"></circle><circle cx="140" cy="319" r="1.1"></circle><circle cx="148" cy="324" r="1.3"></circle><circle cx="174" cy="308" r="1.2"></circle><circle cx="182" cy="318" r="1.4"></circle><circle cx="190" cy="312" r="1.1"></circle><circle cx="198" cy="322" r="1.3"></circle><circle cx="208" cy="315" r="1.2"></circle><circle cx="218" cy="323" r="1.4"></circle><circle cx="228" cy="316" r="1.1"></circle><circle cx="238" cy="324" r="1.3"></circle><circle cx="248" cy="318" r="1.2"></circle><circle cx="258" cy="325" r="1.4"></circle><circle cx="268" cy="320" r="1.2"></circle><circle cx="274" cy="324" r="1.1"></circle>
+<!-- Ambient scattered literati dust dots -->
+<circle cx="64" cy="120" r="0.5"></circle><circle cx="98" cy="115" r="0.5"></circle><circle cx="168" cy="108" r="0.5"></circle><circle cx="220" cy="112" r="0.6"></circle><circle cx="80" cy="240" r="0.6"></circle><circle cx="110" cy="255" r="0.5"></circle><circle cx="190" cy="245" r="0.6"></circle><circle cx="240" cy="250" r="0.5"></circle>
+</g>
+</svg>
+<!-- Top-Left Floating Info Capsule -->
+<div class="absolute top-3 left-3 z-20 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-lowest/90 backdrop-blur-md shadow-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+<span class="font-label-chip text-label-chip text-on-surface font-semibold tracking-tight">계열 13 · 곡선 9600 · 점 2202 · 2775 ms</span>
+</div>
+<!-- Vermilion Literati Seal Stamp (數墨 Dojang) in Bottom Left -->
+<div class="absolute bottom-3 left-3 z-20 w-8 h-8 rounded-sm bg-secondary flex items-center justify-center shadow-sm select-none">
+<span class="text-on-secondary font-serif text-[13px] font-black leading-none tracking-tighter">數<br/>墨</span>
+</div>
+<!-- Canvas Format & Substrate Tag in Bottom Right -->
+<div class="absolute bottom-3 right-3 z-20 px-2 py-0.5 rounded bg-surface-container/80 backdrop-blur-sm">
+<span class="font-label-chip text-label-chip text-on-surface-variant font-medium tracking-wide">750 × 1000 HANJI</span>
+</div>
+</div>
+<!-- Variable Slider Strip (Single dynamic parameter: gamma) -->
+<div class="w-full bg-surface-container rounded-xl p-3 flex flex-col gap-2">
+<div class="flex items-center justify-between text-on-surface">
+<div class="flex items-center gap-2">
+<span class="font-label-math text-label-math text-secondary font-bold">gamma</span>
+<span class="px-1.5 py-0.2 rounded bg-surface-container-high text-on-surface-variant font-label-chip text-label-chip">1 변수 연결됨</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="font-label-chip text-label-chip text-on-surface-variant">γ =</span>
+<span class="font-label-math text-label-math text-primary font-bold" id="gammaValDisplay">1.00</span>
+</div>
+</div>
+<!-- Tactile Minimal Slider -->
+<div class="flex items-center gap-3 pt-0.5">
+<span class="font-label-chip text-label-chip text-on-surface-variant">0.3</span>
+<div class="relative flex-1 flex items-center">
+<input class="w-full h-1.5 bg-surface-container-highest rounded-full appearance-none cursor-pointer accent-secondary" id="gammaSlider" max="3.00" min="0.30" step="0.05" type="range" value="1.00"/>
+</div>
+<span class="font-label-chip text-label-chip text-on-surface-variant">3.0</span>
+</div>
+</div>
+<!-- Script Code Editor Card -->
+<div class="w-full rounded-xl bg-surface-container-low overflow-hidden flex flex-col">
+<!-- Editor Header Bar -->
+<div class="px-3.5 py-2.5 bg-surface-container flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">terminal</span>
+<span class="font-label-code text-label-code font-bold text-on-surface">shelf_imported.smk</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-emerald-600"></span>
+<span class="font-label-chip text-label-chip text-on-surface-variant">수렴 연산됨</span>
+</div>
+</div>
+<!-- Script Body (Monospaced Literati Script Representation) -->
+<div class="p-3.5 font-label-code text-label-code text-on-surface leading-[1.48] overflow-x-auto space-y-1">
+<div class="text-on-surface-variant/80 italic">// 사진 → 수식 (회전 90° → 수평 보정 3.2° → 업스케일 1.0× → Vision 윤곽 → 푸리에 16조화 → 곡선 + 농담 점)</div>
+<div><span class="text-secondary font-semibold">canvas</span> 750 × 1000</div>
+<div><span class="text-secondary font-semibold">ink</span> #141414 <span class="text-on-surface-variant">width</span> 0.5 <span class="text-on-surface-variant">alpha</span> 0.8</div>
+<div><span class="text-secondary font-semibold">let</span> gamma = <span class="text-secondary font-bold" id="scriptGamma">1.00</span> <span class="text-on-surface-variant">in</span> [0.3, 3.0]</div>
+<div class="h-1"></div>
+<div><span class="text-primary font-bold">curve</span> <span class="text-secondary">fourier_contour_1</span>(t) {</div>
+<div class="pl-4 text-on-surface-variant">Σ [A_k·cos(kt) + B_k·sin(kt)], k ∈ [1..16]</div>
+<div>}</div>
+<div><span class="text-primary font-bold">stipple</span> <span class="text-secondary">density_mesh</span> {</div>
+<div class="pl-4 text-on-surface-variant">points: 2202, distribution: poisson_disc(gamma)</div>
+<div>}</div>
+<div class="text-outline-variant pt-1 text-[11px] font-label-chip">// 외 11개 윤곽 계열 생략...</div>
+</div>
+<!-- Mini Math Keypad & Recompute Toolbar -->
+<div class="p-2 bg-surface-container flex items-center justify-between gap-1 overflow-x-auto">
+<div class="flex items-center gap-1">
+<button class="px-2.5 py-1 rounded bg-surface-container-highest active:bg-surface-dim font-label-math text-label-math text-on-surface transition-colors">π</button>
+<button class="px-2.5 py-1 rounded bg-surface-container-highest active:bg-surface-dim font-label-math text-label-math text-on-surface transition-colors">θ</button>
+<button class="px-2 py-1 rounded bg-surface-container-highest active:bg-surface-dim font-label-code text-label-code text-on-surface transition-colors">sin</button>
+<button class="px-2 py-1 rounded bg-surface-container-highest active:bg-surface-dim font-label-code text-label-code text-on-surface transition-colors">cos</button>
+<button class="px-2.5 py-1 rounded bg-surface-container-highest active:bg-surface-dim font-label-math text-label-math text-secondary font-bold transition-colors">γ</button>
+<button class="px-2.5 py-1 rounded bg-surface-container-highest active:bg-surface-dim font-label-math text-label-math text-on-surface transition-colors">√</button>
+</div>
+<button class="flex-shrink-0 flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary text-on-primary font-label-code text-label-code font-bold hover:bg-surface-tint active:scale-95 transition-all shadow-sm" id="recalcBtn">
+<span class="material-symbols-outlined text-[15px]">play_arrow</span>
+<span>수식 재계산</span>
+</button>
+</div>
+</div>
+</div>
+<script>
+  // Dynamic Slider Binding for gamma variable
+  const slider = document.getElementById('gammaSlider');
+  const valDisplay = document.getElementById('gammaValDisplay');
+  const scriptGamma = document.getElementById('scriptGamma');
+  const stippleMesh = document.getElementById('stippleMesh');
+  const recalcBtn = document.getElementById('recalcBtn');
+
+  if (slider && valDisplay && scriptGamma) {
+    slider.addEventListener('input', (e) => {
+      const val = parseFloat(e.target.value).toFixed(2);
+      valDisplay.textContent = val;
+      scriptGamma.textContent = val;
+      if (stippleMesh) {
+        // Adjust visual density/opacity as gamma changes
+        const opacityRatio = Math.min(1.0, Math.max(0.35, val / 1.5));
+        stippleMesh.style.opacity = opacityRatio;
+      }
+    });
+  }
+
+  if (recalcBtn) {
+    recalcBtn.addEventListener('click', () => {
+      recalcBtn.classList.add('opacity-70');
+      setTimeout(() => {
+        recalcBtn.classList.remove('opacity-70');
+      }, 300);
+    });
+  }
+</script></main><nav class="fixed bottom-0 inset-x-0 z-50 pb-safe pointer-events-none flex justify-center" data-active-classes="text-secondary font-semibold"><div class="pointer-events-auto mx-margin mb-space-sm w-full max-w-[361px] h-16 bg-surface-container-low/85 backdrop-blur-2xl rounded-full shadow-[0_8px_30px_rgba(28,28,24,0.08)] px-space-md flex items-center justify-around"><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-all gap-0.5" data-path="draw" href="#"><span class="material-symbols-outlined text-[24px]">gesture</span><span class="font-label-chip text-label-chip">그리기</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-all gap-0.5" data-path="reading" href="#"><span class="material-symbols-outlined text-[24px]">auto_stories</span><span class="font-label-chip text-label-chip">읽기</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-all gap-0.5" data-path="gallery" href="#"><span class="material-symbols-outlined text-[24px]">grid_view</span><span class="font-label-chip text-label-chip">갤러리</span></a></div></nav></body></html>
