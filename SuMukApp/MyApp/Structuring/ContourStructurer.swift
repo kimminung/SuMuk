@@ -148,6 +148,9 @@ nonisolated struct PreparedPhoto: Sendable {
     let upscale: Double
     let size: CGSize
     let aspect: Double
+    let quarterTurns: Int              // clockwise quarter turns applied before analysis
+    let horizonDegrees: Double?        // Vision horizon estimate (nil when none detected)
+    let appliedLevelDegrees: Double    // levelling rotation actually applied (0 when off)
     let subjectFound: Bool
     let subjectError: String?          // why the cut-out fell back to the original (shown in the UI)
     let contours: [ExtractedContour]   // silhouettes first, then interior contours by area
@@ -162,6 +165,10 @@ nonisolated enum PhotoStructurer {
         var maxContours = 12
         var minPoints = 60
         var toneTerms = 220
+        /// Clockwise quarter turns applied before analysis (photos stored without EXIF orientation).
+        var quarterTurns = 0
+        /// Level the image with Vision's horizon estimate (small-angle correction, white fill in the corners).
+        var autoLevel = true
     }
 
     /// Full on-device preparation. Pure function; call off the main actor.
@@ -172,11 +179,45 @@ nonisolated enum PhotoStructurer {
         }
         let context = CIContext(options: [.useSoftwareRenderer: false])
 
+        // 0) orientation: manual quarter turns, then Vision horizon levelling
+        var horizonDegrees: Double? = nil
+        var appliedLevelDegrees = 0.0
+        let oriented: CGImage = try timed("방향") {
+            var ci = CIImage(cgImage: source)
+            let turns = ((options.quarterTurns % 4) + 4) % 4
+            if turns > 0 {
+                // CI rotates counter-clockwise for positive angles; we want clockwise quarter turns
+                ci = ci.transformed(by: CGAffineTransform(rotationAngle: -CGFloat(turns) * .pi / 2))
+                ci = ci.transformed(by: CGAffineTransform(translationX: -ci.extent.origin.x, y: -ci.extent.origin.y))
+            }
+            // horizon estimate on a small copy
+            let small = ci.transformed(by: CGAffineTransform(scaleX: 512 / ci.extent.width, y: 512 / ci.extent.width))
+            if let smallCG = context.createCGImage(small, from: small.extent) {
+                let req = VNDetectHorizonRequest()
+                if (try? VNImageRequestHandler(cgImage: smallCG, options: [:]).perform([req])) != nil, let obs = req.results?.first {
+                    horizonDegrees = Double(obs.angle) * 180 / .pi
+                }
+            }
+            if options.autoLevel, let deg = horizonDegrees, abs(deg) > 0.3, abs(deg) < 45 {
+                // rotate about the centre by −angle so the horizon becomes level, keep the original frame, white outside
+                let w = ci.extent.width, h = ci.extent.height
+                let center = CGAffineTransform(translationX: w / 2, y: h / 2)
+                let rot = center.inverted().concatenating(CGAffineTransform(rotationAngle: -CGFloat(deg) * .pi / 180)).concatenating(center)
+                let rotated = ci.transformed(by: rot)
+                let paper = CIImage(color: .white).cropped(to: CGRect(x: 0, y: 0, width: w, height: h))
+                ci = rotated.composited(over: paper).cropped(to: CGRect(x: 0, y: 0, width: w, height: h))
+                appliedLevelDegrees = deg
+            }
+            if turns == 0 && appliedLevelDegrees == 0 { return source }
+            guard let cg = context.createCGImage(ci, from: ci.extent) else { throw StructuringError.render }
+            return cg
+        }
+
         // 1) upscale (Lanczos) + gentle unsharp mask so thin edges survive contour detection
-        let longSide = Double(max(source.width, source.height))
+        let longSide = Double(max(oriented.width, oriented.height))
         let factor = min(4, max(1, options.targetLongSide / longSide))   // beyond 4× Lanczos adds nothing but blur
         let upscaled: CGImage = try timed("업스케일") {
-            var ci = CIImage(cgImage: source)
+            var ci = CIImage(cgImage: oriented)
             if factor > 1.001 {
                 let scale = CIFilter.lanczosScaleTransform()
                 scale.inputImage = ci; scale.scale = Float(factor); scale.aspectRatio = 1
@@ -227,7 +268,7 @@ nonisolated enum PhotoStructurer {
         var contours: [ExtractedContour] = []
         try timed("윤곽") {
             func toMath(_ p: simd_float2) -> CGPoint { CGPoint(x: (Double(p.x) * 2 - 1) * aspect, y: Double(p.y) * 2 - 1) }
-            if let maskCI, let maskCG = context.createCGImage(maskCI, from: CGRect(x: 0, y: 0, width: W, height: H)) {
+            if let maskCI, let maskFull = context.createCGImage(maskCI, from: CGRect(x: 0, y: 0, width: W, height: H)), let maskCG = grayscaleCopy(maskFull) {
                 let req = VNDetectContoursRequest(); req.detectsDarkOnLight = false; req.contrastAdjustment = 2.0; req.maximumImageDimension = 1024
                 try VNImageRequestHandler(cgImage: maskCG, options: [:]).perform([req])
                 if let obs = req.results?.first {
@@ -242,11 +283,20 @@ nonisolated enum PhotoStructurer {
             }
             let req = VNDetectContoursRequest()
             req.detectsDarkOnLight = options.detectsDarkOnLight; req.contrastAdjustment = 1.5; req.maximumImageDimension = 1024
-            try VNImageRequestHandler(cgImage: working, options: [:]).perform([req])
+            guard let contourInput = grayscaleCopy(working, maxSide: 1024, blurRadius: 1.5) else { throw StructuringError.render }
+            try VNImageRequestHandler(cgImage: contourInput, options: [:]).perform([req])
             var interior: [ExtractedContour] = []
             if let obs = req.results?.first {
+                // Busy photos yield tens of thousands of contours; converting every point list is what made this
+                // step take ~30 s. Rank by pointCount first (cheap) and only materialise the longest candidates.
+                var ranked: [(index: Int, count: Int)] = []
+                ranked.reserveCapacity(obs.contourCount)
                 for i in 0..<obs.contourCount {
-                    guard let c = try? obs.contour(at: i), c.pointCount >= options.minPoints else { continue }
+                    if let c = try? obs.contour(at: i), c.pointCount >= options.minPoints { ranked.append((i, c.pointCount)) }
+                }
+                ranked.sort { $0.count > $1.count }
+                for (i, _) in ranked.prefix(options.maxContours * 5) {
+                    guard let c = try? obs.contour(at: i) else { continue }
                     let pts = c.normalizedPoints.map(toMath)
                     // drop the photo's own border (a contour spanning almost the whole frame says nothing about the subject)
                     let xs = pts.map(\.x), ys = pts.map(\.y)
@@ -291,10 +341,34 @@ nonisolated enum PhotoStructurer {
         }
 
         return PreparedPhoto(image: working, upscale: factor, size: CGSize(width: W, height: H), aspect: aspect,
+                             quarterTurns: ((options.quarterTurns % 4) + 4) % 4, horizonDegrees: horizonDegrees, appliedLevelDegrees: appliedLevelDegrees,
                              subjectFound: subjectFound, subjectError: subjectError, contours: contours, darkness: darkness, timings: timings)
     }
 
     enum StructuringError: Error { case render }
+
+    /// 8-bit grayscale copy with the long side ≤ `maxSide`, drawn by Core Graphics. Feeding this to
+    /// `VNDetectContoursRequest` instead of a 12 MP RGBA image cut a busy shelf photo from 33 s to under 2 s
+    /// (measured on the Mac host; the request resamples to 1024 px internally anyway).
+    static func grayscaleCopy(_ image: CGImage, maxSide: Int = 1024, blurRadius: Double = 0) -> CGImage? {
+        let scale = min(1, Double(maxSide) / Double(max(image.width, image.height)))
+        let w = max(1, Int(Double(image.width) * scale)), h = max(1, Int(Double(image.height) * scale))
+        guard let ctx = CGContext(data: nil, width: w, height: h, bitsPerComponent: 8, bytesPerRow: w, space: CGColorSpaceCreateDeviceGray(), bitmapInfo: CGImageAlphaInfo.none.rawValue) else { return nil }
+        ctx.interpolationQuality = .high
+        ctx.draw(image, in: CGRect(x: 0, y: 0, width: w, height: h))
+        guard let gray = ctx.makeImage() else { return nil }
+        guard blurRadius > 0 else { return gray }
+        // A light blur removes text and print texture before contour tracing. Measured on the shelf photo:
+        // 1024 px gray without blur 20.6 s / 3,216 contours; with radius 1.5 → 0.17 s / 539 contours (161 usable).
+        let filter = CIFilter.gaussianBlur()
+        filter.inputImage = CIImage(cgImage: gray)
+        filter.radius = Float(blurRadius)
+        guard let out = filter.outputImage?.cropped(to: CGRect(x: 0, y: 0, width: w, height: h)),
+              let blurred = CIContext(options: [.useSoftwareRenderer: false]).createCGImage(out, from: out.extent),
+              let ctx2 = CGContext(data: nil, width: w, height: h, bitsPerComponent: 8, bytesPerRow: w, space: CGColorSpaceCreateDeviceGray(), bitmapInfo: CGImageAlphaInfo.none.rawValue) else { return gray }
+        ctx2.draw(blurred, in: CGRect(x: 0, y: 0, width: w, height: h))
+        return ctx2.makeImage() ?? gray
+    }
 
     static func shoelace(_ p: [CGPoint]) -> Double {
         guard p.count > 2 else { return 0 }
@@ -320,7 +394,10 @@ nonisolated enum PhotoStructurer {
         if curves { kinds.append("곡선") }
         if outlineDots != nil { kinds.append("윤곽 점") }
         if tone != nil { kinds.append("농담 점") }
-        var text = "// 사진 → 수식 (업스케일 \(String(format: "%.1f", photo.upscale))× → \(photo.subjectFound ? "누끼 → " : "")Vision 윤곽 → 푸리에 \(harmonics)조화 → \(kinds.joined(separator: " + ")))\n"
+        var orientation = ""
+        if photo.quarterTurns != 0 { orientation += "회전 \(photo.quarterTurns * 90)° → " }
+        if photo.appliedLevelDegrees != 0 { orientation += "수평 보정 \(String(format: "%.1f", photo.appliedLevelDegrees))° → " }
+        var text = "// 사진 → 수식 (\(orientation)업스케일 \(String(format: "%.1f", photo.upscale))× → \(photo.subjectFound ? "누끼 → " : "")Vision 윤곽 → 푸리에 \(harmonics)조화 → \(kinds.joined(separator: " + ")))\n"
         text += "canvas \(Int((a * 1000).rounded())) × 1000\nink #141414 width 0.5 alpha 0.8\n"
         var defs = "", errors: [Double] = []
         if let tone {

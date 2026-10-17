@@ -48,14 +48,18 @@
 
 ## 앱 화면 (SwiftUI, iPhone 16 시뮬레이터)
 
-<img src="Media/Screenshots/app-overview.png" width="100%" alt="그리기 탭 은행잎 · 프리셋 서랍 · 달항아리 · 학 · 읽기 탭 윤곽 · 가져온 하트 현 가족 · 갤러리 상세" />
+<img src="Media/Screenshots/app-overview.png" width="100%" alt="그리기 탭 은행잎 · 프리셋 서랍 · 달항아리 · 학 · 읽기 탭 레몬나무 · 가져온 결과 · 폭포 · 갤러리 상세" />
+
+<img src="Media/Screenshots/app-shelf-orientation.png" width="60%" alt="옆으로 저장된 진열대 사진: 회전 전 · 90° 회전과 수평 보정 후 · 그리기 탭" />
+
+<sub>EXIF 방향이 없는 진열대 사진 — 왼쪽은 저장된 그대로(선반이 세로), 가운데는 ↻ 90° 회전 + Vision 수평선 3.2° 보정 후 윤곽 12개 모두 선택, 오른쪽은 그리기 탭으로 가져온 결과(곡선 12 + 스티플 점)</sub>
 
 <sub>왼쪽부터: 그리기 탭(은행잎, 상태 칩 "계열 2 · 선분 820 · 4 ms", notch·ripple 슬라이더) · 프리셋 서랍(썸네일은 앱이 즉석에서 렌더) · 달항아리(원 4,400개, 18 ms) · 학 · 읽기 탭(레몬나무 사진: 업스케일 → 누끼 → 윤곽 12개 → DCT 220항, 곡선 + 스티플 점 2,364개 — 잎 202 : 레몬 61 : 하늘 12) · "스크립트로 열기"로 가져온 결과(gamma 슬라이더, 점이 실제로 그려진 개수로 집계) · 읽기 탭(폭포 사진, 절벽 298 : 물 60 : 하늘 8) · 갤러리 상세</sub>
 
 - **용어**: 앱 화면에서는 선분·원·곡선의 묶음을 **"계열"** 이라 부른다(수학의 family of curves). 문서와 코드(`Family`)는 family/가족을 그대로 쓴다.
 - **엔진**: `MathLexer`(유니코드 연산자 `· × − π √ … ∈ | ²`) → `FamilyParser`(canvas · ink · let · segments · circles · curve · where, 병치 곱셈, `sin^7(x)`, `|x|`, 줄 기반 문장) → `ExpressionCompiler`(슬롯 배열 위 클로저, 사용자 함수 인라인) → `FamilyEvaluator` → `FamilyRenderer`(SwiftUI `Canvas`). 프리셋 5종 평가 시간 1~25 ms.
 - **상태**: `@Observable EditorModel` — 스크립트 텍스트가 유일한 진실. 120 ms `Task` 디바운스, 실패 시 마지막 성공 렌더 유지 + 행·열 포함 한국어 오류 배너, 실행 취소 100단계, `let` 슬라이더는 텍스트의 숫자 리터럴을 고쳐 쓴다.
-- **읽기 탭**: `PhotosPicker` → Lanczos 업스케일(긴 변 2048, 최대 4×) + 언샤프 → 누끼(`VNGenerateForegroundInstanceMaskRequest`, 배경 흰색화, 실루엣 윤곽 1순위) → `VNDetectContoursRequest`(테두리 제외, 면적 순 12개) → 실수 푸리에(조화 2~64) → **곡선** 계열, 그리고 농담 → 36행 DCT 급수 `D(x,y)`(220항) → **점** 계열(Vogel 나선 스티플, `when D^gamma > mod(0.618034·k, 1)`로 밀도 ∝ 농담; 윤곽 점선 옵션) → 사진 위 오버레이 → "스크립트로 열기". 누끼 모델은 시뮬레이터에서 "inference context" 오류로 돌지 않아 원본으로 폴백한다(실기기 필요).
+- **읽기 탭**: `PhotosPicker` → 방향(90° 회전 버튼 + Vision 수평선 자동 보정) → Lanczos 업스케일(긴 변 2048, 최대 4×) + 언샤프 → 누끼(`VNGenerateForegroundInstanceMaskRequest`, 배경 흰색화, 실루엣 윤곽 1순위) → `VNDetectContoursRequest`(테두리 제외, 면적 순 12개) → 실수 푸리에(조화 2~64) → **곡선** 계열, 그리고 농담 → 36행 DCT 급수 `D(x,y)`(220항) → **점** 계열(Vogel 나선 스티플, `when D^gamma > mod(0.618034·k, 1)`로 밀도 ∝ 농담; 윤곽 점선 옵션) → 사진 위 오버레이 → "스크립트로 열기". 누끼 모델은 시뮬레이터에서 "inference context" 오류로 돌지 않아 원본으로 폴백한다(실기기 필요).
 - **아직 없음**: Metal 대형 렌더(점 12,000개 × DCT 220항 평가가 약 3초), 픽셀 수식, PencilKit, 숫자 스크러빙, 온디바이스 비교 뷰, RL 단계, 테스트 타깃(다음 증분).
 
 실행: `SuMukApp/SuMuk.xcodeproj`를 Xcode 27로 열고 `MyApp` 스킴을 iPhone 16 시뮬레이터에서 실행(⌘R). 번들 ID `com.coulson.SuMuk`, 표시 이름 "수묵", iPhone 전용.

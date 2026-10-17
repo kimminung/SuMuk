@@ -19,6 +19,9 @@ struct ReadTabView: View {
     @State private var toneDotCount = 6000.0
     @State private var toneGamma = 1.0
     @State private var darkOnLight = true
+    @State private var quarterTurns = 0
+    @State private var selectAll = false   // remembered across re-analysis (rotation, levelling, contrast)
+    @State private var autoLevel = true
     @State private var showCutout = true
     @State private var preview: RenderedArtwork?
     @State private var script = ""
@@ -55,6 +58,8 @@ struct ReadTabView: View {
             .onChange(of: toneDotCount) { _, _ in regenerate() }
             .onChange(of: toneGamma) { _, _ in regenerate() }
             .onChange(of: darkOnLight) { _, _ in Task { await prepare() } }
+            .onChange(of: quarterTurns) { _, _ in Task { await prepare() } }
+            .onChange(of: autoLevel) { _, _ in Task { await prepare() } }
         }
     }
 
@@ -103,6 +108,7 @@ struct ReadTabView: View {
     private var pipelineSteps: some View {
         VStack(alignment: .leading, spacing: 4) {
             if let p = prepared {
+                stepRow("0", "방향", orientationText(p), ms(p, "방향"))
                 stepRow("1", "업스케일", String(format: "%.1f× → %d × %d", p.upscale, Int(p.size.width), Int(p.size.height)), ms(p, "업스케일"))
                 stepRow("2", "누끼", p.subjectFound ? "피사체 분리됨 (배경 흰색)" : "원본 사용 — \(cutoutFailureText(p.subjectError))", ms(p, "누끼"))
                 stepRow("3", "윤곽", "\(p.contours.count)개 (실루엣 \(p.contours.filter(\.isSilhouette).count))", ms(p, "윤곽"))
@@ -111,6 +117,15 @@ struct ReadTabView: View {
         }
         .padding(10)
         .background(Color(.secondarySystemBackground), in: RoundedRectangle(cornerRadius: 10))
+    }
+
+    private func orientationText(_ p: PreparedPhoto) -> String {
+        var parts: [String] = []
+        parts.append(p.quarterTurns == 0 ? "회전 없음" : "회전 \(p.quarterTurns * 90)°")
+        if let h = p.horizonDegrees {
+            parts.append(String(format: "수평선 %.1f°%@", h, p.appliedLevelDegrees != 0 ? " 보정됨" : (abs(h) <= 0.3 ? "" : " (보정 끔)")))
+        } else { parts.append("수평선 미검출") }
+        return parts.joined(separator: " · ")
     }
 
     private func cutoutFailureText(_ error: String?) -> String {
@@ -141,8 +156,26 @@ struct ReadTabView: View {
 
     private var controls: some View {
         VStack(alignment: .leading, spacing: 10) {
+            if prepared != nil {
+                HStack(spacing: 10) {
+                    Text("방향").font(.subheadline.bold())
+                    Button { quarterTurns = (quarterTurns + 3) % 4 } label: { Image(systemName: "rotate.left") }
+                        .buttonStyle(.bordered).controlSize(.small).accessibilityLabel("반시계 방향으로 90도 회전")
+                    Button { quarterTurns = (quarterTurns + 1) % 4 } label: { Image(systemName: "rotate.right") }
+                        .buttonStyle(.bordered).controlSize(.small).accessibilityLabel("시계 방향으로 90도 회전")
+                    Text("\(quarterTurns * 90)°").font(.caption.monospacedDigit()).frame(width: 36)
+                    Toggle("수평 자동 보정", isOn: $autoLevel).font(.caption).toggleStyle(.switch).controlSize(.mini)
+                }
+            }
             if let p = prepared, !p.contours.isEmpty {
-                Text("윤곽 선택").font(.subheadline.bold())
+                HStack {
+                    Text("윤곽 선택 (면적순)").font(.subheadline.bold())
+                    Spacer()
+                    Button("모두 선택") { selectAll = true; selected = Set(p.contours.map(\.id)) }.font(.caption).buttonStyle(.bordered).controlSize(.mini)
+                        .accessibilityLabel("윤곽 모두 선택")
+                    Button("해제") { selectAll = false; selected = [] }.font(.caption).buttonStyle(.bordered).controlSize(.mini)
+                        .accessibilityLabel("윤곽 선택 해제")
+                }
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
                         ForEach(p.contours) { c in
@@ -232,15 +265,20 @@ struct ReadTabView: View {
         busy = true; failure = nil; preview = nil; script = ""
         defer { busy = false }
         var options = PhotoStructurer.Options(); options.detectsDarkOnLight = darkOnLight
+        options.quarterTurns = quarterTurns; options.autoLevel = autoLevel
         let result = await Task.detached(priority: .userInitiated) { () -> Result<PreparedPhoto, Error> in
             do { return .success(try PhotoStructurer.prepare(cg, options: options)) } catch { return .failure(error) }
         }.value
         switch result {
         case .success(let p):
             prepared = p
-            // default selection: every silhouette, else the largest contour
-            let sil = p.contours.filter(\.isSilhouette).map(\.id)
-            selected = Set(sil.isEmpty ? p.contours.prefix(1).map(\.id) : sil)
+            // default selection: everything if the user chose 모두 선택 before; else every silhouette, else the largest contour
+            if selectAll {
+                selected = Set(p.contours.map(\.id))
+            } else {
+                let sil = p.contours.filter(\.isSilhouette).map(\.id)
+                selected = Set(sil.isEmpty ? p.contours.prefix(1).map(\.id) : sil)
+            }
             regenerate()
         case .failure(let error):
             failure = "분석 실패: \(error)"
