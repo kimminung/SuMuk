@@ -16,6 +16,10 @@
 
 <img src="Media/Video/sumuk-intro.gif" width="100%" alt="수묵 소개 영상 — 선분 계열로 은행잎을, 원 계열로 달항아리를 그리고, 매화 그림을 푸리에 곡선과 농담 점의 수식으로 다시 읽는다" />
 
+
+https://github.com/user-attachments/assets/e8f787be-bb59-473d-8ba2-b59f128d3bea
+
+
 <sub>▶ <a href="Media/Video/sumuk-intro.mp4"><b>고화질 MP4로 보기</b></a> (1080p · 50초) — 영상 속 그림도 모두 <code>Media/Video/src</code>가 앱의 프리셋 수식과 읽기 탭의 알고리즘으로 그렸다.</sub>
 
 <br/><br/>
