@@ -9,36 +9,38 @@
 - [x] T0.1 저장소 폴더 `Desktop/SuMuk` 생성, `LICENSE`(Apache 2.0), `.gitignore`(Xcode), `.gitattributes`, `Docs/`, `Media/` 준비, `git init`.
 - [x] T0.2 기술 PRD(`Docs/PRD-SuMuk.md`)·태스크 문서(이 파일)·`README.md` 작성.
 - [x] T0.3 수묵 원작 샘플 5종 설계·렌더(`Media/src/render_samples.py` 렌더 헬퍼, `originals.py`, `make_readme_images.py`), README 이미지(배너·그리드·수식 카드·파이프라인 SVG). 처음에 함께 만들었던 Yeganeh 공식 재현 렌더 5종은 사용자 결정(외부 이미지·공식 미사용)으로 저장소·문서에서 제거.
-- [ ] T0.4 Xcode 프로젝트: `Untitled Project/MyApp`를 `SuMuk`로 개명(타깃·스킴·Product Name), `PRODUCT_BUNDLE_IDENTIFIER = com.coulson.SuMuk`(placeholder `devplaceholder.*` 금지 — MathSketch 실기기 교훈), `TARGETED_DEVICE_FAMILY = 1`(iPhone 우선), `SUPPORTED_PLATFORMS = iphoneos iphonesimulator`, `Desktop/SuMuk/SuMuk.xcodeproj`로 이동.
-- [ ] T0.5 그룹 구조 선셋업: `MathEngine/`, `Script/`, `Family/`, `Render/`, `Structuring/`, `Presets/`, `Assistant/`, `Model/`, `Persistence/`, `Views/`, `Resources/`, 테스트 타깃 `SuMukTests`(Swift Testing).
-- [ ] T0.6 첫 커밋(문서 + 미디어 + 빈 앱 골격).
+- [~] T0.4 Xcode 프로젝트(2026-10-17 저녁): `PRODUCT_NAME = SuMuk`, `PRODUCT_BUNDLE_IDENTIFIER = com.coulson.SuMuk`, `CFBundleDisplayName = 수묵`, `TARGETED_DEVICE_FAMILY = 1`, `SUPPORTED_PLATFORMS = iphoneos iphonesimulator` 적용. **타깃 이름은 아직 `MyApp`**(도구로 개명 불가). 프로젝트 본체는 여전히 Xcode의 `UntitledProjects/Untitled Project`에 있고, 저장소에는 `SuMukApp/`(xcuserdata 제외 rsync 스냅샷, `SuMuk.xcodeproj`로 개명)로 복사. Xcode에서 File ▸ Save로 `Desktop/SuMuk/SuMukApp`에 저장하면 스냅샷이 본체가 된다.
+- [~] T0.5 그룹 구조: `MathEngine/ Script/ Family/ Render/ Structuring/ Presets/ Model/ Persistence/ Views/` 생성. `Assistant/ Resources/`와 테스트 타깃 `SuMukTests`는 미생성.
+- [x] T0.6 첫 커밋 + GitHub 공개 저장소(kimminung/SuMuk) 푸시.
 
 ## Phase 1 — MathEngine 이식 + SuMuk Script 파서 (FR-1)
 
-- [ ] T1.1 MathSketch `MathLexer/MathAST/MathParser/MathEvaluator` 이식(`nonisolated` 유지). `MathSyntaxError` 열 번호 메시지 유지.
-- [ ] T1.2 `ScriptLexer`: 유니코드 연산자(`· × − π Σ ⌊ ⌋ | ∈`), 범위 `...`, 키워드, 주석(`//`), 아래첨자(`_`, `_{…}`), 거듭제곱 함수 표기 `sin^7(`.
-- [ ] T1.3 `FamilyParser`: `canvas`/`ink`/`segments`/`circles`/`curve`/`pixel`/`where`/`let … in [a,b]`/`animate`. 병치 곱셈 우선순위, 복소수 표기(`i`, `e^(iθ)`) → 실수부/허수부 분해.
-- [ ] T1.4 `ScriptFormatter`: 정규화 출력(들여쓰기·연산자 통일·숫자 포맷), 왕복 테스트.
-- [ ] T1.5 자유 변수·인자 수·상한(가족 20, 요소 1,000,000, 50,000자) 검증, 한국어 오류.
+- [x] T1.1 MathSketch `MathLexer/MathAST/MathEvaluator` 이식(`nonisolated`), 행·열 포함 `MathSyntaxError`. 평가기는 트리 워킹 대신 **`ExpressionCompiler`(슬롯 배열 위 클로저, 사용자 함수 인라인, 정수 거듭제곱 `ipow`)** 로 교체 — 프리셋 3,500원 평가 25 ms.
+- [x] T1.2 렉서: `· × − π √ … ∈ | ²³⁷`, `#RRGGBB`, `//` 주석, 줄바꿈 토큰, 지수 표기 `1e-5`. π·τ·√는 항상 한 글자 식별자(`2πk` = 2·π·k), 위첨자는 `^n`으로 분해. (Σ·⌊⌋·아래첨자 `_{…}`는 미지원)
+- [x] T1.3 `FamilyParser`: canvas · ink · let … in [a,b] · segments · circles · curve … samples · where(함수·상수 정의) · 가족별 ink. 병치 곱셈(·와 같은 우선순위, 좌결합), `sin^7(x)`(뒤에 `(`가 올 때만), `|x|`, `√x`, `sin k`, 줄 연속 규칙(연산자로 끝/시작하면 다음 줄 계속). **미지원**: `pixel`(오류 메시지), `animate`, 복소수 표기.
+- [ ] T1.4 `ScriptFormatter`: 미착수.
+- [x] T1.5 자유 변수(가족 변수·let·상수·where 매개변수만 허용)·인자 수·상한(가족 20, 요소 1,000,000, 50,000자) 검증, 오류에 가족/정의의 행 번호 포함.
+- 설계 메모: 사용자 함수 이름 수집은 "줄 시작의 `이름(…) =`" 패턴 선스캔 → 그래서 `x1(2πk/600)`은 호출, `k(2π…)`는 곱셈. 정의 이름과 매개변수 이름이 겹치면(`x(k)` 정의 + `top(x)` 매개변수) 혼동되므로 프리셋에서는 `px(k)`로 회피했고, 파서도 `x^2` 뒤에 `(`가 없으면 거듭제곱으로 읽는다.
 - [ ] T1.6 `CaptionImporter`(영어 캡션 문장 → Script), `LaTeXImporter`(PixelFormula 전처리기 확장), 입력 종류 판별(`ScriptKindDetector`: Script / 캡션 / LaTeX / 픽셀).
 - [ ] T1.7 테스트: 원작 프리셋 5종 파싱 → 특정 k에서 끝점·중심·반지름이 numpy 생성기(`Media/src/originals.py`)와 1e-9 내 일치(값은 Python으로 생성해 픽스처로 저장), 캡션 임포트(합성 문장 5종), 오류 사례 10종, 왕복.
 
 ## Phase 2 — 평가기 + Canvas 렌더 + 프리셋 (FR-2, FR-3 일부)
 
-- [ ] T2.1 `ExpressionCompiler`: AST → 스택 바이트코드, 상수 접기, `where` 인라인(깊이 ≤ 8).
-- [ ] T2.2 `FamilyEvaluator`(vDSP): `k` 배열 벌크 평가, `signedPow`, NaN/∞ 제외 마스크. 벤치: 20,000개 ≤ 2ms.
-- [ ] T2.3 `FitContext` 이식 + `CanvasFamilyRenderer`(선분·원·곡선, 두께·불투명도·먹색), 화선지 배경 프리셋.
-- [ ] T2.4 `Presets.json`(원작 5종: Script·제목·설명) + `PresetLoader`. `originals.py`의 수식을 Script로 옮겨 적고 Python 렌더와 비교.
-- [ ] T2.5 최소 `DrawTab`: 프리셋 선택 → 미리보기(읽기 전용 Script 표시). iPhone 16 시뮬레이터에서 프리셋 5종 육안 확인, 스크린샷 → `Media/Screenshots/phase2-*.png`.
+- [x] T2.1 `ExpressionCompiler`(클로저 트리, `where` 인라인 깊이 ≤ 16). 바이트코드·vDSP 벡터화는 Metal 단계(Phase 4)에서 함께.
+- [x] T2.2 `FamilyEvaluator`: 가족별 k 루프, NaN/∞ 요소 제외, 평가 시간 기록. 측정(시뮬레이터): 은행잎 820선분 4 ms · 달항아리 4,400원 18 ms · 매화 3,561원 21 ms · 잉어 2,760선분 5 ms · 학 2,760선분 8 ms.
+- [x] T2.3 `FitContext` + `FamilyRenderer`(SwiftUI Canvas, 선분·원(외곽/채움)·폴리라인, 먹색·두께·알파, 화선지 배경, `canvas` 지정 시 사진 비율 프레임, 오버레이용 padding 0).
+- [x] T2.4 프리셋 5종을 Swift 문자열 Script로 이식(`Presets.swift`; JSON은 나중). 매화는 5꽃잎을 `floor((k−1)/700)`로 한 가족에, 학의 다리 2개는 `mod`/`floor`로 한 가족에 합침. 학 목의 법선은 `np.gradient` 대신 닫힌형 도함수.
+- [x] T2.5 `DrawTabView` + 프리셋 서랍(썸네일 즉석 렌더). iPhone 16 시뮬레이터에서 5종 육안 확인, 스크린샷 `Media/Screenshots/app-*.png`.
 
 ## Phase 3 — 에디터 UX (FR-4)
 
-- [ ] T3.1 `EditorModel(@Observable)`: 텍스트 → 120ms 디바운스(`Task.sleep`) → 파싱/평가/렌더 파이프라인, 마지막 성공 결과 유지, 오류 배너.
-- [ ] T3.2 경량 하이라이팅(토큰 기반 `AttributedString`, 보이는 범위만), 키보드 액세서리(`π · ^ ( ) sin cos`).
-- [ ] T3.3 숫자 스크러빙: 숫자 토큰 롱프레스 + 가로 드래그, 자릿수 기반 스텝, 햅틱, 텍스트 치환(선택 범위 유지).
-- [ ] T3.4 `let x = v in [a, b]` 변수 슬라이더, `animate t ∈ [a,b] duration s` 재생 컨트롤(`TimelineView`), 모션 감소 존중.
-- [ ] T3.5 Undo/Redo(텍스트 스냅샷, 스크러빙 1회 = 1스냅샷, 최대 100), 전체 지우기 확인.
-- [ ] T3.6 프리셋 서랍(시트), 수식 카드 미리보기.
+- [x] T3.1 `EditorModel(@Observable)`: 120 ms `Task.sleep` 디바운스 → `Task.detached` 파싱/평가 → 마지막 성공 렌더 유지 + 오류 배너(행·열). 오류 중에는 let 슬라이더 숨김.
+- [~] T3.2 키보드 액세서리(`π · ^ ( ) √ | sin( cos( exp( …`)만. 하이라이팅 미착수.
+- [ ] T3.3 숫자 스크러빙 미착수.
+- [~] T3.4 `let` 슬라이더 완료(드래그 1회 = undo 1단계, 정수 범위면 정수 스텝 — δ·wing). `animate`는 미착수.
+- [x] T3.5 Undo/Redo(최대 100). 전체 지우기는 "빈 시작" 프리셋으로 대체.
+- [~] T3.6 프리셋 서랍 완료, 수식 카드 미리보기 미착수. 스크립트 교체·undo 시 에디터가 끝으로 스크롤되던 문제는 `scriptVersion` id로 해결.
+- QA에서 잡은 버그(2026-10-17): (1) 렉서가 `πk`를 한 식별자로 읽어 프리셋 4종 실패 → π·τ·√ 단독 토큰화. (2) `k²`의 위첨자가 `isNumber`라 식별자/숫자에 섞임 → 위첨자 우선 분기. (3) `canvas 993 × 1000`을 식으로 파싱해 곱해 버림 → 숫자 토큰만 허용. (4) `x(k)` 정의가 있으면 `top(x)`의 `x^2`를 `x^2(…)` 함수 표기로 오인 → `(` 선행 확인. (5) 검증 오류 위치가 항상 1행 1열 → 가족/정의 행 추적.
 
 ## Phase 4 — Metal 대형 렌더 + 내보내기 (FR-2 GPU, FR-3)
 
@@ -51,13 +53,13 @@
 
 ## Phase 5 — 그림 → 수식 Tier A (FR-5)
 
-- [ ] T5.1 입력: `PhotosPicker`, `fileImporter`(PNG/JPEG/HEIC/PDF 1쪽), PencilKit 캔버스(`PKCanvasView` 래핑, 스트로크 → 폴리라인). 카메라는 should(`AVCapturePhotoOutput`, 권한 문자열).
-- [ ] T5.2 `ContourExtractor`: `VNDetectContoursRequest`(contrast·darkOnLight 토글, 1024px 다운샘플), 면적 순 상위 12개, 좌표 정규화, RDP 단순화(ε 슬라이더).
-- [ ] T5.3 윤곽 선택 UI: 색 구분 오버레이, 탭 선택/다중 선택, 기본 최대 윤곽.
-- [ ] T5.4 `FourierFitter`: 호 길이 재매개변수화 → M 샘플 → 실수 DFT → `(a₀, aₙ, bₙ)`(N 1~64), 유효숫자 4자리 반올림.
-- [ ] T5.5 `FamilySynthesizer` 4종: `curve` / 현 가족(δ) / 원 가족(붓 r₀, r₁, m, p) / 해칭 가족 → Script 문자열(`where`에 `x_i(t), y_i(t)`).
-- [ ] T5.6 `Metrics`: 평균/최대 거리(정규화 %), 수식 길이(문자·항 수). 오버레이 3모드(원본/결과/겹침).
-- [ ] T5.7 `ReadTab` 완성: 입력 → 윤곽 선택 → 변환 종류·슬라이더 → 지표 → "스크립트로 열기"/저장.
+- [~] T5.1 입력: `PhotosPicker` 완료. `fileImporter`·PencilKit·카메라 미착수.
+- [~] T5.2 `ContourStructurer.extractContours`: `VNDetectContoursRequest`(darkOnLight 토글, 1024px), 면적(신발끈 공식) 순 12개, 수학 좌표 정규화. RDP ε 슬라이더 미착수.
+- [~] T5.3 윤곽 선택: 칩(#id · 점 수) 탭 토글, 기본 최대 윤곽 1개. 색 구분 오버레이 미착수.
+- [x] T5.4 `FourierCurve`: 호 길이 재매개변수화(512샘플) → 실수 DFT(조화 2~64) → 소수 4자리 계수 → `where` 정의 문자열.
+- [~] T5.5 합성 3종(`curve` / 현 가족 `let δ` 기본 100 / 붓 원 가족). 해칭 가족 미착수.
+- [~] T5.6 평균 오차(%)·문자 수 표시. 최대 오차·오버레이 3모드 미착수.
+- [~] T5.7 `ReadTabView`: 사진 → 윤곽 칩 → 변환 세그먼트·조화 슬라이더 → 오버레이(사진 비율, padding 0) → "스크립트로 열기"(그리기 탭 전환). 시뮬레이터 샘플 사진(하트 윤곽)으로 왕복 확인: 윤곽 2개 57~69 ms, 평균 오차 0.15%, 현 가족 600선분 3 ms.
 - [ ] T5.8 테스트: 합성 도형(원·별·하트 폴리라인)의 푸리에 재구성 오차 < 0.5%, 현 가족 Script가 파서로 다시 읽히고 요소 수 일치, 1024px 사진 전체 파이프라인 ≤ 1.5s(실기기).
 
 ## Phase 6 — 그림 → 수식 Tier B 가족 적합 (FR-6, 실험, 시간 박스 2일)
@@ -86,8 +88,8 @@
 
 ## Phase 8 — 영속성·갤러리 (FR-8)
 
-- [ ] T8.1 SwiftData `Artwork` 모델(script 진실, 썸네일 externalStorage, sourceImage 옵션·동의), 드래프트 1개 자동 저장(0.8s `Task` 디바운스).
-- [ ] T8.2 `GalleryTab`(`@Query` 그리드), 상세(수식 전문·지표·출처), 열기/복제/삭제, 썸네일 `ImageRenderer`(+픽셀 배경 합성).
+- [~] T8.1 SwiftData `SavedArtwork`(title · script · createdAt · elementCount · sourceNote · 썸네일 externalStorage). 드래프트 자동 저장·sourceImage 미착수.
+- [~] T8.2 `GalleryTabView`(`@Query` 그리드) + 상세(렌더·스크립트로 열기·공유·삭제 확인). 복제·지표 미착수. 썸네일은 `ImageRenderer`(600px).
 - [ ] T8.3 재실행 복원(드래프트) 시뮬레이터 QA(앱 스와이프 종료 → 콜드 스타트).
 
 ## Phase 9 — FoundationModels 보조 (FR-9, 선택)
