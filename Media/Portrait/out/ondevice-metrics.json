@@ -1,0 +1,51 @@
+{
+  "families": 18,
+  "names": [
+    "silhouette",
+    "faceContour",
+    "leftEyebrow",
+    "rightEyebrow",
+    "leftEye",
+    "rightEye",
+    "nose",
+    "noseCrest",
+    "outerLips",
+    "innerLips",
+    "leftPupil",
+    "rightPupil",
+    "contour0",
+    "contour1",
+    "contour2",
+    "contour3",
+    "contour4",
+    "contour5"
+  ],
+  "fourier_coefficients": 836,
+  "vision_ms": {
+    "contours": 20.261962890625,
+    "faceLandmarks": 464.912109375,
+    "personSegmentation": 2003.68994140625
+  },
+  "convert_seconds": 0.23683404922485352,
+  "structure": {
+    "chamfer_to_edges": 0.05867301193189852,
+    "tone_loss": 0.30478275625102097
+  },
+  "composite": {
+    "chamfer_to_edges": 0.08561220783149114,
+    "tone_loss": 0.261001881361565
+  },
+  "classical": {
+    "families": 12,
+    "fourier_coefficients": 500,
+    "seconds": 0.6501171588897705,
+    "structure": {
+      "chamfer_to_edges": 0.08979821829842097,
+      "tone_loss": 0.2851112387883431
+    },
+    "composite": {
+      "tone_loss": 0.25410655979331304,
+      "chamfer_to_edges": 0.13346112358913267
+    }
+  }
+}

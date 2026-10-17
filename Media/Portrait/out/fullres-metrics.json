@@ -1,0 +1,38 @@
+{
+ "m1-isoline-chords": {
+  "tone_loss": 0.2851,
+  "chamfer": 0.0898
+ },
+ "m2-spiral-halftone": {
+  "tone_loss": 0.1826,
+  "chamfer": 0.1015
+ },
+ "m3-wave-hatching": {
+  "tone_loss": 0.2472,
+  "chamfer": 0.8959
+ },
+ "m5-template-fit": {
+  "tone_loss": 0.3271,
+  "chamfer": 0.0981
+ },
+ "portrait-composite": {
+  "tone_loss": 0.2541,
+  "chamfer": 0.1335
+ },
+ "ondevice-structure": {
+  "tone_loss": 0.3048,
+  "chamfer": 0.0587
+ },
+ "ondevice-composite": {
+  "tone_loss": 0.261,
+  "chamfer": 0.0856
+ },
+ "rl-before": {
+  "tone_loss": 0.2494,
+  "chamfer": 0.1577
+ },
+ "rl-after": {
+  "tone_loss": 0.051,
+  "chamfer": 0.0544
+ }
+}

@@ -82,6 +82,20 @@
 </div>
 <p align="center"><sub>잉어 — 서로 교차하는 두 해칭 가족(몸통) + 부채꼴 꼬리·지느러미 + 눈(작은 원의 현) 선분 2,900개 · 학 — 날개 가족(sin⁷ 포락선) + S자 목·머리·부리·다리 선분 2,500개</sub></p>
 
+## 사진 → 수식 샘플: 초상(肖像)
+
+앱의 "그림 → 수식" 방향을 실제 사진 한 장(증명사진)으로 끝까지 밀어 본 샘플이다. 원본 사진은 저장소에 넣지 않았고, 아래 이미지는 모두 **사진에서 도출한 수식만으로** 다시 그린 것이다. 수식 전문은 `Media/Portrait/out/*.sumuk`, 수치와 방법은 [Docs/Portrait-Sample-Report.md](Docs/Portrait-Sample-Report.md).
+
+<img src="Media/Portrait/portrait-methods.png" width="100%" alt="고전 파이프라인 다섯 가지 방법" />
+
+<img src="Media/Portrait/portrait-compare.png" width="100%" alt="고전 · 온디바이스 · 강화학습 비교" />
+
+- **고전(numpy) 경로** — 명도 등고선 → 푸리에 → 현 가족, Vogel 나선 하프톤(반지름 = DCT 농담 급수 160항), 파형 해칭, DCT 픽셀 수식(32~2048항, PSNR 17.7~26.9 dB), 짧은 템플릿 CEM 적합. 전부 닫힌형 수식으로 출력되며 합성 스크립트는 약 20 KB.
+- **온디바이스 경로** — Apple Vision(얼굴 랜드마크 12부위 · 인물 세그멘테이션 · 윤곽)을 Swift로 이 Mac에서 실행해 같은 가족으로 변환. 인물 사진에서는 눈·코·입·실루엣이 또렷해 에지 Chamfer가 고전 경로보다 좋다. 이 요청들은 iPhone에서 그대로 쓰인다.
+- **RL 단계** — 합성 수식의 연속 매개변수 7개를 REINFORCE(가우시안 정책, MLX)로 조정. 보상 = −3·톤 손실 − 2·Chamfer − λ·요소 수. 720번의 저해상도 렌더로 보상이 크게 오르며 요소 수는 줄어든다(보상 곡선: `Media/Portrait/rl-reward-curve.png`).
+
+<img src="Media/Portrait/rl-reward-curve.png" width="100%" alt="RL 보상 곡선" />
+
 ## SuMuk Script 맛보기
 
 ```

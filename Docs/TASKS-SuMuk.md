@@ -68,6 +68,15 @@
 - [ ] T6.4 UI: "실험" 배지, Tier A와 나란히 비교, 임계값(평균 오차 > 6%) 초과 시 Tier A 기본 유지.
 - [ ] T6.5 평가 리포트: 손그림 10장(새·물고기·잎·하트·배 등)에 대한 Tier A/B 오차·길이 표를 `Docs/TierB-Report.md`에 기록. 결과에 따라 2차 범위 결정.
 
+## Phase 6b — 온디바이스 경로 + RL 미세조정 (FR-11, FR-12) — 프로토타입 완료 2026-10-17
+
+- [x] T6b.1 Python 프로토타입: `Media/src/sumuk_core.py`(DCT 급수·경계 추적·푸리에·가족 합성·래스터·지표), `portrait_pipeline.py`(M1~M5 + 합성 + Script 출력), `vision_ondevice.swift`(Vision 랜드마크·인물 마스크·윤곽 → JSON), `portrait_ondevice.py`(Vision 구조 → 가족, 비교 지표), `portrait_rl.py`(MLX REINFORCE), `make_portrait_figures.py`. 결과 `Media/Portrait/`, 보고서 `Docs/Portrait-Sample-Report.md`. 원본 사진은 `Media/Portrait/input/`(gitignore).
+- [ ] T6b.2 Swift 이식: `Structuring/OnDevice/` — `VNDetectFaceLandmarksRequest`·`VNGeneratePersonSegmentationRequest`·`VNDetectContoursRequest` 래퍼, 랜드마크 부위별 가족 스타일 테이블(눈·입 = 현 가족, 얼굴 윤곽 = 붓 원 가족, 눈썹·코 = 곡선), 실루엣 마스크 경계 추적.
+- [ ] T6b.3 비교 뷰: 고전 vs 온디바이스 나란히 + 지표 표(Chamfer·톤 손실·가족·계수·시간), 층 섞기(톤/구조 선택) 후 저장.
+- [ ] T6b.4 RL 단계 Swift 이식: 환경(저해상도 Metal 렌더 → 톤 손실·Chamfer), 가우시안 정책 + REINFORCE(파라미터 14개, 수동 그래디언트 또는 MLX Swift), 진행률·보상 곡선·중단·채택 UI, λ 슬라이더. 실기기 예산 ≤ 20초 측정.
+- [ ] T6b.5 테스트: 보상 함수 결정성, 정책 업데이트 방향(합성 보상에서 평균이 올라가는지), Vision 결과 JSON 픽스처로 변환 왕복, 비인물 사진 폴백.
+- [ ] T6b.6 프로토타입 개선 메모: 온디바이스 경로의 Vision 윤곽 가족이 얼굴을 가로지르는 큰 고리를 만들 때가 있음(윤곽 중첩 제거 필요). RL 정책 σ가 수렴하지 않고 탐색을 유지함(엔트로피 보너스·lr 재조정, 또는 최종 채택을 "정책 평균" 대신 "최선 샘플"로 — 현재 구현).
+
 ## Phase 7 — 픽셀 수식 양방향 (FR-7)
 
 - [ ] T7.1 MathSketch `PixelFormula/` 이식(토크나이저·파서·CPU 평가기·트랜스파일러·렌더러·예시·테스트 17개), `pixel` 가족으로 통합(배경 레이어, 1/4 미리보기 → 전체).

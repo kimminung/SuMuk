@@ -17,3 +17,6 @@ Package.resolved
 
 # Generated renders are committed; scratch output is not
 Media/src/__pycache__/
+
+# Private source photos for the portrait sample (never committed)
+Media/Portrait/input/
