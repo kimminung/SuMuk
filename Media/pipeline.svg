@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="640" viewBox="0 0 1600 640" font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1c1c1e"/>
+    </marker>
+    <style>
+      .box { fill: #ffffff; stroke: #1c1c1e; stroke-width: 2; rx: 14; }
+      .soft { fill: #f4f1ea; stroke: #8a8a8e; stroke-width: 1.5; stroke-dasharray: 6 5; rx: 14; }
+      .title { font-size: 21px; font-weight: 700; fill: #1c1c1e; }
+      .body { font-size: 14px; fill: #3a3a3c; }
+      .small { font-size: 12.5px; fill: #6e6e73; }
+      .lane { font-size: 19px; font-weight: 700; fill: #6e6e73; letter-spacing: 1px; }
+      .line { stroke: #1c1c1e; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <text x="40" y="50" class="lane">수식 → 그림  (FORMULA → IMAGE)</text>
+
+  <rect x="40" y="68" width="272" height="118" class="box"/>
+  <text x="58" y="100" class="title">SuMuk Script</text>
+  <text x="58" y="126" class="body">segments · circles · curve · pixel</text>
+  <text x="58" y="148" class="small">AMS 캡션 문장 · LaTeX 부분집합 임포트</text>
+  <text x="58" y="168" class="small">복소수 표기 e^(iθ) 허용</text>
+
+  <rect x="342" y="68" width="272" height="118" class="box"/>
+  <text x="360" y="100" class="title">FamilyParser</text>
+  <text x="360" y="126" class="body">MathLexer/AST 재사용 + 범위 · where</text>
+  <text x="360" y="148" class="small">왕복 보장 (parse ∘ format)</text>
+  <text x="360" y="168" class="small">열 번호 포함 한국어 오류</text>
+
+  <rect x="644" y="68" width="272" height="118" class="box"/>
+  <text x="662" y="100" class="title">FamilyEvaluator</text>
+  <text x="662" y="126" class="body">k = 1 … N 벌크 평가</text>
+  <text x="662" y="148" class="small">≤ 50k: vDSP 바이트코드 · 초과: Metal 컴퓨트</text>
+  <text x="662" y="168" class="small">끝점 · 중심 · 반지름 버퍼</text>
+
+  <rect x="946" y="68" width="272" height="118" class="box"/>
+  <text x="964" y="100" class="title">Renderer</text>
+  <text x="964" y="126" class="body">Canvas (≤ 5k) · Metal 인스턴싱 (≤ 1M)</text>
+  <text x="964" y="148" class="small">SDF 선분 · 원, 먹색 · 두께 · 화선지</text>
+  <text x="964" y="168" class="small">PNG 4K · SVG · 수식 카드 내보내기</text>
+
+  <rect x="1248" y="68" width="312" height="118" class="box"/>
+  <text x="1266" y="100" class="title">iPhone 화면</text>
+  <text x="1266" y="126" class="body">라이브 미리보기 · 숫자 스크러빙</text>
+  <text x="1266" y="148" class="small">let 슬라이더 · t 애니메이션 · undo</text>
+  <text x="1266" y="168" class="small">프리셋 10종 · 갤러리 (SwiftData)</text>
+
+  <path d="M 312 127 L 340 127" class="line"/>
+  <path d="M 614 127 L 642 127" class="line"/>
+  <path d="M 916 127 L 944 127" class="line"/>
+  <path d="M 1218 127 L 1246 127" class="line"/>
+
+  <text x="40" y="262" class="lane">그림 → 수식  (IMAGE → FORMULA)</text>
+
+  <rect x="40" y="280" width="272" height="136" class="box"/>
+  <text x="58" y="312" class="title">입력</text>
+  <text x="58" y="338" class="body">사진: PhotosPicker · 카메라 · 파일</text>
+  <text x="58" y="360" class="body">손그림: PencilKit 캔버스</text>
+  <text x="58" y="384" class="small">모두 온디바이스, 네트워크 없음</text>
+
+  <rect x="342" y="280" width="272" height="136" class="box"/>
+  <text x="360" y="312" class="title">Vision 윤곽 추출</text>
+  <text x="360" y="338" class="body">VNDetectContoursRequest</text>
+  <text x="360" y="360" class="body">폴리라인 단순화(RDP) · 정규화</text>
+  <text x="360" y="384" class="small">PencilKit 스트로크는 바로 폴리라인</text>
+
+  <rect x="644" y="280" width="272" height="136" class="box"/>
+  <text x="662" y="312" class="title">Tier A · 푸리에 구조화</text>
+  <text x="662" y="338" class="body">윤곽 → x(t), y(t) 삼각급수 (N 조화)</text>
+  <text x="662" y="360" class="body">→ 곡선 · 현(chord) · 원 · 해칭 가족</text>
+  <text x="662" y="384" class="small">결정적, 오차 지표 · 오버레이 표시</text>
+
+  <rect x="946" y="280" width="272" height="136" class="box"/>
+  <text x="964" y="312" class="title">Tier B · 가족 적합 (실험)</text>
+  <text x="964" y="338" class="body">Yeganeh형 템플릿 계수 최적화</text>
+  <text x="964" y="360" class="body">Chamfer 손실 · Accelerate</text>
+  <text x="964" y="384" class="small">시간 예산 내 최선해, 실험 배지</text>
+
+  <rect x="1248" y="280" width="312" height="136" class="box"/>
+  <text x="1266" y="312" class="title">출력 = SuMuk Script</text>
+  <text x="1266" y="338" class="body">원본 위에 결과를 겹쳐 비교</text>
+  <text x="1266" y="360" class="body">조화 수 · 현 간격 슬라이더로 재적합</text>
+  <text x="1266" y="384" class="small">저장하면 위 파이프라인으로 다시 그림</text>
+
+  <path d="M 312 348 L 340 348" class="line"/>
+  <path d="M 614 348 L 642 348" class="line"/>
+  <path d="M 916 348 L 944 348" class="line"/>
+  <path d="M 1218 348 L 1246 348" class="line"/>
+  <path d="M 1404 280 L 1404 188" class="line"/>
+
+  <rect x="40" y="476" width="1520" height="124" class="soft"/>
+  <text x="58" y="508" class="title">공유 기반</text>
+  <text x="58" y="536" class="body">MathEngine (MathSketch에서 이식: Lexer · AST · Parser · Evaluator) · PixelFormula (LaTeX 토크나이저 · Metal 트랜스파일러 · GPU 렌더러)</text>
+  <text x="58" y="558" class="body">SwiftData 갤러리 · @Observable 상태 · async/await (Combine 미사용) · Swift Testing</text>
+  <text x="58" y="584" class="small">선택: FoundationModels 온디바이스 모델 — 수식 설명 · 제목 제안 · 스크립트 수정 초안 (가용성 확인 후에만, 결과는 항상 파서 검증 + 사용자 수락)</text>
+</svg>
