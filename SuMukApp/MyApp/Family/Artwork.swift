@@ -44,6 +44,8 @@ nonisolated enum Family: Equatable, Sendable {
     case segments(range: IntegerRange, from: (MathExpr, MathExpr), to: (MathExpr, MathExpr), ink: InkStyle?)
     case circles(range: IntegerRange, center: (MathExpr, MathExpr), radius: MathExpr, ink: InkStyle?)
     case curve(range: RealRange, x: MathExpr, y: MathExpr, ink: InkStyle?)
+    /// Dots: `points k = a ... b { at (x, y)  size r?  when cond? }` — drawn when `cond > 0` (default always).
+    case points(range: IntegerRange, at: (MathExpr, MathExpr), size: MathExpr?, when: MathExpr?, ink: InkStyle?)
 
     static func == (lhs: Family, rhs: Family) -> Bool {
         switch (lhs, rhs) {
@@ -53,6 +55,8 @@ nonisolated enum Family: Equatable, Sendable {
             return r1 == r2 && c1.0 == c2.0 && c1.1 == c2.1 && rad1 == rad2 && i1 == i2
         case let (.curve(r1, x1, y1, i1), .curve(r2, x2, y2, i2)):
             return r1 == r2 && x1 == x2 && y1 == y2 && i1 == i2
+        case let (.points(r1, a1, s1, w1, i1), .points(r2, a2, s2, w2, i2)):
+            return r1 == r2 && a1.0 == a2.0 && a1.1 == a2.1 && s1 == s2 && w1 == w2 && i1 == i2
         default: return false
         }
     }
@@ -62,6 +66,7 @@ nonisolated enum Family: Equatable, Sendable {
         case .segments(let r, _, _, _): return r.count
         case .circles(let r, _, _, _): return r.count
         case .curve(let r, _, _, _): return r.samples
+        case .points(let r, _, _, _, _): return r.count
         }
     }
 
@@ -70,12 +75,13 @@ nonisolated enum Family: Equatable, Sendable {
         case .segments: return "선분"
         case .circles: return "원"
         case .curve: return "곡선"
+        case .points: return "점"
         }
     }
 
     var ink: InkStyle? {
         switch self {
-        case .segments(_, _, _, let i), .circles(_, _, _, let i), .curve(_, _, _, let i): return i
+        case .segments(_, _, _, let i), .circles(_, _, _, let i), .curve(_, _, _, let i), .points(_, _, _, _, let i): return i
         }
     }
 }

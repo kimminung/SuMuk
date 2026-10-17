@@ -64,6 +64,26 @@ nonisolated struct ExpressionCompiler {
             let f = try compile(inner, scope: scope)
             return { s in -f(&s) }
         case .binary(let op, let l, let r):
+            // Long sums (a 200-term DCT series, a Fourier series) parse as a left-deep chain; flatten them
+            // so compilation and evaluation stay iterative instead of recursing once per term.
+            if op == .add || op == .subtract {
+                var terms: [(sign: Double, expr: MathExpr)] = []
+                var node = expr
+                while case .binary(let o, let left, let right) = node, o == .add || o == .subtract {
+                    terms.append((o == .subtract ? -1 : 1, right))   // the right operand carries the operator's sign
+                    node = left
+                }
+                terms.append((1, node))
+                terms.reverse()
+                if terms.count > 2 {
+                    let compiled = try terms.map { t -> (Double, CompiledExpression.Body) in (t.sign, try compile(t.expr, scope: scope)) }
+                    return { s in
+                        var acc = 0.0
+                        for (sign, f) in compiled { acc += sign * f(&s) }
+                        return acc
+                    }
+                }
+            }
             let a = try compile(l, scope: scope), b = try compile(r, scope: scope)
             switch op {
             case .add: return { s in a(&s) + b(&s) }
@@ -76,6 +96,10 @@ nonisolated struct ExpressionCompiler {
                     return { s in Self.ipow(a(&s), n) }
                 }
                 return { s in pow(a(&s), b(&s)) }
+            case .greater: return { s in a(&s) > b(&s) ? 1 : 0 }
+            case .less: return { s in a(&s) < b(&s) ? 1 : 0 }
+            case .greaterEqual: return { s in a(&s) >= b(&s) ? 1 : 0 }
+            case .lessEqual: return { s in a(&s) <= b(&s) ? 1 : 0 }
             }
         case .call(let name, let argExprs):
             if let def = definitions[name] {

@@ -10,6 +10,7 @@ nonisolated enum MathTokenKind: Equatable, Sendable {
     case plus, minus, star, slash, caret
     case leftParen, rightParen, leftBrace, rightBrace, leftBracket, rightBracket
     case comma, equals, bar, ellipsis, inSet
+    case greater, less, greaterEqual, lessEqual
     case newline
     case end
 }
@@ -150,6 +151,14 @@ nonisolated struct MathLexer {
         case "]": return make(.rightBracket, start)
         case ",": return make(.comma, start)
         case "=": return make(.equals, start)
+        case ">":
+            if index < characters.count, characters[index] == "=" { index += 1; return make(.greaterEqual, start) }
+            return make(.greater, start)
+        case "<":
+            if index < characters.count, characters[index] == "=" { index += 1; return make(.lessEqual, start) }
+            return make(.less, start)
+        case "≥": return make(.greaterEqual, start)
+        case "≤": return make(.lessEqual, start)
         case "|": return make(.bar, start)
         case "∈": return make(.inSet, start)
         case "…": return make(.ellipsis, start)

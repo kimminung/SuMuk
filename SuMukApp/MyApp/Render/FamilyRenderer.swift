@@ -54,6 +54,16 @@ nonisolated enum FamilyRenderer {
                 path.move(to: fit.toView(pts[0]))
                 for p in pts.dropFirst() { path.addLine(to: fit.toView(p)) }
                 context.stroke(path, with: .color(color), style: StrokeStyle(lineWidth: lineWidth, lineCap: .round, lineJoin: .round))
+            case .points(let pts, let sizes, _):
+                var path = Path()
+                let fixed = max(0.6, lineWidth * 1.4)   // on-screen radius for size-less dots
+                for (i, p) in pts.enumerated() {
+                    let v = fit.toView(p)
+                    let rr = sizes.map { $0[i] * fit.scale } ?? fixed
+                    guard rr > 0.15 else { continue }
+                    path.addEllipse(in: CGRect(x: v.x - rr, y: v.y - rr, width: 2 * rr, height: 2 * rr))
+                }
+                context.fill(path, with: .color(color))
             }
         }
     }
@@ -84,6 +94,7 @@ struct FamilyCanvasView: View {
             case .segments(let p, _): return "선분 \(p.count / 2)개"
             case .circles(let c, _, _): return "원 \(c.count)개"
             case .polyline(let p, _): return "곡선 점 \(p.count)개"
+            case .points(let p, _, _): return "점 \(p.count)개"
             }
         }
         return "계열 \(artwork.families.count)개: " + parts.joined(separator: ", ")

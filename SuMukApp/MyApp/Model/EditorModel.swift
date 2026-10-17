@@ -130,9 +130,19 @@ final class EditorModel {
 
     // MARK: - summary
 
+    /// Counts what was actually drawn (a `points … when` family draws fewer dots than its range).
     var summary: String {
-        guard let art = artwork else { return "" }
-        let counts = Dictionary(grouping: art.families, by: \.kindName).map { "\($0.key) \($0.value.reduce(0) { $0 + $1.elementCount })" }
-        return "계열 \(art.families.count) · " + counts.sorted().joined(separator: " · ") + String(format: " · %.0f ms", lastParseSeconds * 1000)
+        guard let art = artwork, let rendered else { return "" }
+        var counts: [String: Int] = [:]
+        for f in rendered.families {
+            switch f {
+            case .segments(let p, _): counts["선분", default: 0] += p.count / 2
+            case .circles(let c, _, _): counts["원", default: 0] += c.count
+            case .polyline(let p, _): counts["곡선", default: 0] += p.count
+            case .points(let p, _, _): counts["점", default: 0] += p.count
+            }
+        }
+        let parts = counts.sorted { $0.key < $1.key }.map { "\($0.key) \($0.value)" }
+        return "계열 \(art.families.count) · " + parts.joined(separator: " · ") + String(format: " · %.0f ms", lastParseSeconds * 1000)
     }
 }

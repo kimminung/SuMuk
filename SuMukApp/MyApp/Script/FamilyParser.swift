@@ -24,7 +24,7 @@ nonisolated struct FamilyParser {
     private var familyLines: [Int] = []
     private var definitionLines: [String: Int] = [:]
 
-    static let keywords: Set<String> = ["canvas", "ink", "let", "segments", "circles", "curve", "pixel", "where", "from", "to", "center", "radius", "samples", "in", "width", "alpha", "fill"]
+    static let keywords: Set<String> = ["canvas", "ink", "let", "segments", "circles", "curve", "points", "pixel", "where", "from", "to", "center", "radius", "at", "size", "when", "samples", "in", "width", "alpha", "fill"]
 
     static func parse(_ source: String) throws -> Artwork {
         guard source.count <= Artwork.maxScriptLength else {
@@ -146,7 +146,7 @@ nonisolated struct FamilyParser {
                     range = lo...hi
                 }
                 art.lets.append(LetVariable(name: name, value: value, range: range, line: line))
-            case "segments", "circles", "curve":
+            case "segments", "circles", "curve", "points":
                 familyLines.append(current.line)
                 advance()
                 art.families.append(try parseFamily(kind: word))
@@ -219,18 +219,21 @@ nonisolated struct FamilyParser {
             guard intRange!.count >= 1 else { throw error("범위가 비어 있습니다") }
         }
         try expect(.leftBrace, "'{'")
-        var from: (MathExpr, MathExpr)?, to: (MathExpr, MathExpr)?, center: (MathExpr, MathExpr)?
-        var radius: MathExpr?, x: MathExpr?, y: MathExpr?, ink: InkStyle?
+        var from: (MathExpr, MathExpr)?, to: (MathExpr, MathExpr)?, center: (MathExpr, MathExpr)?, at: (MathExpr, MathExpr)?
+        var radius: MathExpr?, size: MathExpr?, when: MathExpr?, x: MathExpr?, y: MathExpr?, ink: InkStyle?
         while true {
             skipNewlines()
             if current.kind == .rightBrace { advance(); break }
-            guard case .identifier(let key) = current.kind else { throw error("from · to · center · radius · x · y · ink 가 필요합니다") }
+            guard case .identifier(let key) = current.kind else { throw error("from · to · center · radius · at · size · when · x · y · ink 가 필요합니다") }
             advance()
             switch key {
             case "from": from = try parsePair()
             case "to": to = try parsePair()
             case "center": center = try parsePair()
+            case "at": at = try parsePair()
             case "radius": radius = try parseExpression()
+            case "size": size = try parseExpression()
+            case "when": when = try parseExpression()
             case "x": if current.kind == .equals { advance() }; x = try parseExpression()
             case "y": if current.kind == .equals { advance() }; y = try parseExpression()
             case "ink": ink = try parseInk(base: InkStyle())
@@ -245,6 +248,9 @@ nonisolated struct FamilyParser {
         case "circles":
             guard let c = center, let r = radius else { throw error("circles 블록에는 center 와 radius 가 필요합니다") }
             return .circles(range: intRange!, center: c, radius: r, ink: ink)
+        case "points":
+            guard let a = at else { throw error("points 블록에는 at 이 필요합니다") }
+            return .points(range: intRange!, at: a, size: size, when: when, ink: ink)
         default:
             guard let xe = x, let ye = y else { throw error("curve 블록에는 x 와 y 가 필요합니다") }
             return .curve(range: realRange!, x: xe, y: ye, ink: ink)
@@ -303,6 +309,8 @@ nonisolated struct FamilyParser {
                 for e in [c.0, c.1, rad] { try check(e, allowed: [r.variable], context: ctx, line: line) }
             case .curve(let r, let x, let y, _):
                 for e in [x, y] { try check(e, allowed: [r.variable], context: ctx, line: line) }
+            case .points(let r, let a, let s, let w, _):
+                for e in [a.0, a.1] + [s, w].compactMap({ $0 }) { try check(e, allowed: [r.variable], context: ctx, line: line) }
             }
         }
         for d in art.definitions.values.sorted(by: { (definitionLines[$0.name] ?? 0) < (definitionLines[$1.name] ?? 0) }) {
@@ -336,7 +344,23 @@ nonisolated struct FamilyParser {
         while current.kind == .newline, newlineContinues() { advance() }
     }
 
+    /// expression := additive (('>' | '<' | '≥' | '≤') additive)?   — comparisons yield 1/0
     private mutating func parseExpression() throws -> MathExpr {
+        let left = try parseAdditive()
+        let op: MathBinaryOp?
+        switch current.kind {
+        case .greater: op = .greater
+        case .less: op = .less
+        case .greaterEqual: op = .greaterEqual
+        case .lessEqual: op = .lessEqual
+        default: op = nil
+        }
+        guard let op else { return left }
+        advance(); skipContinuationNewlines()
+        return .binary(op, left, try parseAdditive())
+    }
+
+    private mutating func parseAdditive() throws -> MathExpr {
         var left = try parseTerm()
         while true {
             skipContinuationNewlines()

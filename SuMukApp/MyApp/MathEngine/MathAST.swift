@@ -22,6 +22,8 @@ nonisolated indirect enum MathExpr: Equatable, Sendable {
 
 nonisolated enum MathBinaryOp: Equatable, Sendable {
     case add, subtract, multiply, divide, power
+    /// Comparisons evaluate to 1 (true) or 0 (false); used by `points … when …` and `if(c, a, b)`.
+    case greater, less, greaterEqual, lessEqual
 }
 
 /// A user definition from a `where` section: `name(params) = body` (or a constant when `params` is empty).

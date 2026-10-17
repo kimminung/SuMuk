@@ -6,10 +6,12 @@ nonisolated enum RenderedFamily: Sendable {
     case segments(points: [CGPoint], ink: InkStyle)     // pairs: [p0, q0, p1, q1, …]
     case circles(centers: [CGPoint], radii: [Double], ink: InkStyle)
     case polyline(points: [CGPoint], ink: InkStyle)
+    /// Dots. `sizes` are radii in math units; `nil` means a fixed on-screen dot.
+    case points(points: [CGPoint], sizes: [Double]?, ink: InkStyle)
 
     var ink: InkStyle {
         switch self {
-        case .segments(_, let i), .circles(_, _, let i), .polyline(_, let i): return i
+        case .segments(_, let i), .circles(_, _, let i), .polyline(_, let i), .points(_, _, let i): return i
         }
     }
 
@@ -19,7 +21,7 @@ nonisolated enum RenderedFamily: Sendable {
             minX = min(minX, p.x - r); maxX = max(maxX, p.x + r); minY = min(minY, p.y - r); maxY = max(maxY, p.y + r)
         }
         switch self {
-        case .segments(let pts, _), .polyline(let pts, _): pts.forEach { take($0) }
+        case .segments(let pts, _), .polyline(let pts, _), .points(let pts, _, _): pts.forEach { take($0) }
         case .circles(let c, let r, _): for (p, rr) in zip(c, r) { take(p, rr) }
         }
         guard minX.isFinite, maxX.isFinite, minY.isFinite, maxY.isFinite else { return nil }
@@ -104,6 +106,29 @@ nonisolated enum FamilyEvaluator {
                     pts.append(p)
                 }
                 out.families.append(.polyline(points: pts, ink: ink))
+            case .points(let r, let at, let sizeExpr, let whenExpr, _):
+                let vars = [r.variable] + letNames
+                var compiler = ExpressionCompiler(variables: vars, definitions: art.definitions)
+                let fx = try compiler.compile(at.0), fy = try compiler.compile(at.1)
+                let fs = try sizeExpr.map { try compiler.compile($0) }
+                let fw = try whenExpr.map { try compiler.compile($0) }
+                var slots = [Double](repeating: 0, count: max(compiler_slotCount([fx, fy] + [fs, fw].compactMap { $0 }), vars.count))
+                for (i, v) in letValues.enumerated() { slots[1 + i] = v }
+                var pts: [CGPoint] = [], sizes: [Double] = []
+                pts.reserveCapacity(r.count)
+                for k in r.lower...r.upper {
+                    slots[0] = Double(k)
+                    if let fw, !(fw.evaluate(&slots) > 0) { continue }
+                    let p = CGPoint(x: fx.evaluate(&slots), y: fy.evaluate(&slots))
+                    guard p.x.isFinite, p.y.isFinite else { continue }
+                    if let fs {
+                        let s = fs.evaluate(&slots)
+                        guard s.isFinite, s > 0 else { continue }
+                        sizes.append(s)
+                    }
+                    pts.append(p)
+                }
+                out.families.append(.points(points: pts, sizes: fs == nil ? nil : sizes, ink: ink))
             }
         }
         out.evaluationSeconds = Date().timeIntervalSince(start)
