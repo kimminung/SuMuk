@@ -128,7 +128,7 @@ nonisolated enum ContourStructurer {
     }
 
     enum Mode: String, CaseIterable, Identifiable, Sendable {
-        case curve = "곡선", chords = "현 가족", brush = "붓 원 가족"
+        case curve = "곡선", chords = "현 계열", brush = "붓 원 계열"
         var id: String { rawValue }
     }
 
@@ -143,9 +143,9 @@ nonisolated enum ContourStructurer {
             case .curve:
                 families += "// 윤곽 \(n) — 푸리에 곡선 (조화 \(harmonics)개)\ncurve t ∈ [0, 2π] samples 800 {\n  x = x\(n)(t)\n  y = y\(n)(t)\n}\n"
             case .chords:
-                families += "// 윤곽 \(n) — 현 가족: A(k)와 A(k+δ)를 잇는다\nsegments k = 1 ... \(chordCount) {\n  from ( x\(n)(2πk/\(chordCount)), y\(n)(2πk/\(chordCount)) )\n  to   ( x\(n)(2π(k+δ)/\(chordCount)), y\(n)(2π(k+δ)/\(chordCount)) )\n}\n"
+                families += "// 윤곽 \(n) — 현 계열: A(k)와 A(k+δ)를 잇는다\nsegments k = 1 ... \(chordCount) {\n  from ( x\(n)(2πk/\(chordCount)), y\(n)(2πk/\(chordCount)) )\n  to   ( x\(n)(2π(k+δ)/\(chordCount)), y\(n)(2π(k+δ)/\(chordCount)) )\n}\n"
             case .brush:
-                families += "// 윤곽 \(n) — 붓 원 가족\ncircles k = 1 ... \(chordCount) {\n  center ( x\(n)(2πk/\(chordCount)), y\(n)(2πk/\(chordCount)) )\n  radius  0.004 + 0.008·|sin(9·2πk/\(chordCount))|\n}\n"
+                families += "// 윤곽 \(n) — 붓 원 계열\ncircles k = 1 ... \(chordCount) {\n  center ( x\(n)(2πk/\(chordCount)), y\(n)(2πk/\(chordCount)) )\n  radius  0.004 + 0.008·|sin(9·2πk/\(chordCount))|\n}\n"
             }
             defs += fc.definitions(x: "x\(n)", y: "y\(n)") + "\n"
         }

@@ -12,8 +12,8 @@ nonisolated struct Preset: Identifiable, Sendable, Hashable {
 nonisolated enum Presets {
     static let all: [Preset] = [ginkgo, moonJar, plumBlossom, carp, crane, starter]
 
-    static let starter = Preset(id: "starter", title: "빈 시작", subtitle: "선분 가족 하나로 시작", script: """
-    // 선분 가족: k = 1 … N 마다 끝점 두 개를 k의 식으로 정의한다
+    static let starter = Preset(id: "starter", title: "빈 시작", subtitle: "선분 계열 하나로 시작", script: """
+    // 선분 계열: k = 1 … N 마다 끝점 두 개를 k의 식으로 정의한다
     let a = 7 in [1, 9]
     segments k = 1 ... 500 {
       from ( 1.5·sin(2πk/500 + π/3)^a,  0.25·cos^2(6πk/500) )
@@ -101,7 +101,7 @@ nonisolated enum Presets {
     """)
 
     static let carp = Preset(id: "carp", title: "잉어", subtitle: "선분 2,760개 · 교차 해칭 몸통 + 부채꼴 꼬리", script: """
-    // 잉어 — 서로 교차하는 두 해칭 가족이 몸통, 부채꼴이 꼬리와 지느러미
+    // 잉어 — 서로 교차하는 두 해칭 계열이 몸통, 부채꼴이 꼬리와 지느러미
     ink #141414 width 0.4 alpha 0.5
     let shift = 0.22 in [0.05, 0.5]
 

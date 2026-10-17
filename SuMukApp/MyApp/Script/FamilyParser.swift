@@ -169,7 +169,7 @@ nonisolated struct FamilyParser {
             art.definitions[d.name] = d
         }
         guard art.families.count <= Artwork.maxFamilies else {
-            throw MathSyntaxError(message: "가족은 최대 \(Artwork.maxFamilies)개까지 가능합니다", line: 1, column: 1)
+            throw MathSyntaxError(message: "계열은 최대 \(Artwork.maxFamilies)개까지 가능합니다", line: 1, column: 1)
         }
         guard art.elementCount <= Artwork.maxElements else {
             throw MathSyntaxError(message: "요소 수가 상한(\(Artwork.maxElements))을 넘습니다", line: 1, column: 1)
@@ -193,7 +193,7 @@ nonisolated struct FamilyParser {
     }
 
     private mutating func parseFamily(kind: String) throws -> Family {
-        guard case .identifier(let variable) = current.kind else { throw error("가족 변수 이름(k, t …)이 필요합니다") }
+        guard case .identifier(let variable) = current.kind else { throw error("계열 변수 이름(k, t …)이 필요합니다") }
         advance()
         var intRange: IntegerRange?
         var realRange: RealRange?
@@ -294,7 +294,7 @@ nonisolated struct FamilyParser {
             }
         }
         for (i, fam) in art.families.enumerated() {
-            let ctx = "가족 \(i + 1)"
+            let ctx = "계열 \(i + 1)"
             let line = i < familyLines.count ? familyLines[i] : 1
             switch fam {
             case .segments(let r, let f, let t, _):

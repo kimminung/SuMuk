@@ -133,6 +133,6 @@ final class EditorModel {
     var summary: String {
         guard let art = artwork else { return "" }
         let counts = Dictionary(grouping: art.families, by: \.kindName).map { "\($0.key) \($0.value.reduce(0) { $0 + $1.elementCount })" }
-        return "가족 \(art.families.count) · " + counts.sorted().joined(separator: " · ") + String(format: " · %.0f ms", lastParseSeconds * 1000)
+        return "계열 \(art.families.count) · " + counts.sorted().joined(separator: " · ") + String(format: " · %.0f ms", lastParseSeconds * 1000)
     }
 }

@@ -86,6 +86,6 @@ struct FamilyCanvasView: View {
             case .polyline(let p, _): return "곡선 점 \(p.count)개"
             }
         }
-        return "가족 \(artwork.families.count)개: " + parts.joined(separator: ", ")
+        return "계열 \(artwork.families.count)개: " + parts.joined(separator: ", ")
     }
 }
