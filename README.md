@@ -183,6 +183,7 @@ Media/                         # banner · samples-grid · formula-card · pipel
 | --- | --- |
 | [Docs/PRD-SuMuk.md](Docs/PRD-SuMuk.md) | 비전·목표·시나리오, SuMuk Script 문법, FR-1~FR-10, 비기능 요구사항, 아키텍처, 영감·출처, 리스크 |
 | [Docs/TASKS-SuMuk.md](Docs/TASKS-SuMuk.md) | Phase 0~12 태스크(체크박스), 수용 기준, 설계 메모 |
+| [Docs/Stitch-UI-Brief.md](Docs/Stitch-UI-Brief.md) | 디자인팀(Stitch)용 UI 요청서 — 브랜드 토큰, 전역 프롬프트, 화면별 프롬프트 9개, 납품 형식 |
 
 | Phase | 상태 |
 | --- | --- |
