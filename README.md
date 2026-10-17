@@ -44,7 +44,7 @@
 
 [MathSketch](https://github.com/kimminung/MathSketch)가 "도형 23종을 조립해 하나의 합성 수식으로"였다면, 수묵은 **"짧은 수식 하나에서 수천 개의 선분과 원이 태어나는"** 방식을 1급 시민으로 삼는다. MathSketch의 MathEngine(렉서·파서·평가기)과 픽셀 수식 모드(LaTeX → Metal GPU)를 그대로 이식해 출발한다.
 
-> 현재 상태(2026-10-17 저녁): **SwiftUI 앱 1차 증분이 iPhone 16 시뮬레이터에서 동작한다** — SuMuk Script 파서·평가기·Canvas 렌더러, 그리기 탭(프리셋 5종·`let` 슬라이더·실행 취소·공유·저장), 읽기 탭(사진 → Vision 윤곽 → 푸리에 → 곡선/현/붓 가족), 갤러리 탭(SwiftData). 코드는 `SuMukApp/`. 남은 단계는 [Docs/TASKS-SuMuk.md](Docs/TASKS-SuMuk.md).
+> 현재 상태(2026-10-17 저녁): **SwiftUI 앱 1차 증분이 iPhone 16 시뮬레이터에서 동작한다** — SuMuk Script 파서·평가기·Canvas 렌더러, 그리기 탭(프리셋 5종·`let` 슬라이더·실행 취소·공유·저장), 읽기 탭(사진 → Vision 윤곽 → 푸리에 → 곡선/현/붓 가족), 갤러리 탭(SwiftData). 코드는 `SuMuk/`. 남은 단계는 [Docs/TASKS-SuMuk.md](Docs/TASKS-SuMuk.md).
 
 ## 앱 화면 (SwiftUI, iPhone 16 시뮬레이터)
 
@@ -67,7 +67,7 @@
 - **읽기 탭**: `PhotosPicker` → 방향(90° 회전 버튼 + Vision 수평선 자동 보정) → Lanczos 업스케일(긴 변 2048, 최대 4×) + 언샤프 → 누끼(`VNGenerateForegroundInstanceMaskRequest`, 배경 흰색화, 실루엣 윤곽 1순위) → `VNDetectContoursRequest`(테두리 제외, 면적 순 12개) → 실수 푸리에(조화 2~64) → **곡선** 계열, 그리고 농담 → 36행 DCT 급수 `D(x,y)`(220항) → **점** 계열(Vogel 나선 스티플, `when D^gamma > mod(0.618034·k, 1)`로 밀도 ∝ 농담; 윤곽 점선 옵션) → 사진 위 오버레이 → "스크립트로 열기". 누끼 모델은 시뮬레이터에서 "inference context" 오류로 돌지 않아 원본으로 폴백한다(실기기 필요).
 - **아직 없음**: Metal 대형 렌더(점 12,000개 × DCT 220항 평가가 약 3초), 픽셀 수식, PencilKit, 숫자 스크러빙, 에디터 구문 강조, 온디바이스 비교 뷰, RL 단계, 테스트 타깃(다음 증분).
 
-실행: `SuMukApp/SuMuk.xcodeproj`를 Xcode 27로 열고 `MyApp` 스킴을 iPhone 16 시뮬레이터에서 실행(⌘R). 번들 ID `com.coulson.SuMuk`, 표시 이름 "수묵", iPhone 전용.
+실행: `SuMuk.xcodeproj`를 Xcode 27로 열고 `SuMuk` 스킴을 iPhone 16 시뮬레이터에서 실행(⌘R). 번들 ID `com.coulson.SuMuk`, 표시 이름 "수묵", iPhone 전용.
 
 ## 가족 수식이란
 
@@ -165,8 +165,8 @@ where
 <img src="Media/pipeline.svg" width="100%" alt="수묵 파이프라인: 수식→그림, 그림→수식, 공유 기반" />
 
 ```
-SuMukApp/                      # Xcode 프로젝트 (SuMuk.xcodeproj, 타깃 MyApp → 제품명 SuMuk)
-  MyApp/
+SuMuk.xcodeproj                # Xcode 프로젝트 (타깃·스킴·제품명 모두 SuMuk)
+SuMuk/
     MathEngine/                # MathLexer · MathAST · MathEvaluator(ExpressionCompiler)   ✅
     Script/                    # FamilyParser                                             ✅ (Formatter·임포터 예정)
     Family/                    # Artwork · Family · FamilyEvaluator                       ✅
@@ -192,7 +192,7 @@ Media/                         # banner · samples-grid · formula-card · pipel
 
 | Phase | 상태 |
 | --- | --- |
-| 0 셋업·문서·샘플 | 완료 (프로젝트는 `SuMukApp/`에 스냅샷, 타깃 이름은 아직 `MyApp`) |
+| 0 셋업·문서·샘플 | 완료 (프로젝트 `SuMuk.xcodeproj`가 저장소 루트에 있고 타깃·스킴·제품명 모두 `SuMuk`) |
 | 1 파서 · 2 평가/Canvas/프리셋 · 3 에디터 | 1차 증분 완료 (포맷터·캡션 임포터·스크러빙·테스트 타깃은 미착수) |
 | 5 그림→수식 Tier A | 사진 → 윤곽 → 푸리에 → 곡선/현/붓 가족 동작 (PencilKit·해칭·지표 표는 미착수) |
 | 6b 온디바이스 비교 · RL | Python 프로토타입 완료, Swift 이식 미착수 |

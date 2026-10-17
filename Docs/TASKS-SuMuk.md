@@ -9,7 +9,7 @@
 - [x] T0.1 저장소 폴더 `Desktop/SuMuk` 생성, `LICENSE`(Apache 2.0), `.gitignore`(Xcode), `.gitattributes`, `Docs/`, `Media/` 준비, `git init`.
 - [x] T0.2 기술 PRD(`Docs/PRD-SuMuk.md`)·태스크 문서(이 파일)·`README.md` 작성.
 - [x] T0.3 수묵 원작 샘플 5종 설계·렌더(`Media/src/render_samples.py` 렌더 헬퍼, `originals.py`, `make_readme_images.py`), README 이미지(배너·그리드·수식 카드·파이프라인 SVG). 처음에 함께 만들었던 Yeganeh 공식 재현 렌더 5종은 사용자 결정(외부 이미지·공식 미사용)으로 저장소·문서에서 제거.
-- [~] T0.4 Xcode 프로젝트(2026-10-17 저녁): `PRODUCT_NAME = SuMuk`, `PRODUCT_BUNDLE_IDENTIFIER = com.coulson.SuMuk`, `CFBundleDisplayName = 수묵`, `TARGETED_DEVICE_FAMILY = 1`, `SUPPORTED_PLATFORMS = iphoneos iphonesimulator` 적용. **타깃 이름은 아직 `MyApp`**(도구로 개명 불가). 프로젝트 본체는 여전히 Xcode의 `UntitledProjects/Untitled Project`에 있고, 저장소에는 `SuMukApp/`(xcuserdata 제외 rsync 스냅샷, `SuMuk.xcodeproj`로 개명)로 복사. Xcode에서 File ▸ Save로 `Desktop/SuMuk/SuMukApp`에 저장하면 스냅샷이 본체가 된다.
+- [x] T0.4 Xcode 프로젝트(2026-10-17 저녁): 빌드 설정 `PRODUCT_NAME = SuMuk`, `PRODUCT_BUNDLE_IDENTIFIER = com.coulson.SuMuk`, `CFBundleDisplayName = 수묵`, `TARGETED_DEVICE_FAMILY = 1`, `SUPPORTED_PLATFORMS = iphoneos iphonesimulator`. 사용자가 Xcode에서 저장소 안으로 저장한 뒤(`Untitled Project/`), 디스크에서 `SuMuk.xcodeproj` + `SuMuk/`로 개명해 저장소 루트로 이동, 타깃·스킴·productName·진입 파일(`SuMukApp.swift`, `struct SuMukApp`)까지 `SuMuk`으로 통일. 이전 스냅샷 `SuMukApp/` 삭제.
 - [~] T0.5 그룹 구조: `MathEngine/ Script/ Family/ Render/ Structuring/ Presets/ Model/ Persistence/ Views/` 생성. `Assistant/ Resources/`와 테스트 타깃 `SuMukTests`는 미생성.
 - [x] T0.6 첫 커밋 + GitHub 공개 저장소(kimminung/SuMuk) 푸시.
 
